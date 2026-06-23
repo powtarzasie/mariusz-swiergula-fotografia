@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0B0B0C">
+<title>Rodzina — Mariusz Świergula Fotografia</title>
+<meta name="description" content="Kuratorskie portfolio rodzinne: ciepłe, intymne kadry codzienności — noworodki, bliskość, dom.">
+<link rel="canonical" href="https://example.com/rodzina.html"><!-- ZAMIEŃ domenę -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:title" content="Rodzina — Mariusz Świergula Fotografia">
+<meta property="og:description" content="Ciepłe, intymne kadry codzienności. Historie zapisane światłem i emocjami.">
+<meta property="og:image" content="https://example.com/images/home/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Mariusz Świergula Fotografia — ciepła fotografia rodzinna">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="images/optimized/f-02-desktop.avif"
+      imagesrcset="images/optimized/f-02-mobile.avif 1200w, images/optimized/f-02-desktop.avif 2000w"
+      imagesizes="100vw" fetchpriority="high">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Przejdź do treści</a>
+
+<header class="nav">
+  <button class="nav__toggle" aria-label="Otwórz menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+  <a class="brand" href="index.html" aria-label="Mariusz Świergula Fotografia — strona główna">
+    <span class="brand__mono">M</span>
+    <span class="brand__name">Mariusz Świergula</span>
+    <span class="brand__sub">Fotografia</span>
+  </a>
+  <nav class="nav__links" aria-label="Główne">
+    <a class="nav__link" href="sluby.html">Śluby</a>
+    <a class="nav__link" href="rodzina.html" aria-current="page">Rodzina</a>
+    <a class="nav__link" href="index.html#o-mnie">O mnie</a>
+    <a class="nav__link" href="index.html#kontakt">Kontakt</a>
+  </nav>
+</header>
+<div class="menu" id="menu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Menu">
+  <button class="menu__close" aria-label="Zamknij menu">Zamknij ✕</button>
+  <a href="sluby.html">Śluby</a>
+  <a href="rodzina.html">Rodzina</a>
+  <a href="index.html#o-mnie">O mnie</a>
+  <a href="index.html#kontakt">Kontakt</a>
+  <span class="menu__foot">Historie zapisane światłem i emocjami</span>
+</div>
+
+<main id="main">
+  <section class="ghero" aria-label="Rodzina — wprowadzenie">
+    <div class="ghero__media">
+      <picture>
+        <source type="image/avif" srcset="images/optimized/f-02-mobile.avif 1200w, images/optimized/f-02-desktop.avif 2000w" sizes="100vw">
+        <source type="image/webp" srcset="images/optimized/f-02-mobile.webp 1200w, images/optimized/f-02-desktop.webp 2000w" sizes="100vw">
+        <img src="images/optimized/f-02-desktop.jpg" srcset="images/optimized/f-02-mobile.jpg 1200w, images/optimized/f-02-desktop.jpg 2000w" sizes="100vw"
+             width="5712" height="4284" fetchpriority="high" decoding="async" alt="Mama przytula dziecko przy regale z książkami">
+      </picture>
+    </div>
+    <div class="ghero__scrim"></div>
+    <div class="ghero__inner">
+      <a class="back" href="index.html"><span class="arrow" aria-hidden="true"></span> Strona główna</a>
+      <h1>Rodzina</h1>
+      <p class="ghero__desc">Ciepłe sesje w domu i w plenerze — codzienność, której nie chce się zapomnieć.</p>
+      <span class="ghero__count">Wybrane kadry · <span data-count>00</span></span>
+    </div>
+  </section>
+
+  <section class="gallery" aria-label="Galeria rodzinna">
+    <div class="wrap">
+      <div id="gallery" data-section="family" data-hero="f-02">
+        <div class="g-skeleton" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Podgląd zdjęcia">
+  <div class="lb__top">
+    <span class="lb__count" id="lb-count"></span>
+    <button class="lb__close" id="lb-close" aria-label="Zamknij podgląd">Zamknij
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="lb__stage" id="lb-stage">
+    <button class="lb__nav lb__nav--prev" id="lb-prev" aria-label="Poprzednie zdjęcie">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <figure class="lb__fig" id="lb-fig">
+      <figcaption class="lb__cap" id="lb-cap"></figcaption>
+    </figure>
+    <button class="lb__nav lb__nav--next" id="lb-next" aria-label="Następne zdjęcie">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+  <div class="lb__thumbs" id="lb-thumbs" aria-hidden="true"></div>
+</div>
+
+<footer class="footer">
+  <div class="wrap footer__grid">
+    <div class="footer__mono">M</div>
+    <div class="footer__meta">
+      <span>© <span data-year>2026</span> Mariusz Świergula Fotografia</span>
+      <a href="index.html" class="link" style="font-size:.7rem">Strona główna</a>
+      <a href="polityka-prywatnosci.html" class="link" style="font-size:.7rem">Polityka prywatności</a>
+    </div>
+  </div>
+</footer>
+
+<script src="data/gallery.js" defer></script>
+<script src="js/gallery.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>

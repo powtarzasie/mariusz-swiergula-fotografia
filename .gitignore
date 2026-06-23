@@ -1,0 +1,15 @@
+# Oryginały = wejście do optymalizatora. Strona serwuje wyłącznie images/optimized/.
+# Trzymaj oryginały lokalnie / w backupie — nie ma potrzeby publikować ich na GitHub.
+# (Optymalizator i tak potrafi je odtworzyć ze źródła "STRONA SLUB".)
+images/weddings/
+images/family/
+images/about/
+
+# Robocze
+_review/
+*.log
+
+# System
+.DS_Store
+Thumbs.db
+desktop.ini

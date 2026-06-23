@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0B0B0C">
+<title>Mariusz Świergula — Fotografia ślubna i rodzinna</title>
+<meta name="description" content="Fotografia ślubna i rodzinna pełna światła, emocji i bliskości. Historie zapisane światłem i emocjami — reportaże ślubne i ciepłe sesje rodzinne.">
+<link rel="canonical" href="https://example.com/"><!-- ZAMIEŃ na docelowy adres GitHub Pages -->
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:site_name" content="Mariusz Świergula Fotografia">
+<meta property="og:title" content="Mariusz Świergula — Fotografia ślubna i rodzinna">
+<meta property="og:description" content="Historie zapisane światłem i emocjami. Reportaże ślubne i ciepłe sesje rodzinne.">
+<meta property="og:image" content="https://example.com/images/home/og-image.jpg"><!-- ZAMIEŃ domenę -->
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Mariusz Świergula Fotografia — para młoda w złotym świetle, hasło „Historie zapisane światłem i emocjami”">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- Preload LCP (hero) -->
+<link rel="preload" as="image" href="images/optimized/w-01-desktop.avif"
+      imagesrcset="images/optimized/w-01-mobile.avif 1200w, images/optimized/w-01-desktop.avif 2000w"
+      imagesizes="100vw" fetchpriority="high">
+
+<link rel="stylesheet" href="css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ProfessionalService",
+  "name":"Mariusz Świergula Fotografia",
+  "description":"Fotografia ślubna i rodzinna pełna światła, emocji i bliskości.",
+  "image":"https://example.com/images/home/og-image.jpg",
+  "email":"mariusz.swiergula@gmail.com",
+  "url":"https://example.com/",
+  "areaServed":"Polska",
+  "priceRange":"$$$",
+  "knowsAbout":["fotografia ślubna","fotografia rodzinna","reportaż ślubny","sesja noworodkowa"]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Przejdź do treści</a>
+
+<!-- ===== NAV ===== -->
+<header class="nav" id="top">
+  <button class="nav__toggle" aria-label="Otwórz menu" aria-expanded="false" aria-controls="menu">
+    <span></span><span></span><span></span>
+  </button>
+  <a class="brand" href="index.html" aria-label="Mariusz Świergula Fotografia — strona główna">
+    <span class="brand__mono">M</span>
+    <span class="brand__name">Mariusz Świergula</span>
+    <span class="brand__sub">Fotografia</span>
+  </a>
+  <nav class="nav__links" aria-label="Główne">
+    <a class="nav__link" href="sluby.html">Śluby</a>
+    <a class="nav__link" href="rodzina.html">Rodzina</a>
+    <a class="nav__link" href="#o-mnie">O mnie</a>
+    <a class="nav__link" href="#kontakt">Kontakt</a>
+  </nav>
+</header>
+
+<!-- full-screen menu (mobile) -->
+<div class="menu" id="menu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Menu">
+  <button class="menu__close" aria-label="Zamknij menu">Zamknij ✕</button>
+  <a href="sluby.html">Śluby</a>
+  <a href="rodzina.html">Rodzina</a>
+  <a href="#o-mnie">O mnie</a>
+  <a href="#kontakt">Kontakt</a>
+  <span class="menu__foot">Historie zapisane światłem i emocjami</span>
+</div>
+
+<main id="main">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" aria-label="Wprowadzenie">
+    <div class="hero__media">
+      <picture>
+        <source type="image/avif" srcset="images/optimized/w-01-mobile.avif 1200w, images/optimized/w-01-desktop.avif 2000w" sizes="100vw">
+        <source type="image/webp" srcset="images/optimized/w-01-mobile.webp 1200w, images/optimized/w-01-desktop.webp 2000w" sizes="100vw">
+        <img src="images/optimized/w-01-desktop.jpg"
+             srcset="images/optimized/w-01-mobile.jpg 1200w, images/optimized/w-01-desktop.jpg 2000w" sizes="100vw"
+             width="2308" height="1536" fetchpriority="high" decoding="async"
+             alt="Para młoda w polu w ciepłym świetle zachodzącego słońca">
+      </picture>
+    </div>
+    <div class="hero__scrim"></div>
+    <div class="hero__inner">
+      <div class="hero__rule" aria-hidden="true"></div>
+      <h1>Historie zapisane<br><em>światłem i emocjami</em></h1>
+      <p class="hero__sub">Fotografia ślubna i rodzinna — o świetle, bliskości i chwilach, do których chce się wracać.</p>
+      <div class="hero__cta">
+        <a class="btn btn--solid" href="sluby.html">Zobacz portfolio <span class="arrow" aria-hidden="true"></span></a>
+        <a class="btn btn--ghost" href="#kontakt">Zapytaj o termin</a>
+      </div>
+    </div>
+    <a class="hero__scroll" href="#wejscia" aria-label="Przewiń niżej"></a>
+  </section>
+
+  <!-- ===== DWA WEJŚCIA ===== -->
+  <section class="section" id="wejscia" aria-label="Portfolio">
+    <div class="entries">
+      <a class="entry reveal" href="sluby.html">
+        <div class="entry__media">
+          <picture>
+            <source type="image/avif" srcset="images/optimized/w-06-mobile.avif 1200w, images/optimized/w-06-desktop.avif 2000w" sizes="(min-width:760px) 50vw, 100vw">
+            <source type="image/webp" srcset="images/optimized/w-06-mobile.webp 1200w, images/optimized/w-06-desktop.webp 2000w" sizes="(min-width:760px) 50vw, 100vw">
+            <img src="images/optimized/w-06-mobile.jpg" srcset="images/optimized/w-06-mobile.jpg 1200w, images/optimized/w-06-desktop.jpg 2000w" sizes="(min-width:760px) 50vw, 100vw"
+                 width="2304" height="1536" loading="lazy" decoding="async" alt="Para młoda w miękkim, złotym świetle">
+          </picture>
+        </div>
+        <div class="entry__scrim"></div>
+        <div class="entry__body">
+          <span class="entry__num serif-num">01</span>
+          <span class="kicker kicker--gold">Portfolio</span>
+          <h2 class="entry__title">Śluby</h2>
+          <p class="entry__desc">Reportaż pełen wzruszeń, napięcia i radości — momentów, które nie zdarzają się dwa razy.</p>
+          <span class="link">Zobacz śluby <span class="arrow" aria-hidden="true"></span></span>
+        </div>
+      </a>
+
+      <a class="entry reveal" data-d="1" href="rodzina.html">
+        <div class="entry__media">
+          <picture>
+            <source type="image/avif" srcset="images/optimized/f-05-mobile.avif 1200w, images/optimized/f-05-desktop.avif 2000w" sizes="(min-width:760px) 50vw, 100vw">
+            <source type="image/webp" srcset="images/optimized/f-05-mobile.webp 1200w, images/optimized/f-05-desktop.webp 2000w" sizes="(min-width:760px) 50vw, 100vw">
+            <img src="images/optimized/f-05-mobile.jpg" srcset="images/optimized/f-05-mobile.jpg 1200w, images/optimized/f-05-desktop.jpg 2000w" sizes="(min-width:760px) 50vw, 100vw"
+                 width="4032" height="3024" loading="lazy" decoding="async" alt="Mama z niemowlęciem przy oknie w ciepłym świetle">
+          </picture>
+        </div>
+        <div class="entry__scrim"></div>
+        <div class="entry__body">
+          <span class="entry__num serif-num">02</span>
+          <span class="kicker kicker--gold">Portfolio</span>
+          <h2 class="entry__title">Rodzina</h2>
+          <p class="entry__desc">Ciepłe, intymne kadry codzienności — noworodki, bliskość, dom.</p>
+          <span class="link">Zobacz rodzinę <span class="arrow" aria-hidden="true"></span></span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== MANIFEST ===== -->
+  <section class="section" aria-label="Podejście">
+    <div class="wrap manifest">
+      <div class="manifest__text reveal">
+        <span class="kicker">Podejście</span>
+        <p class="big">Nie ustawiam chwil — <em>czekam na nie</em></p>
+        <p class="lead">Najmocniejsze kadry rodzą się w ciszy — w spojrzeniu, geście i świetle, które trwa moment. Moją rolą jest być blisko, a zniknąć w tle.</p>
+      </div>
+      <div class="manifest__media reveal" data-d="1">
+        <picture>
+          <source type="image/avif" srcset="images/optimized/w-25-mobile.avif 1200w, images/optimized/w-25-desktop.avif 2000w" sizes="(min-width:900px) 45vw, 100vw">
+          <source type="image/webp" srcset="images/optimized/w-25-mobile.webp 1200w, images/optimized/w-25-desktop.webp 2000w" sizes="(min-width:900px) 45vw, 100vw">
+          <img src="images/optimized/w-25-mobile.jpg" srcset="images/optimized/w-25-mobile.jpg 1200w, images/optimized/w-25-desktop.jpg 2000w" sizes="(min-width:900px) 45vw, 100vw"
+               width="2308" height="1536" loading="lazy" decoding="async" alt="Para młoda całuje się w wysokiej trawie w miękkim, marzycielskim świetle">
+        </picture>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WYBRANE KADRY ===== -->
+  <section class="section" aria-label="Wybrane kadry">
+    <div class="wrap">
+      <div class="shead shead--center reveal">
+        <span class="kicker">Wybrane kadry</span>
+        <h2>Momenty, do których się wraca</h2>
+      </div>
+      <div class="selected" data-stagger>
+        <a href="sluby.html" aria-label="Galeria ślubna">
+          <picture><source type="image/avif" srcset="images/optimized/w-04-mobile.avif 1200w" sizes="40vw"><source type="image/webp" srcset="images/optimized/w-04-mobile.webp 1200w" sizes="40vw"><img src="images/optimized/w-04-mobile.jpg" width="1536" height="2304" loading="lazy" decoding="async" alt="Pocałunek pary młodej pod słońce"></picture>
+        </a>
+        <a href="rodzina.html" aria-label="Galeria rodzinna">
+          <picture><source type="image/avif" srcset="images/optimized/f-03-mobile.avif 1200w" sizes="40vw"><source type="image/webp" srcset="images/optimized/f-03-mobile.webp 1200w" sizes="40vw"><img src="images/optimized/f-03-mobile.jpg" width="4284" height="5712" loading="lazy" decoding="async" alt="Dłonie rodziców obejmujące śpiące niemowlę"></picture>
+        </a>
+        <a href="sluby.html" aria-label="Galeria ślubna">
+          <picture><source type="image/avif" srcset="images/optimized/w-02-mobile.avif 1200w" sizes="40vw"><source type="image/webp" srcset="images/optimized/w-02-mobile.webp 1200w" sizes="40vw"><img src="images/optimized/w-02-mobile.jpg" width="2308" height="1536" loading="lazy" decoding="async" alt="Sylwetka pary młodej o zachodzie słońca"></picture>
+        </a>
+        <a href="rodzina.html" aria-label="Galeria rodzinna">
+          <picture><source type="image/avif" srcset="images/optimized/f-24-mobile.avif 1200w" sizes="50vw"><source type="image/webp" srcset="images/optimized/f-24-mobile.webp 1200w" sizes="50vw"><img src="images/optimized/f-24-mobile.jpg" width="2048" height="1536" loading="lazy" decoding="async" alt="Tata bawi się z córką w domu"></picture>
+        </a>
+        <a href="sluby.html" aria-label="Galeria ślubna">
+          <picture><source type="image/avif" srcset="images/optimized/w-12-mobile.avif 1200w" sizes="50vw"><source type="image/webp" srcset="images/optimized/w-12-mobile.webp 1200w" sizes="50vw"><img src="images/optimized/w-12-mobile.jpg" width="2308" height="1536" loading="lazy" decoding="async" alt="Portret panny młodej w welonie"></picture>
+        </a>
+        <a href="rodzina.html" aria-label="Galeria rodzinna">
+          <picture><source type="image/avif" srcset="images/optimized/f-17-mobile.avif 1200w" sizes="40vw"><source type="image/webp" srcset="images/optimized/f-17-mobile.webp 1200w" sizes="40vw"><img src="images/optimized/f-17-mobile.jpg" width="3024" height="4032" loading="lazy" decoding="async" alt="Dziewczynka bawi się w porannym świetle"></picture>
+        </a>
+        <a href="sluby.html" aria-label="Galeria ślubna">
+          <picture><source type="image/avif" srcset="images/optimized/w-08-mobile.avif 1200w" sizes="40vw"><source type="image/webp" srcset="images/optimized/w-08-mobile.webp 1200w" sizes="40vw"><img src="images/optimized/w-08-mobile.jpg" width="2308" height="1536" loading="lazy" decoding="async" alt="Sylwetka pary w kamiennym łuku"></picture>
+        </a>
+        <a href="rodzina.html" aria-label="Galeria rodzinna">
+          <picture><source type="image/avif" srcset="images/optimized/f-07-mobile.avif 1200w" sizes="40vw"><source type="image/webp" srcset="images/optimized/f-07-mobile.webp 1200w" sizes="40vw"><img src="images/optimized/f-07-mobile.jpg" width="4032" height="3024" loading="lazy" decoding="async" alt="Niemowlę otulone kocem"></picture>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== O MNIE ===== -->
+  <section class="section" id="o-mnie" aria-label="O mnie">
+    <div class="wrap about">
+      <figure class="about__media reveal">
+        <picture>
+          <source type="image/avif" srcset="images/optimized/a-01-mobile.avif 1200w, images/optimized/a-01-desktop.avif 2000w" sizes="(min-width:880px) 42vw, 100vw">
+          <source type="image/webp" srcset="images/optimized/a-01-mobile.webp 1200w, images/optimized/a-01-desktop.webp 2000w" sizes="(min-width:880px) 42vw, 100vw">
+          <img src="images/optimized/a-01-mobile.jpg" srcset="images/optimized/a-01-mobile.jpg 1200w, images/optimized/a-01-desktop.jpg 2000w" sizes="(min-width:880px) 42vw, 100vw"
+               width="3088" height="2316" loading="lazy" decoding="async" alt="Mariusz Świergula z żoną i córką, fotografia czarno-biała">
+        </picture>
+        <figcaption>Mariusz, żona i córka</figcaption>
+      </figure>
+      <div class="about__text reveal" data-d="1">
+        <span class="kicker">O mnie</span>
+        <h2>Patrzę uważniej</h2>
+        <p>Fotografowałem już kilkadziesiąt ślubów — pełnych wzruszeń, napięcia, radości i momentów, które nie zdarzają się dwa razy. Ale dopiero ojcostwo pokazało mi z bliska, jak bezcenne są codzienne kadry.</p>
+        <p>Odkąd zostałem tatą, najczęściej fotografuję najpiękniejszą kobietę na świecie — moją córkę. Dlatego dziś patrzę uważniej: szukam nie tylko ładnych obrazów, ale chwil, do których chce się wracać.</p>
+        <p class="sign">Mariusz Świergula</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WARSZTAT ===== -->
+  <section class="section" id="warsztat" aria-label="Warsztat">
+    <div class="wrap gear">
+      <div class="gear__intro reveal">
+        <span class="kicker">Warsztat</span>
+        <h2>Narzędzia w służbie światła</h2>
+        <p class="lead">Sprzęt jest dla mnie tylko sposobem, by oddać światło i emocję dokładnie tak, jak je widzę — nigdy celem samym w sobie.</p>
+        <p class="gear__note">Pracuję w naturalnym świetle, blisko ludzi — reszta to cierpliwość i uważność.</p>
+      </div>
+      <div class="gear__list" data-stagger>
+        <div class="gear__item">
+          <span class="gear__role">Aparat</span>
+          <span class="gear__name">Sony α7R V</span>
+          <p class="gear__desc">Wysoka rozdzielczość i wierne tony — oddaje miękkie przejścia światła i detal, którego nie widać na pierwszy rzut oka.</p>
+        </div>
+        <div class="gear__item">
+          <span class="gear__role">Portret</span>
+          <span class="gear__name">FE 85 mm f/1.8</span>
+          <p class="gear__desc">Stała, jasna przysłona pozwala podejść blisko emocji — miękko odcina postać od tła i maluje spokojne, kremowe światło.</p>
+        </div>
+        <div class="gear__item">
+          <span class="gear__role">Reportaż</span>
+          <span class="gear__name">FE 24–70 mm f/2.8 GM II</span>
+          <p class="gear__desc">Uniwersalne szkło o stałym, jasnym świetle — prowadzi opowieść od szerokiego kadru po detal, bez gubienia atmosfery dnia.</p>
+        </div>
+        <p class="gear__note">W zależności od historii sięgam też po obiektywy szerokokątne i teleobiektywy o stałym świetle — tam, gdzie liczy się przestrzeń albo dyskretny, bliski kadr z dystansu.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== KONTAKT ===== -->
+  <section class="section contact" id="kontakt" aria-label="Kontakt">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="kicker kicker--gold">Kontakt</span>
+        <p class="big">Opowiedz mi o swojej historii</p>
+        <p class="lead">Napisz kilka słów o swoim ślubie, rodzinie albo sesji. Odpowiem spokojnie i konkretnie.</p>
+        <div class="contact__cta">
+          <a class="contact__mail" href="mailto:mariusz.swiergula@gmail.com">mariusz.swiergula@gmail.com</a>
+        </div>
+        <a class="contact__phone" href="tel:+48600353150">+48 600 353 150</a>
+        <div class="contact__cta">
+          <a class="btn btn--solid" href="mailto:mariusz.swiergula@gmail.com?subject=Zapytanie%20o%20termin">Napisz do mnie <span class="arrow" aria-hidden="true"></span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="wrap footer__grid">
+    <div class="footer__mono">M</div>
+    <div class="footer__meta">
+      <span>© <span data-year>2026</span> Mariusz Świergula Fotografia</span>
+      <a href="index.html#kontakt" class="link" style="font-size:.7rem">Kontakt</a>
+      <a href="polityka-prywatnosci.html" class="link" style="font-size:.7rem">Polityka prywatności</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>
