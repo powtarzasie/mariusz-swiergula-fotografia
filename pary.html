@@ -4,25 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0B0B0C">
-<title>Śluby — Mariusz Świergula Fotografia</title>
-<meta name="description" content="Kuratorskie portfolio ślubne: reportaż pełen światła, emocji i ciszy. Wybrane kadry z kilkudziesięciu ślubów.">
-<link rel="canonical" href="https://example.com/sluby.html"><!-- ZAMIEŃ domenę -->
-<meta property="og:type" content="website">
-<meta property="og:locale" content="pl_PL">
-<meta property="og:title" content="Śluby — Mariusz Świergula Fotografia">
-<meta property="og:description" content="Kuratorskie portfolio ślubne. Historie zapisane światłem i emocjami.">
-<meta property="og:image" content="https://example.com/images/home/og-image.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Mariusz Świergula Fotografia — fotografia ślubna w naturalnym świetle">
-<meta name="twitter:card" content="summary_large_image">
+<title>Galerie par — Mariusz Świergula Fotografia</title>
+<meta name="description" content="Prywatne galerie par. Wejście do pełnej galerii po haśle otrzymanym od fotografa.">
+<!-- Strefa prywatna: nie indeksować -->
+<meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="images/optimized/w-02-desktop.avif"
-      imagesrcset="images/optimized/w-02-mobile.avif 1200w, images/optimized/w-02-desktop.avif 2000w"
-      imagesizes="100vw" fetchpriority="high">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -36,8 +25,8 @@
     <span class="brand__sub">Fotografia</span>
   </a>
   <nav class="nav__links" aria-label="Główne">
-    <a class="nav__link" href="sluby.html" aria-current="page">Śluby</a>
-    <a class="nav__link" href="pary.html">Galerie par</a>
+    <a class="nav__link" href="sluby.html">Śluby</a>
+    <a class="nav__link" href="pary.html" aria-current="page">Galerie par</a>
     <a class="nav__link" href="rodzina.html">Rodzina</a>
     <a class="nav__link" href="index.html#o-mnie">O mnie</a>
     <a class="nav__link" href="index.html#kontakt">Kontakt</a>
@@ -54,48 +43,58 @@
 </div>
 
 <main id="main">
-  <!-- GALLERY HERO -->
-  <section class="ghero" aria-label="Śluby — wprowadzenie">
-    <div class="ghero__media">
-      <picture>
-        <source type="image/avif" srcset="images/optimized/w-02-mobile.avif 1200w, images/optimized/w-02-desktop.avif 2000w" sizes="100vw">
-        <source type="image/webp" srcset="images/optimized/w-02-mobile.webp 1200w, images/optimized/w-02-desktop.webp 2000w" sizes="100vw">
-        <img src="images/optimized/w-02-desktop.jpg" srcset="images/optimized/w-02-mobile.jpg 1200w, images/optimized/w-02-desktop.jpg 2000w" sizes="100vw"
-             width="2308" height="1536" fetchpriority="high" decoding="async" alt="Sylwetka pary młodej na tle zachodu słońca nad wodą">
-      </picture>
-    </div>
-    <div class="ghero__scrim"></div>
-    <div class="ghero__inner">
-      <a class="back" href="index.html"><span class="arrow" aria-hidden="true"></span> Strona główna</a>
-      <h1>Śluby</h1>
-      <p class="ghero__desc">Reportaż w naturalnym świetle — emocje, bliskość i cisza dnia, który zdarza się raz.</p>
-      <span class="ghero__count">Wybrane kadry · <span data-count>00</span></span>
+  <!-- NAGŁÓWEK STREFY -->
+  <section class="pary-head">
+    <div class="wrap">
+      <a class="back" href="sluby.html"><span class="arrow" aria-hidden="true"></span> Śluby</a>
+      <span class="kicker">Strefa prywatna</span>
+      <h1>Galerie par</h1>
+      <p class="pary-head__desc">Każda para ma własną, pełną galerię ukrytą za hasłem. Publicznie widać tylko jeden kadr —
+        resztę odsłoni hasło, które przekazuję Parze Młodej.</p>
+      <span class="pary-head__count"><span data-pary-count>00</span> par</span>
     </div>
   </section>
 
-  <!-- GALERIA -->
-  <section class="gallery" aria-label="Galeria ślubna">
+  <!-- LISTA PAR / GALERIA WYBRANEJ PARY -->
+  <section class="pary-sekcja">
     <div class="wrap">
-      <div id="gallery" data-section="weddings" data-hero="w-02">
+      <div id="pary-lista" class="pary-grid" data-stagger>
         <div class="g-skeleton" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
       </div>
-    </div>
-  </section>
 
-  <!-- WEJŚCIE DO STREFY PAR -->
-  <section class="pary-cta reveal" aria-label="Galerie par — strefa prywatna">
-    <div class="wrap pary-cta__inner">
-      <div>
-        <span class="kicker kicker--gold">Strefa prywatna</span>
-        <h2>Galerie par</h2>
-        <p>Jesteś Parą Młodą? Twoja pełna galeria czeka za hasłem, które przekazuję po ślubie.</p>
+      <div id="para-galeria" class="para-galeria" hidden>
+        <div class="para-galeria__pasek">
+          <button type="button" class="back back--btn" id="wroc-do-par"><span class="arrow" aria-hidden="true"></span> Wszystkie pary</button>
+          <h2 class="para-galeria__tytul" id="para-tytul"></h2>
+          <button type="button" class="para-galeria__lock" id="zablokuj" title="Zablokuj tę galerię na tym urządzeniu">Zablokuj</button>
+        </div>
+        <div id="gallery-pary" class="pary-masonry"></div>
       </div>
-      <a class="btn btn--solid" href="pary.html">Wejdź do galerii par <span class="arrow" aria-hidden="true">→</span></a>
     </div>
   </section>
 </main>
 
-<!-- LIGHTBOX -->
+<!-- BRAMA HASŁA -->
+<div class="brama" id="brama" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="brama-tytul">
+  <div class="brama__panel">
+    <button class="brama__close" id="brama-close" aria-label="Zamknij">✕</button>
+    <svg class="brama__klodka" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+      <rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+    </svg>
+    <span class="kicker">Galeria prywatna</span>
+    <h2 id="brama-tytul" class="brama__tytul">—</h2>
+    <p class="brama__opis">Wpisz hasło otrzymane od fotografa, aby zobaczyć pełną galerię.</p>
+    <form class="brama__form" id="brama-form" novalidate>
+      <label for="brama-haslo" class="sr-only">Hasło</label>
+      <input type="password" id="brama-haslo" name="haslo" autocomplete="off" autocapitalize="characters"
+             spellcheck="false" placeholder="Hasło do galerii" aria-describedby="brama-blad">
+      <button type="submit" class="btn btn--solid" id="brama-submit">Otwórz galerię</button>
+    </form>
+    <p class="brama__blad" id="brama-blad" role="alert"></p>
+  </div>
+</div>
+
+<!-- LIGHTBOX (współdzielony wygląd z galerią główną) -->
 <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Podgląd zdjęcia">
   <div class="lb__top">
     <span class="lb__count" id="lb-count"></span>
@@ -128,8 +127,8 @@
   </div>
 </footer>
 
-<script src="data/gallery.js" defer></script>
-<script src="js/gallery.js" defer></script>
+<script src="data/pary.js" defer></script>
+<script src="js/pary.js" defer></script>
 <script src="js/main.js" defer></script>
 </body>
 </html>

@@ -490,3 +490,95 @@ h1,h2,h3{ font-family:var(--serif); font-weight:400; line-height:1.08; letter-sp
   .manifest__media img,.about__media img{ transform:none; }
   .kicker::before,.gear__item::before,.manifest__text .big em::after,.about .sign::after{ transform:scaleX(1); }
 }
+
+   GALERIE PAR — strefa prywatna (pary.html)
+   ========================================================================== */
+/* wróć-link (poza .ghero) i wariant przyciskowy */
+.back{ display:inline-flex; align-items:center; gap:.5em; font-size:.74rem; text-transform:uppercase;
+  letter-spacing:.22em; color:var(--bone-2); transition:color var(--t-fast) var(--ease); }
+.back .arrow{ transform:rotate(180deg); }
+.back:hover{ color:var(--bone); }
+.back--btn{ background:none; border:0; cursor:pointer; font-family:var(--sans); }
+
+.pary-head{ padding-top:clamp(6.5rem,5rem+6vw,9rem); padding-bottom:clamp(1.5rem,1rem+2vw,2.5rem); }
+.pary-head .back{ margin-bottom:var(--s-6); }
+.pary-head .kicker{ display:flex; margin-bottom:var(--s-3); }
+.pary-head h1{ font-size:var(--fs-h1); color:var(--bone); line-height:.98; }
+.pary-head__desc{ font-size:var(--fs-lead); color:var(--bone-2); max-width:52ch; margin-top:var(--s-4); }
+.pary-head__count{ display:inline-block; margin-top:var(--s-6); font-size:.72rem; letter-spacing:.26em;
+  text-transform:uppercase; color:var(--champagne); }
+.pary-sekcja{ padding-bottom:var(--pad-section); }
+
+/* siatka kart par */
+.pary-grid{ display:grid; gap:clamp(1rem,.5rem+1.5vw,1.75rem);
+  grid-template-columns:repeat(auto-fill,minmax(min(280px,100%),1fr)); }
+.couple-card{ text-align:left; background:var(--graphite); border:1px solid var(--line-soft);
+  border-radius:4px; overflow:hidden; cursor:pointer; padding:0; font-family:var(--sans); color:inherit;
+  display:flex; flex-direction:column; transition:border-color var(--t-mid) var(--ease), transform var(--t-mid) var(--ease); }
+.couple-card:hover{ border-color:var(--champagne); transform:translateY(-3px); }
+.couple-card:focus-visible{ outline:2px solid var(--champagne); outline-offset:3px; }
+.couple-card__media{ position:relative; aspect-ratio:var(--ar,4/3); overflow:hidden; background:var(--ink-2); }
+.couple-card__media picture,.couple-card__media img{ width:100%; height:100%; display:block; }
+.couple-card__media img{ object-fit:cover; transition:transform 1s var(--ease), filter var(--t-mid); filter:brightness(.94); }
+.couple-card:hover .couple-card__media img{ transform:scale(1.05); filter:brightness(1); }
+.couple-card__media::after{ content:""; position:absolute; inset:0;
+  background:linear-gradient(to top,rgba(11,11,12,.55),transparent 55%); pointer-events:none; }
+.couple-card__badge{ position:absolute; top:.7rem; right:.7rem; z-index:1; width:2rem; height:2rem;
+  display:grid; place-items:center; border-radius:999px; background:rgba(11,11,12,.62);
+  border:1px solid rgba(244,241,236,.22); color:var(--bone); backdrop-filter:blur(4px); }
+.couple-card__badge svg{ width:15px; height:15px; }
+.couple-card.is-unlocked .couple-card__badge{ color:var(--champagne); border-color:rgba(194,166,107,.5); }
+.couple-card__meta{ padding:.9rem 1rem 1.05rem; display:flex; flex-direction:column; gap:.15rem; }
+.couple-card__name{ font-family:var(--serif); font-size:1.35rem; color:var(--bone); line-height:1.1; }
+.couple-card__hint{ font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:var(--bone-3); }
+.couple-card.is-unlocked .couple-card__hint{ color:var(--champagne-d); }
+
+/* galeria wybranej pary */
+.para-galeria__pasek{ display:flex; align-items:center; gap:var(--s-4) var(--s-6); flex-wrap:wrap;
+  margin-bottom:var(--s-8); padding-bottom:var(--s-4); border-bottom:1px solid var(--line-soft); }
+.para-galeria__tytul{ font-family:var(--serif); font-size:var(--fs-h3); color:var(--bone); margin-right:auto; line-height:1; }
+.para-galeria__lock{ background:none; border:1px solid var(--line); color:var(--bone-3); cursor:pointer;
+  font-family:var(--sans); font-size:.68rem; letter-spacing:.18em; text-transform:uppercase;
+  padding:.5rem .9rem; border-radius:2px; transition:color var(--t-fast), border-color var(--t-fast); }
+.para-galeria__lock:hover{ color:var(--bone); border-color:var(--bone-3); }
+
+/* masonry kolumnowy — odporny na asynchroniczne (odszyfrowane) obrazy */
+.pary-masonry{ column-gap:clamp(.6rem,.3rem+1vw,1.1rem); columns:2; }
+@media (min-width:720px){ .pary-masonry{ columns:3; } }
+@media (min-width:1100px){ .pary-masonry{ columns:4; } }
+.p-tile{ display:block; width:100%; margin:0 0 clamp(.6rem,.3rem+1vw,1.1rem); padding:0; border:0; cursor:pointer;
+  break-inside:avoid; background:var(--graphite); overflow:hidden; border-radius:2px; }
+.p-tile img{ width:100%; height:auto; display:block; transition:transform 1s var(--ease), filter var(--t-mid); filter:brightness(.96); }
+.p-tile:hover img{ transform:scale(1.045); filter:brightness(1); }
+.p-tile:focus-visible{ outline:2px solid var(--champagne); outline-offset:2px; }
+
+/* BRAMA HASŁA */
+.brama{ position:fixed; inset:0; z-index:var(--z-overlay); display:none; place-items:center;
+  padding:var(--gutter); background:rgba(6,6,7,.82); backdrop-filter:blur(6px); }
+.brama.is-open{ display:grid; }
+.brama__panel{ position:relative; width:100%; max-width:26rem; background:var(--graphite-2);
+  border:1px solid var(--line); border-radius:6px; padding:clamp(1.6rem,1rem+3vw,2.6rem); text-align:center;
+  box-shadow:0 30px 80px -30px rgba(0,0,0,.8); }
+.brama__close{ position:absolute; top:.8rem; right:1rem; background:none; border:0; color:var(--bone-3);
+  font-size:1.1rem; cursor:pointer; line-height:1; padding:.3rem; }
+.brama__close:hover{ color:var(--bone); }
+.brama__klodka{ width:2.6rem; height:2.6rem; color:var(--champagne); margin:0 auto var(--s-3); }
+.brama .kicker{ display:inline-flex; color:var(--bone-3); }
+.brama .kicker::before{ display:none; }
+.brama__tytul{ font-family:var(--serif); font-size:2rem; color:var(--bone); margin:.3rem 0 .2rem; line-height:1.05; }
+.brama__opis{ font-size:.95rem; color:var(--bone-2); margin-bottom:var(--s-6); }
+.brama__form{ display:flex; flex-direction:column; gap:var(--s-3); }
+.brama__form input{ font-family:var(--sans); font-size:1rem; letter-spacing:.02em; text-align:center;
+  padding:.85rem 1rem; background:var(--ink); border:1px solid var(--line); border-radius:3px; color:var(--bone);
+  text-transform:uppercase; }
+.brama__form input::placeholder{ text-transform:none; letter-spacing:normal; color:var(--bone-3); }
+.brama__form input:focus-visible{ outline:2px solid var(--champagne); outline-offset:1px; border-color:var(--champagne); }
+.brama__form .btn{ justify-content:center; }
+.brama__blad{ min-height:1.4em; margin-top:var(--s-3); font-size:.9rem; color:#E0857A; }
+
+/* baner wejścia do strefy par (na sluby.html) */
+.pary-cta{ border-top:1px solid var(--line-soft); padding-block:clamp(3rem,2rem+4vw,5.5rem); }
+.pary-cta__inner{ display:flex; align-items:center; justify-content:space-between; gap:var(--s-8) var(--s-12); flex-wrap:wrap; }
+.pary-cta h2{ font-family:var(--serif); font-size:var(--fs-h2); color:var(--bone); line-height:1; margin-top:var(--s-2); }
+.pary-cta p{ font-size:var(--fs-lead); color:var(--bone-2); max-width:44ch; margin-top:var(--s-3); }
+.pary-cta .kicker{ display:inline-flex; }
