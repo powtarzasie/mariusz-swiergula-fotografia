@@ -347,7 +347,7 @@ window.PARY = {
     },
     {
       "slug": "szymon-i-woleta",
-      "name": "Szymon i Woleta",
+      "name": "Szymon i Wioleta",
       "teaser": {
         "base": "images/pary/szymon-i-woleta/teaser",
         "formats": [
@@ -358,7 +358,7 @@ window.PARY = {
         "width": 1600,
         "height": 1067
       },
-      "salt": "ZPyKBZpzA4nPXfoqRoWNHg==",
+      "salt": "QxBAZUNAcMMw2JuZp6swXg==",
       "iterations": 310000,
       "photos": [
         {
@@ -415,7 +415,7 @@ window.PARY = {
     },
     {
       "slug": "ewelina-i-michal",
-      "name": "Ewelina i Michal",
+      "name": "Ewelina i Michał",
       "teaser": {
         "base": "images/pary/ewelina-i-michal/teaser",
         "formats": [
@@ -426,7 +426,7 @@ window.PARY = {
         "width": 1067,
         "height": 1600
       },
-      "salt": "9HaedWDoc7l9bZF5+33gig==",
+      "salt": "hiir61UkwVzgNT74LGRK2Q==",
       "iterations": 310000,
       "photos": [
         {
@@ -891,7 +891,7 @@ window.PARY = {
     },
     {
       "slug": "edyta-i-konraf",
-      "name": "Edyta i Konraf",
+      "name": "Edyta i Konrad",
       "teaser": {
         "base": "images/pary/edyta-i-konraf/teaser",
         "formats": [
@@ -902,7 +902,7 @@ window.PARY = {
         "width": 1600,
         "height": 1067
       },
-      "salt": "1H0F6KnM5ghjazJXEvQBRA==",
+      "salt": "DLgERdH+bTspBsltEGyMPw==",
       "iterations": 310000,
       "photos": [
         {
@@ -1231,7 +1231,7 @@ window.PARY = {
     },
     {
       "slug": "magda-i-lukasz",
-      "name": "Magda i Lukasz",
+      "name": "Magda i Łukasz",
       "teaser": {
         "base": "images/pary/magda-i-lukasz/teaser",
         "formats": [
@@ -1242,7 +1242,7 @@ window.PARY = {
         "width": 1600,
         "height": 1067
       },
-      "salt": "y6Vq+VIGxRlXbzQXTxpFDQ==",
+      "salt": "/0GpCBg2Paelkc+wly2PZQ==",
       "iterations": 310000,
       "photos": [
         {

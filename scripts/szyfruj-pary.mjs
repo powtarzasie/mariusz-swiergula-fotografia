@@ -27,8 +27,9 @@ async function kluczZHasla(haslo, sol) {
     material, { name: 'AES-GCM', length: 256 }, false, ['encrypt']);
 }
 
+const MERGE = process.argv.includes('--merge');               // aktualizuj istniejący manifest, nie nadpisuj
 const build = JSON.parse(await readFile(BUILD_JSON, 'utf8'));
-const out = [];
+const zaktualizowane = new Map();                             // slug -> nowy wpis
 
 for (const c of build.couples) {
   const sol = crypto.getRandomValues(new Uint8Array(16));
@@ -48,7 +49,7 @@ for (const c of build.couples) {
     photos.push({ src: rel, width: p.width, height: p.height });
   }
 
-  out.push({
+  zaktualizowane.set(c.slug, {
     slug: c.slug, name: c.name,
     teaser: c.teaser,
     salt: b64(sol), iterations: ITERACJE,
@@ -57,13 +58,24 @@ for (const c of build.couples) {
   console.log(`  zaszyfrowano: ${c.name} — ${photos.length} zdjęć`);
 }
 
+let couples;
+if (MERGE) {
+  const txt = await readFile(join(ROOT, 'data', 'pary.js'), 'utf8');
+  const istn = JSON.parse(txt.slice(txt.indexOf('{'), txt.lastIndexOf('}') + 1));
+  couples = istn.couples.map(c => zaktualizowane.get(c.slug) || c);   // podmień w miejscu
+  for (const [slug, e] of zaktualizowane)                             // dopisz ewentualne nowe
+    if (!istn.couples.some(c => c.slug === slug)) couples.push(e);
+} else {
+  couples = [...zaktualizowane.values()];
+}
+
 const manifest = {
-  meta: { brand: 'Mariusz Świergula Fotografia', count: out.length },
-  couples: out,
+  meta: { brand: 'Mariusz Świergula Fotografia', count: couples.length },
+  couples,
 };
 
 const naglowek = '/* Wygenerowane przez scripts/szyfruj-pary.mjs — nie edytuj ręcznie. Hasła i jawne zdjęcia tu nie występują. */\n';
 await writeFile(join(ROOT, 'data', 'pary.js'),
   naglowek + 'window.PARY = ' + JSON.stringify(manifest, null, 2) + ';\n', 'utf8');
 
-console.log(`\nGotowe: ${out.length} par w manifeście data/pary.js`);
+console.log(`\nGotowe: zaktualizowano ${zaktualizowane.size} par; manifest ma ${couples.length} par (data/pary.js)`);

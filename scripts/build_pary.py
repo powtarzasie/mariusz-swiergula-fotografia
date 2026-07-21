@@ -39,6 +39,15 @@ Q_JPG, Q_WEBP, Q_AVIF = 82, 82, 60
 HAS_AVIF = features.check("avif")
 EXTS = (".jpg", ".jpeg", ".png")
 
+# Ręczna korekta pisowni imion (klucz = nazwa folderu). Zmienia WYŚWIETLANĄ nazwę i HASŁO,
+# ale NIE slug (slug liczony z nazwy folderu → ścieżki plików i zaznaczone zdjęcia stabilne).
+NAME_OVERRIDE = {
+    "2009 SLUB Szymon i Woleta":  "Szymon i Wioleta",
+    "2010 SLUB Ewelina i Michal": "Ewelina i Michał",
+    "2011 SLUB Edyta i Konraf":   "Edyta i Konrad",
+    "2012 SLUB Magda i Lukasz":   "Magda i Łukasz",
+}
+
 # Polskie znaki -> ASCII (do slug/nazw plików)
 _MAP = str.maketrans({
     "ą":"a","ć":"c","ę":"e","ł":"l","ń":"n","ó":"o","ś":"s","ż":"z","ź":"z",
@@ -89,11 +98,15 @@ def main():
     os.makedirs(STAGE, exist_ok=True)
 
     folders = sorted(d for d in os.listdir(SRC) if os.path.isdir(os.path.join(SRC, d)))
+    only = set(sys.argv[1:])                                 # podane foldery → przetwarzaj tylko je
     couples, slugs_seen, uwagi = [], {}, []
 
     for folder in folders:
-        nazwa = czysta_nazwa(folder)
-        slug = slugify(nazwa)
+        if only and folder not in only:
+            continue
+        base_nazwa = czysta_nazwa(folder)                    # slug ZAWSZE z nazwy folderu (stabilny)
+        nazwa = NAME_OVERRIDE.get(folder, base_nazwa)        # wyświetlana nazwa + hasło (z korektą pisowni)
+        slug = slugify(base_nazwa)
         if slug in slugs_seen:                              # kolizja slugów
             slugs_seen[slug] += 1
             slug = f"{slug}-{slugs_seen[slug]}"
