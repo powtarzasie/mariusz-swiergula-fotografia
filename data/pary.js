@@ -151,21 +151,21 @@ window.PARY = {
           "webp",
           "jpg"
         ],
-        "width": 1160,
-        "height": 1600
+        "width": 1600,
+        "height": 1160
       },
       "salt": "m8i0Efl748ksLRaX91XI/Q==",
       "iterations": 310000,
       "photos": [
         {
-          "src": "images/pary/ania-i-marcin/p01.enc",
-          "width": 1305,
-          "height": 1800
-        },
-        {
           "src": "images/pary/ania-i-marcin/p02.enc",
           "width": 1800,
           "height": 1305
+        },
+        {
+          "src": "images/pary/ania-i-marcin/p01.enc",
+          "width": 1305,
+          "height": 1800
         },
         {
           "src": "images/pary/ania-i-marcin/p03.enc",
@@ -287,21 +287,21 @@ window.PARY = {
           "webp",
           "jpg"
         ],
-        "width": 1158,
-        "height": 1600
+        "width": 1600,
+        "height": 1158
       },
       "salt": "PvoZt62JzZn9ezN+9kgxcQ==",
       "iterations": 310000,
       "photos": [
         {
-          "src": "images/pary/monika-i-dejlu/p01.enc",
-          "width": 1303,
-          "height": 1800
-        },
-        {
           "src": "images/pary/monika-i-dejlu/p02.enc",
           "width": 1800,
           "height": 1303
+        },
+        {
+          "src": "images/pary/monika-i-dejlu/p01.enc",
+          "width": 1303,
+          "height": 1800
         },
         {
           "src": "images/pary/monika-i-dejlu/p03.enc",
@@ -423,21 +423,21 @@ window.PARY = {
           "webp",
           "jpg"
         ],
-        "width": 1067,
-        "height": 1600
+        "width": 1600,
+        "height": 1067
       },
       "salt": "hiir61UkwVzgNT74LGRK2Q==",
       "iterations": 310000,
       "photos": [
         {
-          "src": "images/pary/ewelina-i-michal/p01.enc",
-          "width": 1200,
-          "height": 1800
-        },
-        {
           "src": "images/pary/ewelina-i-michal/p02.enc",
           "width": 1800,
           "height": 1200
+        },
+        {
+          "src": "images/pary/ewelina-i-michal/p01.enc",
+          "width": 1200,
+          "height": 1800
         },
         {
           "src": "images/pary/ewelina-i-michal/p03.enc",
@@ -695,21 +695,21 @@ window.PARY = {
           "webp",
           "jpg"
         ],
-        "width": 1065,
-        "height": 1600
+        "width": 1600,
+        "height": 1067
       },
       "salt": "9HcHsXlUGAIJQtn0hiTA1Q==",
       "iterations": 310000,
       "photos": [
         {
-          "src": "images/pary/sylwia-i-maciek/p01.enc",
-          "width": 1198,
-          "height": 1800
-        },
-        {
           "src": "images/pary/sylwia-i-maciek/p02.enc",
           "width": 1800,
           "height": 1200
+        },
+        {
+          "src": "images/pary/sylwia-i-maciek/p01.enc",
+          "width": 1198,
+          "height": 1800
         },
         {
           "src": "images/pary/sylwia-i-maciek/p03.enc",
@@ -831,21 +831,21 @@ window.PARY = {
           "webp",
           "jpg"
         ],
-        "width": 1065,
-        "height": 1600
+        "width": 1600,
+        "height": 1065
       },
       "salt": "hO+7ca8De71f8JJLASg/gg==",
       "iterations": 310000,
       "photos": [
         {
-          "src": "images/pary/basia-i-marcin/p01.enc",
-          "width": 1198,
-          "height": 1800
-        },
-        {
           "src": "images/pary/basia-i-marcin/p02.enc",
           "width": 1800,
           "height": 1198
+        },
+        {
+          "src": "images/pary/basia-i-marcin/p01.enc",
+          "width": 1198,
+          "height": 1800
         },
         {
           "src": "images/pary/basia-i-marcin/p03.enc",
@@ -1103,12 +1103,17 @@ window.PARY = {
           "webp",
           "jpg"
         ],
-        "width": 1065,
-        "height": 1600
+        "width": 1600,
+        "height": 1065
       },
       "salt": "qWrxSUVCzQbInLdkK/lVtQ==",
       "iterations": 310000,
       "photos": [
+        {
+          "src": "images/pary/magdalena-i-mariusz/p04.enc",
+          "width": 1800,
+          "height": 1198
+        },
         {
           "src": "images/pary/magdalena-i-mariusz/p01.enc",
           "width": 1198,
@@ -1123,11 +1128,6 @@ window.PARY = {
           "src": "images/pary/magdalena-i-mariusz/p03.enc",
           "width": 1800,
           "height": 1800
-        },
-        {
-          "src": "images/pary/magdalena-i-mariusz/p04.enc",
-          "width": 1800,
-          "height": 1198
         },
         {
           "src": "images/pary/magdalena-i-mariusz/p05.enc",
@@ -1171,21 +1171,21 @@ window.PARY = {
           "webp",
           "jpg"
         ],
-        "width": 1065,
-        "height": 1600
+        "width": 1600,
+        "height": 1067
       },
       "salt": "Qg3DXwNsATcEyn2qjHOoIA==",
       "iterations": 310000,
       "photos": [
         {
-          "src": "images/pary/ania-i-darek/p01.enc",
-          "width": 1198,
-          "height": 1800
-        },
-        {
           "src": "images/pary/ania-i-darek/p02.enc",
           "width": 1800,
           "height": 1200
+        },
+        {
+          "src": "images/pary/ania-i-darek/p01.enc",
+          "width": 1198,
+          "height": 1800
         },
         {
           "src": "images/pary/ania-i-darek/p03.enc",
@@ -1375,12 +1375,17 @@ window.PARY = {
           "webp",
           "jpg"
         ],
-        "width": 1067,
-        "height": 1600
+        "width": 1600,
+        "height": 1067
       },
       "salt": "IQOsjnSjBF8YI+OWY8WoZQ==",
       "iterations": 310000,
       "photos": [
+        {
+          "src": "images/pary/marysia-i-piotrek/p03.enc",
+          "width": 1800,
+          "height": 1200
+        },
         {
           "src": "images/pary/marysia-i-piotrek/p01.enc",
           "width": 1200,
@@ -1390,11 +1395,6 @@ window.PARY = {
           "src": "images/pary/marysia-i-piotrek/p02.enc",
           "width": 1201,
           "height": 1800
-        },
-        {
-          "src": "images/pary/marysia-i-piotrek/p03.enc",
-          "width": 1800,
-          "height": 1200
         },
         {
           "src": "images/pary/marysia-i-piotrek/p04.enc",
@@ -1443,12 +1443,17 @@ window.PARY = {
           "webp",
           "jpg"
         ],
-        "width": 1065,
-        "height": 1600
+        "width": 1600,
+        "height": 1065
       },
       "salt": "7P0yUAEQNg/uF558xw77mw==",
       "iterations": 310000,
       "photos": [
+        {
+          "src": "images/pary/ania-i-kamil/p03.enc",
+          "width": 1800,
+          "height": 1198
+        },
         {
           "src": "images/pary/ania-i-kamil/p01.enc",
           "width": 1198,
@@ -1458,11 +1463,6 @@ window.PARY = {
           "src": "images/pary/ania-i-kamil/p02.enc",
           "width": 1200,
           "height": 1800
-        },
-        {
-          "src": "images/pary/ania-i-kamil/p03.enc",
-          "width": 1800,
-          "height": 1198
         },
         {
           "src": "images/pary/ania-i-kamil/p04.enc",
