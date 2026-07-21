@@ -1,7 +1,7 @@
 /* Wygenerowane przez scripts/szyfruj-pary.mjs — nie edytuj ręcznie. Hasła i jawne zdjęcia tu nie występują. */
 window.PARY = {
   "meta": {
-    "brand": "Mariusz Świergula Fotografia",
+    "brand": "Mariusz Świerguła Fotografia",
     "count": 22
   },
   "couples": [

@@ -70,7 +70,7 @@ if (MERGE) {
 }
 
 const manifest = {
-  meta: { brand: 'Mariusz Świergula Fotografia', count: couples.length },
+  meta: { brand: 'Mariusz Świerguła Fotografia', count: couples.length },
   couples,
 };
 

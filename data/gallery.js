@@ -1,7 +1,7 @@
 /* Generowane automatycznie przez scripts/optimize.py — nie edytuj ręcznie. */
 window.GALLERY = {
   "meta": {
-    "brand": "Mariusz Świergula Fotografia",
+    "brand": "Mariusz Świerguła Fotografia",
     "count": 49
   },
   "items": [

@@ -4,24 +4,24 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0B0B0C">
-<title>Galerie par — Mariusz Świergula Fotografia</title>
-<meta name="description" content="Prywatne galerie par. Każda para ma własną stronę z galerią otwieraną hasłem od fotografa.">
+<title>Galerie par — Mariusz Świerguła Fotografia</title>
+<meta name="description" content="Prywatne galerie par. Wejście do pełnej galerii po haśle otrzymanym od fotografa.">
 <!-- Strefa prywatna: nie indeksować -->
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20260721b">
+<link rel="stylesheet" href="css/style.css?v=20260721c">
 </head>
 <body>
 <a class="skip" href="#main">Przejdź do treści</a>
 
 <header class="nav">
   <button class="nav__toggle" aria-label="Otwórz menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
-  <a class="brand" href="index.html" aria-label="Mariusz Świergula Fotografia — strona główna">
+  <a class="brand" href="index.html" aria-label="Mariusz Świerguła Fotografia — strona główna">
     <span class="brand__mono">M</span>
-    <span class="brand__name">Mariusz Świergula</span>
+    <span class="brand__name">Mariusz Świerguła</span>
     <span class="brand__sub">Fotografia</span>
   </a>
   <nav class="nav__links" aria-label="Główne">
@@ -47,35 +47,115 @@
       <a class="back" href="sluby.html"><span class="arrow" aria-hidden="true"></span> Śluby</a>
       <span class="kicker">Strefa prywatna</span>
       <h1>Galerie par</h1>
-      <p class="pary-head__desc">Każda para ma własną stronę z pełną galerią ukrytą za hasłem. Publicznie widać tylko jeden kadr —
+      <p class="pary-head__desc">Każda para ma własną, pełną galerię ukrytą za hasłem. Publicznie widać tylko jeden kadr —
         resztę odsłoni hasło, które przekazuję Parze Młodej.</p>
       <span class="pary-head__count"><span data-pary-count>00</span> par</span>
     </div>
   </section>
 
-  <!-- SPIS PAR — każda karta prowadzi na osobną stronę pary -->
+  <!-- LISTA PAR / BRAMA MARKI (deep-link) / GALERIA WYBRANEJ PARY -->
   <section class="pary-sekcja">
     <div class="wrap">
       <div id="pary-lista" class="pary-grid" data-stagger>
         <div class="g-skeleton" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
       </div>
     </div>
+
+    <!-- Brama marki: tło dla obcego, który trafił tu z linku do zdjęcia (żaden kadr się nie odsłania) -->
+    <div id="brama-strefa" class="brama-strefa" hidden>
+      <div class="wrap">
+        <span class="kicker kicker--gold">Mariusz Świerguła Fotografia</span>
+        <h2 class="brama-strefa__tytul">Prywatna galeria ślubna</h2>
+        <p class="brama-strefa__opis" id="brama-strefa-opis">Ta galeria jest prywatna i zabezpieczona hasłem. Wpisz hasło otrzymane od Pary Młodej, aby zobaczyć zdjęcia.</p>
+        <div class="brama-strefa__grid" id="brama-strefa-grid" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <!-- Galeria wybranej pary: hero (pełna szerokość) + patchwork w natywnych proporcjach -->
+    <div id="para-galeria" class="para-galeria" hidden>
+      <div class="para-hero" id="para-hero">
+        <div class="para-hero__media" id="para-hero-media"></div>
+        <div class="para-hero__scrim" aria-hidden="true"></div>
+        <div class="para-hero__inner">
+          <button type="button" class="back back--btn para-hero__back" id="wroc-do-par"><span class="arrow" aria-hidden="true"></span> Wszystkie pary</button>
+          <span class="kicker">Galeria prywatna</span>
+          <h1 class="para-hero__tytul" id="para-tytul"></h1>
+          <button type="button" class="para-hero__lock" id="zablokuj" title="Zablokuj tę galerię na tym urządzeniu">Zablokuj galerię</button>
+        </div>
+      </div>
+      <div class="wrap">
+        <div id="gallery-pary" class="pary-masonry"></div>
+      </div>
+    </div>
   </section>
 </main>
+
+<!-- BRAMA HASŁA -->
+<div class="brama" id="brama" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="brama-tytul">
+  <div class="brama__panel">
+    <button class="brama__close" id="brama-close" aria-label="Zamknij">✕</button>
+    <svg class="brama__klodka" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+      <rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+    </svg>
+    <span class="kicker">Galeria prywatna</span>
+    <h2 id="brama-tytul" class="brama__tytul">—</h2>
+    <p class="brama__opis">Wpisz hasło otrzymane od fotografa, aby zobaczyć pełną galerię.</p>
+    <form class="brama__form" id="brama-form" novalidate>
+      <label for="brama-haslo" class="sr-only">Hasło</label>
+      <input type="password" id="brama-haslo" name="haslo" autocomplete="off" autocapitalize="characters"
+             spellcheck="false" placeholder="Hasło do galerii" aria-describedby="brama-blad">
+      <button type="submit" class="btn btn--solid" id="brama-submit">Otwórz galerię</button>
+    </form>
+    <p class="brama__blad" id="brama-blad" role="alert"></p>
+  </div>
+</div>
+
+<!-- LIGHTBOX (współdzielony wygląd z galerią główną) -->
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Podgląd zdjęcia">
+  <div class="lb__top">
+    <span class="lb__count" id="lb-count"></span>
+    <div class="lb__actions">
+      <button class="lb__act" id="lb-share" type="button" aria-label="Wyślij lub zapisz to zdjęcie">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 15V3m0 0L8 7m4-4l4 4"/><path d="M4 13v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6"/></svg>
+        <span>Wyślij / zapisz</span>
+      </button>
+      <button class="lb__act" id="lb-link" type="button" aria-label="Skopiuj link do tego zdjęcia">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>
+        <span>Skopiuj link</span>
+      </button>
+      <button class="lb__close" id="lb-close" aria-label="Zamknij podgląd">Zamknij
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="lb__stage" id="lb-stage">
+    <button class="lb__nav lb__nav--prev" id="lb-prev" aria-label="Poprzednie zdjęcie">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <figure class="lb__fig" id="lb-fig">
+      <figcaption class="lb__cap" id="lb-cap"></figcaption>
+    </figure>
+    <button class="lb__nav lb__nav--next" id="lb-next" aria-label="Następne zdjęcie">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+  <div class="lb__thumbs" id="lb-thumbs" aria-hidden="true"></div>
+  <div class="lb__toast" id="lb-toast" role="status" aria-live="polite" hidden></div>
+</div>
 
 <footer class="footer">
   <div class="wrap footer__grid">
     <div class="footer__mono">M</div>
     <div class="footer__meta">
-      <span>© <span data-year>2026</span> Mariusz Świergula Fotografia</span>
+      <span>© <span data-year>2026</span> Mariusz Świerguła Fotografia</span>
       <a href="index.html" class="link" style="font-size:.7rem">Strona główna</a>
       <a href="polityka-prywatnosci.html" class="link" style="font-size:.7rem">Polityka prywatności</a>
     </div>
   </div>
 </footer>
 
-<script src="data/pary.js" defer></script>
-<script src="js/pary.js?v=20260721b" defer></script>
+<script src="data/pary.js?v=20260721c" defer></script>
+<script src="js/pary.js?v=20260721c" defer></script>
 <script src="js/main.js" defer></script>
 </body>
 </html>
