@@ -514,7 +514,7 @@ h1,h2,h3{ font-family:var(--serif); font-weight:400; line-height:1.08; letter-sp
   grid-template-columns:repeat(auto-fill,minmax(min(280px,100%),1fr)); }
 .couple-card{ text-align:left; background:var(--graphite); border:1px solid var(--line-soft);
   border-radius:4px; overflow:hidden; cursor:pointer; padding:0; font-family:var(--sans); color:inherit;
-  display:flex; flex-direction:column; transition:border-color var(--t-mid) var(--ease), transform var(--t-mid) var(--ease); }
+  text-decoration:none; display:flex; flex-direction:column; transition:border-color var(--t-mid) var(--ease), transform var(--t-mid) var(--ease); }
 .couple-card:hover{ border-color:var(--champagne); transform:translateY(-3px); }
 .couple-card:focus-visible{ outline:2px solid var(--champagne); outline-offset:3px; }
 .couple-card__media{ position:relative; aspect-ratio:var(--ar,4/3); overflow:hidden; background:var(--ink-2); }
@@ -575,6 +575,10 @@ h1,h2,h3{ font-family:var(--serif); font-weight:400; line-height:1.08; letter-sp
 .brama__form input:focus-visible{ outline:2px solid var(--champagne); outline-offset:1px; border-color:var(--champagne); }
 .brama__form .btn{ justify-content:center; }
 .brama__blad{ min-height:1.4em; margin-top:var(--s-3); font-size:.9rem; color:#E0857A; }
+
+/* brama wbudowana w osobną stronę pary (nie nakładka) — panel wyśrodkowany w treści */
+.brama-inline{ justify-content:center; padding:clamp(1.5rem,1rem+4vw,4rem) 0; }
+.brama-inline:not([hidden]){ display:flex; }
 
 /* baner wejścia do strefy par (na sluby.html) */
 .pary-cta{ border-top:1px solid var(--line-soft); padding-block:clamp(3rem,2rem+4vw,5.5rem); }
