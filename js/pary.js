@@ -142,7 +142,9 @@
     if (!zapis) { otworzBrame(slug); return; }
     try {
       const klucz = await crypto.subtle.importKey("raw", b64naBajty(zapis), { name: "AES-GCM" }, false, ["decrypt"]);
-      await pokazGalerie(c, klucz);
+      // importKey NIE rzuca dla nieświeżego klucza — trzeba go zweryfikować odszyfrowaniem pierwszego kadru
+      const url0 = await odszyfrujDoURL(klucz, c.photos[0].src);
+      await pokazGalerie(c, klucz, url0);
     } catch {
       lsDel(LS(slug));   // zapamiętany klucz nie pasuje — poproś o hasło
       otworzBrame(slug);
@@ -179,14 +181,21 @@
       VIEW.push({ url, width: p.width, height: p.height });
       const tile = el("button", "p-tile");
       tile.type = "button";
-      tile.style.setProperty("--ar", `${p.width}/${p.height}`);
+      // jednolita, pozioma proporcja kafelka (3:2) ustawia CSS — nie proporcje oryginału
       tile.setAttribute("aria-label", `Powiększ zdjęcie ${idx + 1}`);
       const img = el("img");
       img.src = url; img.alt = ""; img.loading = "lazy"; img.decoding = "async";
-      img.style.aspectRatio = `${p.width}/${p.height}`;
       tile.appendChild(img);
       tile.addEventListener("click", () => openLightbox(idx));
       gridPary.appendChild(tile);
+    }
+    if (VIEW.length === 0) {
+      // żaden kadr się nie odszyfrował (np. nieświeży klucz) — nie pokazuj pustej galerii,
+      // tylko wyczyść klucz i poproś o hasło, żeby użytkownik sam się odblokował
+      lsDel(LS(c.slug));
+      widokGaleria.hidden = true;
+      widokLista.hidden = false;
+      otworzBrame(c.slug);
     }
   }
 
