@@ -1,7 +1,7 @@
 {
   "meta": {
-    "brand": "Mariusz Świergula Fotografia",
-    "count": 49
+    "brand": "Mariusz Świerguła Fotografia",
+    "count": 64
   },
   "items": [
     {
@@ -681,6 +681,465 @@
       }
     },
     {
+      "id": "w-26",
+      "section": "weddings",
+      "tags": [
+        "przygotowania",
+        "emocje"
+      ],
+      "role": "grid",
+      "alt": "Panna młoda podczas makijażu — bliski portret czarno-biały",
+      "caption": "Chwila skupienia",
+      "span": "normal",
+      "width": 4256,
+      "height": 2832,
+      "src": {
+        "mobile": "images/optimized/w-26-mobile.jpg",
+        "desktop": "images/optimized/w-26-desktop.jpg",
+        "full": "images/optimized/w-26-full.jpg"
+      },
+      "base": "images/optimized/w-26",
+      "formats": [
+        "avif",
+        "webp",
+        "jpg"
+      ],
+      "px": {
+        "mobile": 1200,
+        "desktop": 2000,
+        "full": 2560
+      },
+      "category": "ślub"
+    },
+    {
+      "id": "w-27",
+      "section": "weddings",
+      "tags": [
+        "detale",
+        "przygotowania"
+      ],
+      "role": "grid",
+      "alt": "Detal sukni ślubnej — krystaliczny haft w miękkim świetle",
+      "caption": "Haft",
+      "span": "normal",
+      "width": 3837,
+      "height": 2558,
+      "src": {
+        "mobile": "images/optimized/w-27-mobile.jpg",
+        "desktop": "images/optimized/w-27-desktop.jpg",
+        "full": "images/optimized/w-27-full.jpg"
+      },
+      "base": "images/optimized/w-27",
+      "formats": [
+        "avif",
+        "webp",
+        "jpg"
+      ],
+      "px": {
+        "mobile": 1200,
+        "desktop": 2000,
+        "full": 2560
+      },
+      "category": "ślub"
+    },
+    {
+      "id": "w-28",
+      "section": "weddings",
+      "tags": [
+        "ceremonia"
+      ],
+      "role": "grid",
+      "alt": "Panna młoda wchodzi do barokowego kościoła — perspektywa nawy",
+      "caption": "Wejście",
+      "span": "tall",
+      "width": 2831,
+      "height": 4255,
+      "src": {
+        "mobile": "images/optimized/w-28-mobile.jpg",
+        "desktop": "images/optimized/w-28-desktop.jpg",
+        "full": "images/optimized/w-28-full.jpg"
+      },
+      "base": "images/optimized/w-28",
+      "formats": [
+        "avif",
+        "webp",
+        "jpg"
+      ],
+      "px": {
+        "mobile": 1200,
+        "desktop": 2000,
+        "full": 2560
+      },
+      "category": "ślub"
+    },
+    {
+      "id": "w-29",
+      "section": "weddings",
+      "tags": [
+        "ceremonia"
+      ],
+      "role": "grid",
+      "alt": "Wnętrze barokowego kościoła — malowane sklepienie i ołtarz",
+      "caption": "Świątynia",
+      "span": "tall",
+      "width": 2790,
+      "height": 4185,
+      "src": {
+        "mobile": "images/optimized/w-29-mobile.jpg",
+        "desktop": "images/optimized/w-29-desktop.jpg",
+        "full": "images/optimized/w-29-full.jpg"
+      },
+      "base": "images/optimized/w-29",
+      "formats": [
+        "avif",
+        "webp",
+        "jpg"
+      ],
+      "px": {
+        "mobile": 1200,
+        "desktop": 2000,
+        "full": 2560
+      },
+      "category": "ślub"
+    },
+    {
+      "id": "w-30",
+      "section": "weddings",
+      "tags": [
+        "ceremonia",
+        "emocje"
+      ],
+      "role": "grid",
+      "alt": "Para młoda przy ołtarzu nowoczesnego kościoła — czarno-białe",
+      "caption": "Przysięga w ciszy",
+      "span": "tall",
+      "width": 2581,
+      "height": 3872,
+      "src": {
+        "mobile": "images/optimized/w-30-mobile.jpg",
+        "desktop": "images/optimized/w-30-desktop.jpg",
+        "full": "images/optimized/w-30-full.jpg"
+      },
+      "base": "images/optimized/w-30",
+      "formats": [
+        "avif",
+        "webp",
+        "jpg"
+      ],
+      "px": {
+        "mobile": 1200,
+        "desktop": 2000,
+        "full": 2560
+      },
+      "category": "ślub"
+    },
+    {
+      "id": "w-31",
+      "section": "weddings",
+      "tags": [
+        "ceremonia",
+        "emocje"
+      ],
+      "role": "grid",
+      "alt": "Para młoda wychodzi z kościoła w deszczu płatków — czarno-białe",
+      "caption": "Wyjście",
+      "span": "wide",
+      "width": 4256,
+      "height": 2832,
+      "src": {
+        "mobile": "images/optimized/w-31-mobile.jpg",
+        "desktop": "images/optimized/w-31-desktop.jpg",
+        "full": "images/optimized/w-31-full.jpg"
+      },
+      "base": "images/optimized/w-31",
+      "formats": [
+        "avif",
+        "webp",
+        "jpg"
+      ],
+      "px": {
+        "mobile": 1200,
+        "desktop": 2000,
+        "full": 2560
+      },
+      "category": "ślub"
+    },
+    {
+      "id": "w-32",
+      "section": "weddings",
+      "tags": [
+        "detale"
+      ],
+      "role": "grid",
+      "alt": "Obrączki ślubne na złotej tacy — detal w miękkim świetle",
+      "caption": "Złoto",
+      "span": "normal",
+      "width": 3456,
+      "height": 2304,
+      "src": {
+        "mobile": "images/optimized/w-32-mobile.jpg",
+        "desktop": "images/optimized/w-32-desktop.jpg",
+        "full": "images/optimized/w-32-full.jpg"
+      },
+      "base": "images/optimized/w-32",
+      "formats": [
+        "avif",
+        "webp",
+        "jpg"
+      ],
+      "px": {
+        "mobile": 1200,
+        "desktop": 2000,
+        "full": 2560
+      },
+      "category": "ślub"
+    },
+    {
+      "id": "w-33",
+      "section": "weddings",
+      "tags": [
+        "wesele",
+        "emocje"
+      ],
+      "role": "grid",
+      "alt": "Pierwszy taniec pary młodej w drewnianej sali — czarno-białe",
+      "caption": "Pierwszy taniec",
+      "span": "wide",
+      "width": 4256,
+      "height": 2832,
+      "src": {
+        "mobile": "images/optimized/w-33-mobile.jpg",
+        "desktop": "images/optimized/w-33-desktop.jpg",
+        "full": "images/optimized/w-33-full.jpg"
+      },
+      "base": "images/optimized/w-33",
+      "formats": [
+        "avif",
+        "webp",
+        "jpg"
+      ],
+      "px": {
+        "mobile": 1200,
+        "desktop": 2000,
+        "full": 2560
+      },
+      "category": "wesele"
+    },
+    {
+      "id": "w-34",
+      "section": "weddings",
+      "tags": [
+        "wesele"
+      ],
+      "role": "grid",
+      "alt": "Goście na parkiecie weselnym — czarno-biała zabawa",
+      "caption": "Parkiet",
+      "span": "normal",
+      "width": 4256,
+      "height": 2832,
+      "src": {
+        "mobile": "images/optimized/w-34-mobile.jpg",
+        "desktop": "images/optimized/w-34-desktop.jpg",
+        "full": "images/optimized/w-34-full.jpg"
+      },
+      "base": "images/optimized/w-34",
+      "formats": [
+        "avif",
+        "webp",
+        "jpg"
+      ],
+      "px": {
+        "mobile": 1200,
+        "desktop": 2000,
+        "full": 2560
+      },
+      "category": "wesele"
+    },
+    {
+      "id": "w-35",
+      "section": "weddings",
+      "tags": [
+        "wesele",
+        "emocje"
+      ],
+      "role": "grid",
+      "alt": "Para tańczy w objęciach — bliski kadr w niebieskim świetle",
+      "caption": "Blisko siebie",
+      "span": "normal",
+      "width": 5120,
+      "height": 3417,
+      "src": {
+        "mobile": "images/optimized/w-35-mobile.jpg",
+        "desktop": "images/optimized/w-35-desktop.jpg",
+        "full": "images/optimized/w-35-full.jpg"
+      },
+      "base": "images/optimized/w-35",
+      "formats": [
+        "avif",
+        "webp",
+        "jpg"
+      ],
+      "px": {
+        "mobile": 1200,
+        "desktop": 2000,
+        "full": 2560
+      },
+      "category": "wesele"
+    },
+    {
+      "id": "w-36",
+      "section": "weddings",
+      "tags": [
+        "plener"
+      ],
+      "role": "grid",
+      "alt": "Para młoda na alei drzew — sepia, jesień",
+      "caption": "Aleja",
+      "span": "tall",
+      "width": 2832,
+      "height": 4256,
+      "src": {
+        "mobile": "images/optimized/w-36-mobile.jpg",
+        "desktop": "images/optimized/w-36-desktop.jpg",
+        "full": "images/optimized/w-36-full.jpg"
+      },
+      "base": "images/optimized/w-36",
+      "formats": [
+        "avif",
+        "webp",
+        "jpg"
+      ],
+      "px": {
+        "mobile": 1200,
+        "desktop": 2000,
+        "full": 2560
+      },
+      "category": "plener"
+    },
+    {
+      "id": "w-37",
+      "section": "weddings",
+      "tags": [
+        "plener",
+        "emocje"
+      ],
+      "role": "grid",
+      "alt": "Para młoda wśród jesiennych liści przez zielone gałęzie",
+      "caption": "Przez liście",
+      "span": "wide",
+      "width": 4256,
+      "height": 2832,
+      "src": {
+        "mobile": "images/optimized/w-37-mobile.jpg",
+        "desktop": "images/optimized/w-37-desktop.jpg",
+        "full": "images/optimized/w-37-full.jpg"
+      },
+      "base": "images/optimized/w-37",
+      "formats": [
+        "avif",
+        "webp",
+        "jpg"
+      ],
+      "px": {
+        "mobile": 1200,
+        "desktop": 2000,
+        "full": 2560
+      },
+      "category": "plener"
+    },
+    {
+      "id": "w-38",
+      "section": "weddings",
+      "tags": [
+        "plener",
+        "detale"
+      ],
+      "role": "grid",
+      "alt": "Czerwony bukiet ostro, całująca się para rozmazana w tle",
+      "caption": "Bukiet",
+      "span": "wide",
+      "width": 4256,
+      "height": 2832,
+      "src": {
+        "mobile": "images/optimized/w-38-mobile.jpg",
+        "desktop": "images/optimized/w-38-desktop.jpg",
+        "full": "images/optimized/w-38-full.jpg"
+      },
+      "base": "images/optimized/w-38",
+      "formats": [
+        "avif",
+        "webp",
+        "jpg"
+      ],
+      "px": {
+        "mobile": 1200,
+        "desktop": 2000,
+        "full": 2560
+      },
+      "category": "plener"
+    },
+    {
+      "id": "w-39",
+      "section": "weddings",
+      "tags": [
+        "plener"
+      ],
+      "role": "grid",
+      "alt": "Para młoda w trawie, welon uniesiony przez wiatr",
+      "caption": "Welon",
+      "span": "normal",
+      "width": 4256,
+      "height": 2832,
+      "src": {
+        "mobile": "images/optimized/w-39-mobile.jpg",
+        "desktop": "images/optimized/w-39-desktop.jpg",
+        "full": "images/optimized/w-39-full.jpg"
+      },
+      "base": "images/optimized/w-39",
+      "formats": [
+        "avif",
+        "webp",
+        "jpg"
+      ],
+      "px": {
+        "mobile": 1200,
+        "desktop": 2000,
+        "full": 2560
+      },
+      "category": "plener"
+    },
+    {
+      "id": "w-40",
+      "section": "weddings",
+      "tags": [
+        "plener",
+        "emocje"
+      ],
+      "role": "grid",
+      "alt": "Pan młody niesie pannę młodą przez zielone pole",
+      "caption": "Niesiona",
+      "span": "normal",
+      "width": 4256,
+      "height": 2832,
+      "src": {
+        "mobile": "images/optimized/w-40-mobile.jpg",
+        "desktop": "images/optimized/w-40-desktop.jpg",
+        "full": "images/optimized/w-40-full.jpg"
+      },
+      "base": "images/optimized/w-40",
+      "formats": [
+        "avif",
+        "webp",
+        "jpg"
+      ],
+      "px": {
+        "mobile": 1200,
+        "desktop": 2000,
+        "full": 2560
+      },
+      "category": "plener"
+    },
+    {
       "id": "f-01",
       "section": "family",
       "tags": [
@@ -1081,8 +1540,8 @@
         "bliskosc"
       ],
       "role": "grid",
-      "alt": "Dziewczynka trzyma młodsze dziecko w ogrodzie",
-      "caption": "Rodzeństwo",
+      "alt": "Babcia trzyma śpiące niemowlę na kolanach w ogrodzie",
+      "caption": "Babcia",
       "span": "normal",
       "width": 4032,
       "height": 3024,

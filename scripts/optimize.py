@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Mariusz Świergula Fotografia — optymalizacja zdjęć + generator manifestu.
+Mariusz Świerguła Fotografia — optymalizacja zdjęć + generator manifestu.
 
 Jedno źródło prawdy: lista PHOTOS poniżej (kuratorska selekcja).
 Skrypt:
@@ -26,7 +26,7 @@ except Exception:
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Katalog z oryginałami (źródło spoza repo). Po pierwszym uruchomieniu repo jest samowystarczalne.
-ORIGINAL_SRC = r"C:\ClaudeSANDDBOX\STRONA SLUB"
+ORIGINAL_SRC = r"C:\PROJEKTY\osobiste\zdjecia-slub-family\STRONA SLUB"
 SECTION_SRCDIR = {"weddings": "SLUB", "family": "FAMILY", "about": ""}
 
 SIZES = {"mobile": 1200, "desktop": 2000, "full": 2560}
@@ -35,7 +35,7 @@ Q_JPG, Q_WEBP, Q_AVIF = 82, 82, 60
 HAS_AVIF = features.check("avif")
 
 # ── KURATORSKA SELEKCJA ──────────────────────────────────────────────────────
-# id, sekcja, plik źródłowy, tagi, rola (hero|grid|about), alt (PL), podpis, span(big|wide|tall|normal)
+# id, sekcja, plik źródłowy, tagi, rola (hero|grid|about), alt (PL), podpis, span(big|wide|tall|normal), category(ślub|wesele|plener|"")
 PHOTOS = [
     # ŚLUBY (24) — ton cinematic/ciepły, sylwetki, emocje, akcenty B&W
     ("w-01","weddings","IMG_0092.jpg",["plener","emocje"],"hero","Para młoda całuje się w polu w ciepłym świetle zachodzącego słońca","Złota godzina","big"),
@@ -79,7 +79,7 @@ PHOTOS = [
     ("f-11","family","IMG_3184.JPEG",["lifestyle","dom"],"grid","Roześmiane niemowlę podczas kąpieli","Radość","normal"),
     ("f-12","family","IMG_9967_jpg.JPEG",["bliskosc","rodzina"],"grid","Mama z dzieckiem, bliski kadr","Mama","tall"),
     ("f-13","family","IMG_0580.JPEG",["lifestyle","bliskosc"],"grid","Mama unosi dziecko w ogrodzie, rozmyte tło","W ogrodzie","normal"),
-    ("f-14","family","IMG_8102.JPEG",["rodzina","bliskosc"],"grid","Dziewczynka trzyma młodsze dziecko w ogrodzie","Rodzeństwo","normal"),
+    ("f-14","family","IMG_8102.JPEG",["rodzina","bliskosc"],"grid","Babcia trzyma śpiące niemowlę na kolanach w ogrodzie","Babcia","normal"),
     ("f-15","family","IMG_9918.JPEG",["rodzina","lifestyle"],"grid","Mama z dwójką dzieci w parku","Spacer","tall"),
     ("f-16","family","IMG_0941.JPEG",["rodzina"],"grid","Dziadkowie z wnukami przy stole","Pokolenia","tall"),
     ("f-17","family","IMG_8650_jpg.JPEG",["lifestyle","dom"],"grid","Dziewczynka bawi się w piżamie w porannym świetle","Poranek","tall"),
@@ -94,7 +94,45 @@ PHOTOS = [
     ("f-26","family","IMG_2617.JPEG",["lifestyle"],"grid","Płaczący maluch — szczery moment","Prawdziwe emocje","normal"),
 
     # O MNIE
-    ("a-01","about","O mnie.JPEG",[],"about","Mariusz Świergula z żoną i córką, fotografia czarno-biała","","normal"),
+    ("a-01","about","O mnie.JPEG",[],"about","Mariusz Świergula z żoną i córką, fotografia czarno-biała","","normal",""),
+
+    # ── NOWA SELEKCJA J:\weddings — ŚLUB / WESELE / PLENER ──────────────────
+    # Oryginały skopiowane do images/weddings/w-26..w-40.jpg
+    # ŚLUB (7) — przygotowania, detale, ceremonia, kościół
+    ("w-26","weddings","w-26.jpg",["przygotowania","emocje"],"grid",
+     "Panna młoda podczas makijażu — bliski portret czarno-biały","Chwila skupienia","normal","ślub"),
+    ("w-27","weddings","w-27.jpg",["detale","przygotowania"],"grid",
+     "Detal sukni ślubnej — krystaliczny haft w miękkim świetle","Haft","normal","ślub"),
+    ("w-28","weddings","w-28.jpg",["ceremonia"],"grid",
+     "Panna młoda wchodzi do barokowego kościoła — perspektywa nawy","Wejście","tall","ślub"),
+    ("w-29","weddings","w-29.jpg",["ceremonia"],"grid",
+     "Wnętrze barokowego kościoła — malowane sklepienie i ołtarz","Świątynia","tall","ślub"),
+    ("w-30","weddings","w-30.jpg",["ceremonia","emocje"],"grid",
+     "Para młoda przy ołtarzu nowoczesnego kościoła — czarno-białe","Przysięga w ciszy","tall","ślub"),
+    ("w-31","weddings","w-31.jpg",["ceremonia","emocje"],"grid",
+     "Para młoda wychodzi z kościoła w deszczu płatków — czarno-białe","Wyjście","wide","ślub"),
+    ("w-32","weddings","w-32.jpg",["detale"],"grid",
+     "Obrączki ślubne na złotej tacy — detal w miękkim świetle","Złoto","normal","ślub"),
+
+    # WESELE (3) — pierwszy taniec, sala, zabawa
+    ("w-33","weddings","w-33.jpg",["wesele","emocje"],"grid",
+     "Pierwszy taniec pary młodej w drewnianej sali — czarno-białe","Pierwszy taniec","wide","wesele"),
+    ("w-34","weddings","w-34.jpg",["wesele"],"grid",
+     "Goście na parkiecie weselnym — czarno-biała zabawa","Parkiet","normal","wesele"),
+    ("w-35","weddings","w-35.jpg",["wesele","emocje"],"grid",
+     "Para tańczy w objęciach — bliski kadr w niebieskim świetle","Blisko siebie","normal","wesele"),
+
+    # PLENER (5) — sesja pleneru, krajobraz, światło
+    ("w-36","weddings","w-36.jpg",["plener"],"grid",
+     "Para młoda na alei drzew — sepia, jesień","Aleja","tall","plener"),
+    ("w-37","weddings","w-37.jpg",["plener","emocje"],"grid",
+     "Para młoda wśród jesiennych liści przez zielone gałęzie","Przez liście","wide","plener"),
+    ("w-38","weddings","w-38.jpg",["plener","detale"],"grid",
+     "Czerwony bukiet ostro, całująca się para rozmazana w tle","Bukiet","wide","plener"),
+    ("w-39","weddings","w-39.jpg",["plener"],"grid",
+     "Para młoda w trawie, welon uniesiony przez wiatr","Welon","normal","plener"),
+    ("w-40","weddings","w-40.jpg",["plener","emocje"],"grid",
+     "Pan młody niesie pannę młodą przez zielone pole","Niesiona","normal","plener"),
 ]
 
 def log(*a): print(*a, flush=True)
@@ -131,7 +169,7 @@ def save_variants(im, base_noext, long_edge, src_mtime):
         rim.save(base_noext + ".avif", "AVIF", quality=Q_AVIF)
     return (nw, nh)
 
-def process(pid, section, srcfile, tags, role, alt, caption, span):
+def process(pid, section, srcfile, tags, role, alt, caption, span, category=""):
     orig = bootstrap_original(pid, section, srcfile)
     if not orig: return None
     src_mtime = os.path.getmtime(orig)
@@ -160,6 +198,8 @@ def process(pid, section, srcfile, tags, role, alt, caption, span):
         "formats": formats,
         "px": {k: max(v) for k, v in out_dims.items()},
     }
+    if category:
+        item["category"] = category
     return item
 
 def main():
@@ -173,7 +213,7 @@ def main():
     # manifest: tylko galeria (weddings+family); about i sloty „home" pomijamy w gallery.json
     gallery = [i for i in items if i["section"] in ("weddings", "family") and i["role"] != "home"]
     manifest = {
-        "meta": {"brand": "Mariusz Świergula Fotografia", "count": len(gallery)},
+        "meta": {"brand": "Mariusz Świerguła Fotografia", "count": len(gallery)},
         "items": gallery,
     }
     with open(os.path.join(ROOT, "data", "gallery.json"), "w", encoding="utf-8") as f:
