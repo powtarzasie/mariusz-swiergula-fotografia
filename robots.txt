@@ -1,0 +1,5 @@
+# TYMCZASOWO: cała strona zablokowana dla wyszukiwarek i botów AI (od 2026-07-23).
+# Powód: strona jeszcze nie ma iść do indeksu Google.
+# ODBLOKOWANIE (gdy ma być widoczna): patrz FUNKCJONALNOSCI.md → "Odblokowanie SEO".
+User-agent: *
+Disallow: /
