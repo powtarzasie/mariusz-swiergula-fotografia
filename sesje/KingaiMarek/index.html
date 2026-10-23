@@ -35,6 +35,8 @@ body{ background:var(--ink); }
 .okl__para{ font-size:.68rem; letter-spacing:.36em; text-transform:uppercase; color:var(--bone-2); }
 .okl h1{ font-size:clamp(2.9rem,2rem + 6vw,6.5rem); margin:.12em 0 .25em; }
 /* przycisk pokazu slajdów: cichy, obrys jak na stronie, ikona odtwarzania z CSS */
+.okl__akcje{ display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1.6rem; max-width:30rem; }
+.okl__akcje .pokaz-btn{ margin-top:0; flex:1 1 12rem; justify-content:center; }
 .pokaz-btn{ display:inline-flex; align-items:center; gap:.8rem; min-height:48px; padding:0 1.3rem; margin-top:1.6rem;
   font-size:.7rem; letter-spacing:.24em; text-transform:uppercase; color:var(--bone); border:1px solid rgba(244,241,236,.55);
   transition:border-color var(--t-mid), background-color var(--t-mid); touch-action:manipulation; }
@@ -281,7 +283,10 @@ body{ background:var(--ink); }
         <p class="okl__para">${H.para}</p>
         <h1>${H.tytul}</h1>
         <div class="okl__meta"><span>${H.podtytul}</span><span>${H.dataSlownie}</span></div>
-        <button class="pokaz-btn" type="button" data-pokaz>Pokaz slajdów</button>
+        <div class="okl__akcje">
+          <button class="pokaz-btn" type="button" data-pokaz>Pokaz slajdów</button>
+          ${B && B.tytul ? `<button class="pokaz-btn" type="button" data-film>${B.tytul}</button>` : ""}
+        </div>
       </div>
     </section>
     ${H.rozdzialy.map((r, i) => `
@@ -309,6 +314,12 @@ body{ background:var(--ink); }
   podlaczFilm(); podlaczSlowa();
   Album.init({ panel: false });
   document.querySelectorAll("[data-pokaz]").forEach(b => b.addEventListener("click", () => Album.pokazSlajdow(0)));
+  /* Film backstage: najpierw start filmu (w geście dotknięcia, inaczej przeglądarka zablokuje dźwięk), potem przewinięcie */
+  document.querySelectorAll("[data-film]").forEach(b => b.addEventListener("click", () => {
+    const sekcja = document.querySelector(".po--bonus"); if (!sekcja) return;
+    sekcja.querySelector(".film__start")?.click();
+    sekcja.querySelector(".film").scrollIntoView({ behavior: Album.ruchOgr ? "auto" : "smooth", block: "center" });
+  }));
 })();
 </script>
 <script src="../../js/main.js" defer></script>

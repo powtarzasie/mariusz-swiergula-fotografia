@@ -116,8 +116,8 @@ window.HISTORIA = {
 
   /* BONUS: film bez reklam. wideo = adres pliku MP4 (np. Cloudflare R2), pusty = „w przygotowaniu" */
   bonus: {
-    tytul: "Film z tego dnia",
-    opis: "Dodatkowy materiał wideo, tylko dla Was.",
+    tytul: "Film backstage",
+    opis: "Kulisy tego popołudnia. Dodatkowy materiał wideo, tylko dla Was.",
     poster: "MS_04894",
     wideo: "",
     dlugosc: ""
