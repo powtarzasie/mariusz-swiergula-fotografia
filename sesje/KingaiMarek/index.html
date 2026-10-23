@@ -34,6 +34,12 @@ body{ background:var(--ink); }
   bottom:calc(clamp(2rem,7vh,5rem) + env(safe-area-inset-bottom)); }
 .okl__para{ font-size:.68rem; letter-spacing:.36em; text-transform:uppercase; color:var(--bone-2); }
 .okl h1{ font-size:clamp(2.9rem,2rem + 6vw,6.5rem); margin:.12em 0 .25em; }
+/* przycisk pokazu slajdów: cichy, obrys jak na stronie, ikona odtwarzania z CSS */
+.pokaz-btn{ display:inline-flex; align-items:center; gap:.8rem; min-height:48px; padding:0 1.3rem; margin-top:1.6rem;
+  font-size:.7rem; letter-spacing:.24em; text-transform:uppercase; color:var(--bone); border:1px solid rgba(244,241,236,.55);
+  transition:border-color var(--t-mid), background-color var(--t-mid); touch-action:manipulation; }
+.pokaz-btn::before{ content:""; border-style:solid; border-width:5px 0 5px 8px; border-color:transparent transparent transparent currentColor; }
+.pokaz-btn:hover{ border-color:var(--akcent); background:rgba(11,11,12,.25); }
 .okl__meta{ display:flex; flex-wrap:wrap; gap:.35rem 1.6rem; font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:var(--bone-3); }
 
 /* ---- plansza rozdziału ---- */
@@ -275,6 +281,7 @@ body{ background:var(--ink); }
         <p class="okl__para">${H.para}</p>
         <h1>${H.tytul}</h1>
         <div class="okl__meta"><span>${H.podtytul}</span><span>${H.dataSlownie}</span></div>
+        <button class="pokaz-btn" type="button" data-pokaz>Pokaz slajdów</button>
       </div>
     </section>
     ${H.rozdzialy.map((r, i) => `
@@ -295,11 +302,13 @@ body{ background:var(--ink); }
         <h2>${H.final.tytul}</h2>
         <p class="koniec__txt">${H.final.tekst}</p>
         <p class="koniec__podpis">${H.final.podpis}</p>
+        <button class="pokaz-btn" type="button" data-pokaz style="margin-top:2.6rem">Obejrzyj jeszcze raz jako pokaz slajdów</button>
       </div>
     </section>
     ${bonus()}${pobierz()}${slowa()}`;
   podlaczFilm(); podlaczSlowa();
   Album.init({ panel: false });
+  document.querySelectorAll("[data-pokaz]").forEach(b => b.addEventListener("click", () => Album.pokazSlajdow(0)));
 })();
 </script>
 <script src="../../js/main.js" defer></script>

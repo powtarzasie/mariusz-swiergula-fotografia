@@ -5,7 +5,7 @@
    - Czastki: lekka animacja w <canvas> (liście, śnieg, płatki, bokeh).
      Szanuje „ogranicz ruch" w systemie, zatrzymuje się w ukrytej karcie.
    - Zegar historii: zdarzenie "album:czas" z godziną kadru, który jest na ekranie.
-   - Przeglądarka zdjęć (lightbox): klik, strzałki, Esc, przesunięcie palcem.
+   - Przeglądarka zdjęć (lightbox): klik, strzałki, Esc, przesunięcie palcem, Zapisz, pokaz slajdów.
    ========================================================================== */
 (() => {
   const H = window.HISTORIA, W = window.WYMIARY;
@@ -153,39 +153,96 @@
     document.querySelectorAll(".fx").forEach(e => io.observe(e));
   }
 
-  /* ---------- lightbox ---------- */
+  /* ---------- lightbox + pokaz slajdów ---------- */
+  /* Pokaz: pełny ekran (gdzie przeglądarka pozwala; iPhone nie daje pełnego ekranu dla zdjęć, wtedy
+     podgląd i tak zajmuje cały widok), kolejne kadry co H.pokazSek s (domyślnie 5) z przenikaniem,
+     pasek postępu, przyciski chowają się w trakcie, ekran nie gaśnie (Wake Lock), stop na ostatnim. */
+  let pokazSlajdow = () => {};
   function lightbox() {
     const lb = document.createElement("div");
     lb.className = "lb"; lb.setAttribute("role", "dialog"); lb.setAttribute("aria-modal", "true"); lb.setAttribute("aria-label", "Podgląd zdjęcia"); lb.hidden = true;
     lb.innerHTML = `<img class="lb__img" alt="">
+      <span class="lb__pasek" aria-hidden="true"></span>
       <button class="lb__btn lb__zamknij" type="button" aria-label="Zamknij podgląd">Zamknij</button>
       <button class="lb__btn lb__zapisz" type="button">Zapisz</button>
+      <button class="lb__btn lb__pokaz" type="button" aria-pressed="false">Pokaz slajdów</button>
       <button class="lb__btn lb__wstecz" type="button" aria-label="Poprzednie zdjęcie"><span class="arrow" style="transform:scaleX(-1)"></span></button>
       <button class="lb__btn lb__dalej" type="button" aria-label="Następne zdjęcie"><span class="arrow"></span></button>
       <div class="lb__meta"><span class="lb__nr"></span><span class="lb__t"></span></div>`;
     document.body.appendChild(lb);
-    const img = lb.querySelector(".lb__img"); let lista = [], i = 0, ostatni = null;
-    const pokaz = n => {
+    const img = lb.querySelector(".lb__img"), pasek = lb.querySelector(".lb__pasek"), btnPokaz = lb.querySelector(".lb__pokaz");
+    const SEK = (H.pokazSek || 5) * 1000;
+    lb.style.setProperty("--sek", SEK / 1000 + "s");
+    let lista = [], i = 0, ostatni = null, gra = false, timer = null, cisza = null, blokada = null;
+    const wszystkie = () => [...document.querySelectorAll("img.foto")].filter(f => !f.closest(".okl"));
+
+    const wstepnie = n => { const s = lista[n]; if (!s) return; const p = new Image(); p.sizes = "100vw"; p.srcset = s.srcset; p.src = s.src; };
+    const idz = (n, plynnie = false) => {
       i = (n + lista.length) % lista.length; const s = lista[i];
-      img.sizes = "100vw"; img.srcset = s.srcset; img.src = s.src; img.alt = s.alt;   // pełny ekran: przeglądarka sama dobiera większy plik
-      lb.querySelector(".lb__nr").textContent = `${String(i + 1).padStart(2, "0")} / ${lista.length}`;
-      lb.querySelector(".lb__t").textContent = s.dataset.t;
+      const ustaw = () => {
+        img.sizes = "100vw"; img.srcset = s.srcset; img.src = s.src; img.alt = s.alt;   // przeglądarka sama dobiera większy plik
+        lb.querySelector(".lb__nr").textContent = `${String(i + 1).padStart(2, "0")} / ${lista.length}`;
+        lb.querySelector(".lb__t").textContent = s.dataset.t;
+      };
+      if (plynnie && !ruchOgr) {
+        img.classList.add("znika");
+        setTimeout(() => { ustaw(); (img.decode ? img.decode() : Promise.resolve()).catch(() => {}).finally(() => img.classList.remove("znika")); }, 380);
+      } else ustaw();
+      wstepnie(i + 1);
+      if (gra) planuj();
     };
+    const planuj = () => {
+      clearTimeout(timer);
+      pasek.classList.remove("biegnie"); void pasek.offsetWidth; pasek.classList.add("biegnie");   // restart paska
+      timer = setTimeout(() => { if (i >= lista.length - 1) { stop(); return; } idz(i + 1, true); }, SEK);
+    };
+    const pokazUI = () => {
+      lb.classList.remove("lb--cisza"); clearTimeout(cisza);
+      if (gra) cisza = setTimeout(() => lb.classList.add("lb--cisza"), 2500);
+    };
+    const zablokujEkran = async () => { try { blokada = await navigator.wakeLock?.request("screen"); } catch { blokada = null; } };
+    const start = () => {
+      gra = true; lb.classList.add("lb--gra"); btnPokaz.textContent = "Pauza"; btnPokaz.setAttribute("aria-pressed", "true");
+      planuj(); pokazUI(); zablokujEkran();
+    };
+    const stop = () => {
+      gra = false; clearTimeout(timer); lb.classList.remove("lb--gra"); pasek.classList.remove("biegnie");
+      btnPokaz.textContent = "Pokaz slajdów"; btnPokaz.setAttribute("aria-pressed", "false");
+      blokada?.release?.().catch(() => {}); blokada = null; pokazUI();
+    };
+    const pelnyEkran = () => { if (!document.fullscreenElement && lb.requestFullscreen) lb.requestFullscreen().catch(() => {}); };
+
     /* okładka powtarza kadr z historii: w liczniku jej nie ma, chyba że to ją kliknięto */
-    const otworz = el => { lista = [...document.querySelectorAll("img.foto")].filter(f => !f.closest(".okl"));
-      if (!lista.includes(el)) lista.unshift(el); ostatni = el; pokaz(lista.indexOf(el)); lb.hidden = false; document.body.classList.add("no-scroll"); lb.querySelector(".lb__zamknij").focus(); };
-    const zamknij = () => { lb.hidden = true; document.body.classList.remove("no-scroll"); ostatni?.focus?.(); };
+    const otworz = el => { lista = wszystkie();
+      if (!lista.includes(el)) lista.unshift(el); ostatni = el; idz(lista.indexOf(el)); lb.hidden = false; document.body.classList.add("no-scroll"); lb.querySelector(".lb__zamknij").focus(); };
+    const zamknij = () => {
+      stop(); lb.hidden = true; document.body.classList.remove("no-scroll");
+      if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
+      ostatni?.focus?.();
+    };
+    pokazSlajdow = (od = 0) => { const l = wszystkie(); if (!l.length) return; otworz(l[Math.min(od, l.length - 1)]); pelnyEkran(); start(); };
+
     document.addEventListener("click", e => { const f = e.target.closest("img.foto"); if (f && !lb.contains(f)) otworz(f); });
     document.addEventListener("keydown", e => {
       const f = e.target.closest?.("img.foto"); if (f && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); otworz(f); }
       if (lb.hidden) return;
-      if (e.key === "Escape") zamknij(); if (e.key === "ArrowRight") pokaz(i + 1); if (e.key === "ArrowLeft") pokaz(i - 1);
+      pokazUI();
+      if (e.key === "Escape") zamknij();
+      if (e.key === "ArrowRight") idz(i + 1, gra); if (e.key === "ArrowLeft") idz(i - 1, gra);
+      /* spacja w podglądzie = pauza/wznowienie, nigdy "wciśnięcie" przycisku z fokusem (np. Zamknij) */
+      if (e.key === " " && !e.target.closest?.("textarea, input")) { e.preventDefault(); gra ? stop() : start(); }
     });
+    /* Esc w trybie pełnego ekranu najpierw zamyka sam pełny ekran: wtedy tylko pauza, podgląd zostaje */
+    document.addEventListener("fullscreenchange", () => { if (!document.fullscreenElement && gra) stop(); });
+    document.addEventListener("visibilitychange", () => { if (!document.hidden && gra) zablokujEkran(); });
+    lb.addEventListener("pointermove", pokazUI);
     lb.querySelector(".lb__zamknij").onclick = zamknij;
+    btnPokaz.onclick = () => { if (gra) stop(); else { pelnyEkran(); if (i >= lista.length - 1) idz(0); start(); } };
     /* Zapisz: telefon = systemowe „Udostępnij” (tam „Zapisz obraz” → galeria), komputer = pobranie pliku.
-       Plik pełny: w makiecie img/<id>.jpg (2000 px); docelowo pełna rozdzielczość z paczki sesji. */
+       Plik pełny: img/<id>.jpg (2000 px); docelowo pełna rozdzielczość z paczki sesji. */
     lb.querySelector(".lb__zapisz").onclick = async () => {
       const s = lista[i], url = `img/${s.dataset.id}.jpg`, nazwa = `${s.dataset.id}.jpg`;
+      if (gra) stop();
       try {
         const plik = new File([await (await fetch(url)).blob()], nazwa, { type: "image/jpeg" });
         if (matchMedia("(pointer:coarse)").matches && navigator.canShare?.({ files: [plik] })) { await navigator.share({ files: [plik] }); return; }
@@ -193,12 +250,13 @@
         document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 4000);
       } catch (e) { if (e.name !== "AbortError") location.href = url; }   // anulowane udostępnianie to nie błąd
     };
-    lb.querySelector(".lb__dalej").onclick = () => pokaz(i + 1);
-    lb.querySelector(".lb__wstecz").onclick = () => pokaz(i - 1);
-    lb.addEventListener("click", e => { if (e.target === lb) zamknij(); });
+    lb.querySelector(".lb__dalej").onclick = () => idz(i + 1, gra);
+    lb.querySelector(".lb__wstecz").onclick = () => idz(i - 1, gra);
+    /* dotknięcie tła: w pokazie tylko przywraca przyciski (nie zamyka), poza pokazem zamyka */
+    lb.addEventListener("click", e => { if (e.target === lb || e.target === img) { if (gra || lb.classList.contains("lb--cisza")) pokazUI(); else if (e.target === lb) zamknij(); } });
     let x0 = null;
-    lb.addEventListener("touchstart", e => x0 = e.touches[0].clientX, { passive: true });
-    lb.addEventListener("touchend", e => { if (x0 == null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 50) pokaz(i + (dx < 0 ? 1 : -1)); x0 = null; });
+    lb.addEventListener("touchstart", e => { x0 = e.touches[0].clientX; pokazUI(); }, { passive: true });
+    lb.addEventListener("touchend", e => { if (x0 == null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 50) idz(i + (dx < 0 ? 1 : -1), gra); x0 = null; });
   }
 
   /* ---------- start ---------- */
@@ -210,5 +268,6 @@
     ustawMotyw(new URLSearchParams(location.search).get("motyw") || H.motyw);   // ?motyw=zima: podgląd innego akcentu
   }
 
-  window.Album = { H, W, MOTYWY, foto, srcset, rzad, proporcja, init, ustawMotyw, ruchOgr };
+  window.Album = { H, W, MOTYWY, foto, srcset, rzad, proporcja, init, ustawMotyw, ruchOgr,
+    pokazSlajdow: od => pokazSlajdow(od) };
 })();

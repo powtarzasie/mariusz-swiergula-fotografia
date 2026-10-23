@@ -31,7 +31,7 @@ figure{ margin:0; }
   margin-top:.6rem; font-variant-numeric:tabular-nums; }
 
 /* ---- lightbox (mobile first: sterowanie na dole, pod kciukiem) ---- */
-.lb{ position:fixed; inset:0; z-index:var(--z-lightbox); background:rgba(8,8,9,.98);
+.lb{ position:fixed; inset:0; z-index:var(--z-lightbox); background:#080809;
   display:grid; place-items:center; overscroll-behavior:contain;
   padding:calc(3.4rem + env(safe-area-inset-top)) 0 calc(4.6rem + env(safe-area-inset-bottom)); }
 .lb[hidden]{ display:none; }
@@ -48,6 +48,21 @@ figure{ margin:0; }
   display:flex; justify-content:center; align-items:center; gap:1.4rem; pointer-events:none;
   font-size:.68rem; letter-spacing:.22em; color:var(--bone-3); font-variant-numeric:tabular-nums; }
 .lb__t{ color:var(--akcent); }
+.lb__pokaz{ top:calc(.4rem + env(safe-area-inset-top)); left:50%; transform:translateX(-50%); padding:0 .6rem; white-space:nowrap; }
+.lb__pokaz[aria-pressed="true"]{ color:var(--akcent); }
+/* pokaz slajdów: przenikanie kadrów, pasek postępu, przyciski chowają się w trakcie */
+/* .lb .lb__img: strona główna ma własne .lb__img{opacity:0} (czeka na .ready) — bez tej reguły zdjęcie jest niewidoczne */
+.lb .lb__img{ opacity:1; box-shadow:none; transition:opacity .38s var(--ease); }
+.lb .lb__img.znika{ opacity:0; }
+.lb__pasek{ position:absolute; left:0; top:0; width:100%; height:2px; background:var(--akcent); opacity:0;
+  transform:scaleX(0); transform-origin:left; pointer-events:none; }
+.lb--gra .lb__pasek{ opacity:.65; }
+.lb__pasek.biegnie{ animation:lb-pasek var(--sek,5s) linear forwards; }
+@keyframes lb-pasek{ from{ transform:scaleX(0); } to{ transform:scaleX(1); } }
+.lb__btn, .lb__meta{ transition:opacity .5s var(--ease), color var(--t-fast); }
+.lb--cisza{ cursor:none; }
+.lb--cisza .lb__btn, .lb--cisza .lb__meta{ opacity:0; pointer-events:none; }
+@media (prefers-reduced-motion:reduce){ .lb .lb__img{ transition:none; } .lb__pasek{ display:none; } }
 @media (min-width:760px){
   .lb{ padding:clamp(3.5rem,6vw,5rem) clamp(4rem,7vw,6rem); }
   .lb__wstecz, .lb__dalej{ bottom:auto; top:50%; transform:translateY(-50%); }
