@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0B0B0C">
+<meta name="robots" content="noindex, nofollow">
+<title>Sesja wizerunkowa · Mariusz Świerguła</title>
+<meta name="description" content="Kadr zaczyna się od pytania: po co? Sesje wizerunkowe, w których cel i emocja decydują o świetle i kompozycji.">
+<link rel="canonical" href="https://fotografia.mariuszswiergula.pl/wizerunek/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:site_name" content="Mariusz Świerguła Fotografia">
+<meta property="og:title" content="Sesja wizerunkowa · Mariusz Świerguła">
+<meta property="og:description" content="Ludzie nie pamiętają przysłony. Pamiętają, co poczuli. Kadr zaczyna się od pytania: po co?">
+<meta property="og:url" content="https://fotografia.mariuszswiergula.pl/wizerunek/">
+<meta property="og:image" content="https://fotografia.mariuszswiergula.pl/wizerunek/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Portret kobiety w czarnej bluzce na ciemnozielonym tle">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* Wersja C · minimalistyczna: jedno zdanie na rozdział, zdjęcia niosą resztę.
+   Ostrość: ramki dobrane do rozdzielczości plików x2 (Retina), sizes liczone pod kadrowanie; kadry modelki mają limit ramki = rozdzielczość / 2. */
+:root{
+  --ink:#0B0B0C; --line:#26262B;
+  --bone:#F4F1EC; --bone-2:#C6C0B5; --bone-3:#8C877E; --gold:#C2A66B;
+  --serif:"Cormorant Garamond",Georgia,serif; --sans:"Jost","Segoe UI",system-ui,sans-serif;
+  --gut:clamp(16px,4vw,56px);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{background:var(--ink);color:var(--bone);font:300 1rem/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a,button{color:inherit;font:inherit;text-decoration:none;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+em{font-style:italic;color:var(--gold)}
+.wrap{max-width:1280px;margin:0 auto;padding:0 var(--gut)}
+.lab{display:block;font:500 .62rem/1 var(--sans);letter-spacing:.34em;text-transform:uppercase;color:var(--bone-3)}
+
+.top{position:absolute;top:0;left:0;right:0;z-index:5}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;height:64px;max-width:none}
+.brand{font:500 .64rem/1 var(--sans);letter-spacing:.34em;text-transform:uppercase;color:var(--bone-2)}
+.top__cta{font:500 .64rem/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+
+/* OTWARCIE: zdanie + kadr na całą szerokość */
+.open{padding:clamp(7rem,16vh,10rem) 0 0}
+.open h1{margin-top:1.6rem;font:400 clamp(2.6rem,1.4rem + 4.6vw,6rem)/1 var(--serif);letter-spacing:-.02em;max-width:17ch}
+.hero{margin-top:clamp(3rem,8vh,5rem)}
+.hero img{width:100%;aspect-ratio:2/1;object-fit:cover;object-position:50% 28%}
+@media (max-width:700px){.hero img{aspect-ratio:4/3;object-position:38% 30%}}
+
+/* ROZDZIAŁY */
+.ch{padding:clamp(6rem,5rem + 7vw,11rem) 0 0}
+.ch h2{margin:1.3rem 0 0;font:400 clamp(2.3rem,1.4rem + 4vw,4.8rem)/1.02 var(--serif);letter-spacing:-.015em;max-width:15ch}
+.ch h2+*{margin-top:clamp(2.5rem,5vw,4rem)}
+.note{margin-top:1.1rem;font:400 1.15rem/1.4 var(--serif);font-style:italic;color:var(--bone-2)}
+
+.places{display:flex;flex-wrap:wrap;gap:.5rem}
+.places span{padding:.7em 1em;border:1px solid var(--line);font:500 .62rem/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--bone-2)}
+
+/* EMOCJA: MS_01580 ma tylko 1616 px → ramka najwyżej 808 px (ostro na Retinie).
+   Po dostarczeniu oryginału: usuń limit i dopisz większe pliki w srcset. */
+.solo{max-width:808px}
+.solo img{width:100%}
+
+/* ŚWIATŁO: dwa kadry jeden pod drugim, podpis obok kadru (na telefonie pod nim).
+   MS_01184 ma tylko 1080 px → ramka najwyżej 540 px (ostro na Retinie) */
+.lights-h{max-width:20ch!important}
+.lights{display:grid;gap:clamp(3rem,6vw,6rem)}
+.light{display:grid;grid-template-columns:minmax(0,540px) minmax(0,1fr);gap:clamp(1.5rem,4vw,4rem);align-items:end}
+.light img{width:100%}
+.light p{margin-top:1rem;font:400 clamp(1.4rem,1.1rem + 1vw,2rem)/1.25 var(--serif);font-style:italic;color:var(--bone-2);max-width:18ch}
+@media (max-width:760px){.light{grid-template-columns:1fr}}
+
+/* KADR: dwa piony */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(8px,1.4vw,18px)}
+.duo img{width:100%;aspect-ratio:2/3;object-fit:cover}
+.cap{display:block;margin-top:.7rem;font:500 .6rem/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--bone-3)}
+
+/* CHARAKTER: jeden szeroki + dwa obok siebie */
+.chars{display:grid;grid-template-columns:1fr 1fr;gap:clamp(8px,1.4vw,18px)}
+.chars figure:first-child{grid-column:1/-1}
+.chars img{width:100%;aspect-ratio:16/9;object-fit:cover}
+@media (max-width:700px){.chars{grid-template-columns:1fr}}
+
+/* NAPISY KOŃCOWE */
+.credits{margin-top:clamp(6rem,5rem + 7vw,11rem);border-top:1px solid var(--line);padding:clamp(5rem,4rem + 5vw,8rem) 0 3rem;text-align:center}
+.roll{display:grid;gap:2rem;max-width:640px;margin:2.6rem auto 0}
+.roll div{display:grid;gap:.55rem}
+.roll span{font:500 .58rem/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--bone-3)}
+.roll b{font:400 clamp(1.25rem,1.1rem + .8vw,1.7rem)/1.35 var(--serif);font-weight:400}
+.final{margin-top:clamp(4rem,10vh,6rem)}
+.final h2{font:400 clamp(2.4rem,1.4rem + 4.4vw,5rem)/1 var(--serif);letter-spacing:-.015em}
+.btns{margin-top:2.4rem;display:flex;flex-direction:column;align-items:center;gap:.7rem}
+.btn{display:flex;justify-content:center;width:100%;max-width:360px;padding:1.1em 1.4em;font:500 .72rem/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;border:1px solid rgba(244,241,236,.35);transition:.3s}
+.btn:hover{border-color:var(--gold)}
+.btn--solid{background:var(--bone);color:#000;border-color:var(--bone)}
+.btn--solid:hover{background:var(--gold);border-color:var(--gold)}
+.mail{margin-top:.6rem;font-size:.86rem;color:var(--bone-3)}
+footer{padding:2.5rem 0 3rem;text-align:center;font-size:.76rem;color:var(--bone-3)}
+footer a{border-bottom:1px solid var(--line)}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="https://fotografia.mariuszswiergula.pl/">Mariusz Świerguła</a>
+    <a class="top__cta" href="#kontakt">Porozmawiajmy</a>
+  </div>
+</header>
+
+<main>
+  <section class="open">
+    <div class="wrap">
+      <span class="lab">Sesja wizerunkowa</span>
+      <h1>Ludzie nie pamiętają przysłony. Pamiętają, <em>co poczuli.</em></h1>
+    </div>
+    <figure class="hero">
+      <img src="img/hero-2000.jpg" srcset="img/hero-1200.jpg 1200w, img/hero-2000.jpg 2000w, img/hero-2880.jpg 2880w, img/hero-3840.jpg 3840w" sizes="(max-width:700px) 134vw, 100vw" width="3840" height="2160" alt="Kobieta w czarnej bluzce, spokojne spojrzenie w obiektyw, za nią ciemnozielona ściana i pionowy pas światła" fetchpriority="high">
+    </figure>
+  </section>
+
+  <section class="ch">
+    <div class="wrap">
+      <span class="lab">I · Cel</span>
+      <h2>Gdzie to zdjęcie <em>będzie żyło?</em></h2>
+      <div class="places"><span>profil</span><span>strona zespołu</span><span>oferta</span><span>wywiad</span><span>scena</span></div>
+    </div>
+  </section>
+
+  <section class="ch">
+    <div class="wrap">
+      <span class="lab">II · Emocja</span>
+      <h2>Wybieramy <em>jedną.</em></h2>
+      <figure class="solo">
+        <img src="img/blisko-1616.jpg" sizes="(max-width:840px) 100vw, 808px" width="1616" height="1080" loading="lazy" alt="Zbliżenie twarzy kobiety o niebieskich oczach na czarnym tle, dłoń przy włosach">
+        <figcaption class="note">Zdjęcie, które chce powiedzieć wszystko, nie mówi nic.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="ch">
+    <div class="wrap">
+      <span class="lab">III · Światło</span>
+      <h2 class="lights-h">Nie mam ulubionego światła. <em>Mam pytanie: po co?</em></h2>
+      <div class="lights">
+        <figure class="light">
+          <img src="img/pazur-1600.jpg" srcset="img/pazur-1200.jpg 1200w, img/pazur-1600.jpg 1600w" sizes="(max-width:760px) 100vw, 540px" width="1600" height="2000" loading="lazy" alt="Kobieta z telefonem w dłoni przy oknie, obok pionowy pas światła, zadziorne spojrzenie">
+          <figcaption><span class="lab">Światło zastane</span><p>Gdy zdjęcie ma zachować nastrój miejsca.</p></figcaption>
+        </figure>
+        <figure class="light">
+          <img src="img/slonce-1080.jpg" sizes="(max-width:760px) 100vw, 540px" width="1080" height="1616" loading="lazy" alt="Kobieta w półmroku, na twarzy i ramieniu plamy światła jak słońce przesiane przez liście">
+          <figcaption><span class="lab">Światło ustawione</span><p>Gdy nastrój trzeba zbudować od zera.</p></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="ch">
+    <div class="wrap">
+      <span class="lab">IV · Kadr</span>
+      <h2>Szeroki mówi: <em>mój świat.</em> Bliski: <em>ja.</em></h2>
+      <div class="duo">
+        <figure><img src="img/sofa-1200.jpg" srcset="img/sofa-1200.jpg 1200w, img/sofa-1600.jpg 1600w" sizes="(max-width:1280px) 50vw, 600px" width="1600" height="2400" loading="lazy" alt="Kobieta siedzi na sofie w jasnym salonie, widać całą sylwetkę i wnętrze"><figcaption class="cap">kadr szeroki</figcaption></figure>
+        <figure><img src="img/portret-1200.jpg" srcset="img/portret-1200.jpg 1200w, img/portret-1800.jpg 1800w" sizes="(max-width:1280px) 50vw, 600px" width="1800" height="2700" loading="lazy" alt="Ta sama kobieta w bliskim portrecie na szarym tle"><figcaption class="cap">kadr bliski</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="ch">
+    <div class="wrap">
+      <span class="lab">V · Charakter</span>
+      <h2>Jedno światło. <em>Różni ludzie.</em></h2>
+      <div class="chars">
+        <figure><img src="img/otwartosc-2400.jpg" srcset="img/otwartosc-1200.jpg 1200w, img/otwartosc-2400.jpg 2400w" sizes="(max-width:1280px) 100vw, 1168px" width="2400" height="1350" loading="lazy" alt="Uśmiechnięty mężczyzna w błękitnej koszuli ze skrzyżowanymi rękami, za nim ciemnozielona ściana i lampa"><figcaption class="cap">otwartość</figcaption></figure>
+        <figure><img src="img/konkret-1200.jpg" srcset="img/konkret-1200.jpg 1200w, img/konkret-2000.jpg 2000w" sizes="(max-width:700px) 100vw, (max-width:1280px) 50vw, 584px" width="2000" height="1125" loading="lazy" alt="Mężczyzna w granatowej koszulce ze skrzyżowanymi rękami, poważne spojrzenie"><figcaption class="cap">konkret</figcaption></figure>
+        <figure><img src="img/pewnosc-1200.jpg" srcset="img/pewnosc-1200.jpg 1200w, img/pewnosc-2000.jpg 2000w" sizes="(max-width:700px) 100vw, (max-width:1280px) 50vw, 584px" width="2000" height="1125" loading="lazy" alt="Młody mężczyzna z tatuażami, ręce skrzyżowane, lekki uśmiech"><figcaption class="cap">pewność</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="credits" id="kontakt">
+    <div class="wrap">
+      <span class="lab">Napisy końcowe</span>
+      <div class="roll">
+        <div><span>Zdjęcia</span><b>Mariusz Świerguła</b></div>
+        <div><span>Doświadczenie</span><b>20 lat pracy z ludźmi · ponad 300 portretów</b></div>
+        <div><span>Przed obiektywem stawali między innymi</span><b>Adam&nbsp;Michnik · Jerzy&nbsp;Pilch · Janina&nbsp;Paradowska · Kuba&nbsp;Wojewódzki · Katarzyna&nbsp;Kolenda&#8209;Zaleska</b></div>
+        <div><span>W roli głównej</span><b>Ty</b></div>
+      </div>
+      <div class="final">
+        <h2>Zacznijmy <em>od pytania.</em></h2>
+        <div class="btns">
+          <a class="btn btn--solid" href="tel:+48600353150">Zadzwoń · 600 353 150</a>
+          <a class="btn" href="mailto:mariusz.swiergula@gmail.com?subject=Sesja%20wizerunkowa">Napisz</a>
+          <a class="mail" href="mailto:mariusz.swiergula@gmail.com?subject=Sesja%20wizerunkowa">mariusz.swiergula@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><a href="https://fotografia.mariuszswiergula.pl/">fotografia.mariuszswiergula.pl</a></footer>
+
+</body>
+</html>
