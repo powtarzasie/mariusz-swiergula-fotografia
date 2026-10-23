@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0B0B0C">
+<meta name="robots" content="noindex, nofollow">
+<title>Czternaście · Kinga & Marek · Mariusz Świerguła Fotografia</title>
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/style.css">
+<link rel="stylesheet" href="../_album/album.css">
+<style>
+/* ===== v3 KINO (mobile first) =================================================
+   Ciemno jak strona główna. Okładka, plansze rozdziałów z godziną, kadry.
+   Bez ozdób: żadnych animacji tła, kliszy ani zegarów (decyzja 2026-10-23).
+   CSS pisany od telefonu (360-430 px); tablet i komputer to rozszerzenia.
+   Rytm na telefonie: pełny kadr = od krawędzi do krawędzi, pojedynczy kadr =
+   z marginesem, para pionów = obok siebie, wszystko inne = jeden pod drugim. */
+:root{ --m:var(--gutter); --przerwa:clamp(3rem,10vw,7.5rem); --styk:4px; }
+body{ background:var(--ink); }
+
+/* wejście kadru: samo przenikanie, krótko; bez przesuwania */
+.fx{ transform:none; transition:opacity 1.1s var(--ease); }
+
+/* ---- okładka ---- */
+.okl{ position:relative; height:100svh; min-height:520px; overflow:hidden; }
+.okl picture, .okl .foto{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 40%; cursor:default; }
+.okl::after{ content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(to top, rgba(11,11,12,.88) 0%, rgba(11,11,12,.35) 38%, rgba(11,11,12,0) 62%); }
+.okl__in{ position:absolute; z-index:2; left:var(--m); right:var(--m);
+  bottom:calc(clamp(2rem,7vh,5rem) + env(safe-area-inset-bottom)); }
+.okl__para{ font-size:.68rem; letter-spacing:.36em; text-transform:uppercase; color:var(--bone-2); }
+.okl h1{ font-size:clamp(2.9rem,2rem + 6vw,6.5rem); margin:.12em 0 .25em; }
+.okl__meta{ display:flex; flex-wrap:wrap; gap:.35rem 1.6rem; font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:var(--bone-3); }
+
+/* ---- plansza rozdziału ---- */
+.plansza{ min-height:72svh; display:grid; place-items:center; text-align:center; padding:var(--przerwa) var(--m); }
+.plansza .plansza__nr{ font-size:.66rem; letter-spacing:.44em; text-transform:uppercase; color:var(--bone-3); }
+.plansza .plansza__czas{ font-family:var(--serif); font-size:clamp(3.6rem,2.4rem + 6vw,7.5rem); line-height:1; color:var(--akcent);
+  font-variant-numeric:tabular-nums lining-nums; margin:.3em 0 .15em; }
+.plansza h2{ font-size:clamp(1.9rem,1.4rem + 2.6vw,3.6rem); font-style:italic; }
+.plansza p:not([class]){ max-width:34ch; margin:1.2rem auto 0; color:var(--bone-2); font-size:1.08rem; line-height:1.7; }
+
+/* ---- kadry ---- */
+.sek{ display:flex; flex-direction:column; gap:var(--przerwa); padding-bottom:var(--przerwa); }
+.k-pelne .foto{ width:100%; }                                         /* telefon: bez kadrowania */
+.k-jedno{ margin-inline:var(--m); }
+.k-slowo{ text-align:center; font-family:var(--serif); font-style:italic; font-size:clamp(1.45rem,1.2rem + 1.4vw,2.3rem);
+  color:var(--bone-2); max-width:24ch; margin:0 auto; padding-inline:var(--m); line-height:1.35; }
+
+/* rząd na telefonie: każdy kadr na całą szerokość, tylko dwa kolejne piony stają obok siebie
+   (.pol); kolejność opowieści zostaje, nie ma pustych dziur pod krótszym kadrem */
+.rz{ display:grid; grid-template-columns:1fr 1fr; gap:var(--styk); }
+.rz > figure{ grid-column:1 / -1; }
+.rz > figure.pol{ grid-column:auto; }
+
+/* ---- koniec ---- */
+.koniec{ min-height:72svh; display:grid; place-items:center; text-align:center;
+  padding:var(--przerwa) var(--m) calc(var(--przerwa) + env(safe-area-inset-bottom)); }
+.koniec .koniec__czas{ font-family:var(--serif); font-size:clamp(3.2rem,2.2rem + 5vw,6rem); line-height:1; color:var(--akcent); font-variant-numeric:tabular-nums lining-nums; }
+.koniec h2{ font-size:clamp(1.9rem,1.4rem + 2.6vw,3.6rem); font-style:italic; margin:.35em 0 .5em; }
+.koniec .koniec__txt{ color:var(--bone-2); max-width:34ch; margin:0 auto 2.4rem; font-size:1.08rem; line-height:1.7; }
+.koniec .cta{ flex-direction:column; align-items:stretch; max-width:22rem; margin:0 auto; }
+.koniec .btn-a{ justify-content:center; min-height:52px; }
+.koniec .koniec__podpis{ margin-top:3rem; font-size:.66rem; letter-spacing:.3em; text-transform:uppercase; color:var(--bone-3); }
+
+/* ---- sekcje po historii: bonus, pobieranie, wasze słowa ---- */
+.po{ padding:var(--przerwa) var(--m); border-top:1px solid var(--line-soft); }
+.po__in{ max-width:960px; margin:0 auto; }
+.po .po__nad{ margin-bottom:1rem; font-size:.66rem; letter-spacing:.36em; text-transform:uppercase; color:var(--bone-3); }
+.po h2{ font-size:clamp(1.8rem,1.4rem + 2vw,3rem); font-style:italic; }
+.po__lead{ color:var(--bone-2); margin-top:.8rem; max-width:40ch; }
+
+/* bonus: kadr filmu z przyciskiem; film ładuje się dopiero po dotknięciu (lekka strona, zero reklam) */
+.film{ position:relative; margin-top:2rem; aspect-ratio:16/9; background:#000; overflow:hidden; }
+.po--bonus{ padding-inline:0; } .po--bonus .po__in > :not(.film){ margin-inline:var(--m); }
+.film img, .film video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.film__start{ position:absolute; inset:0; display:grid; place-items:center; color:var(--bone); background:rgba(0,0,0,.25);
+  transition:background-color var(--t-mid); cursor:pointer; }
+.film__start:hover{ background:rgba(0,0,0,.1); }
+.film__ikona{ width:68px; height:68px; border:1px solid rgba(244,241,236,.85); border-radius:50%; display:grid; place-items:center; }
+.film__ikona::before{ content:""; margin-left:5px; border-style:solid; border-width:10px 0 10px 16px; border-color:transparent transparent transparent currentColor; }
+.film__info{ position:absolute; left:1rem; bottom:.9rem; font-size:.68rem; letter-spacing:.22em; text-transform:uppercase; color:var(--bone-2); }
+.film__brak{ position:absolute; inset:auto 0 0 0; padding:1rem; text-align:center; font-size:.85rem; color:var(--bone); background:rgba(0,0,0,.6); }
+
+/* pobieranie: dwie paczki + wskazówka dla telefonu */
+.paczki{ display:grid; gap:.8rem; margin-top:2rem; }
+.paczka{ display:flex; justify-content:space-between; align-items:center; gap:1rem; min-height:72px; padding:1rem 1.2rem;
+  border:1px solid var(--line); transition:border-color var(--t-mid); }
+.paczka:hover{ border-color:var(--akcent); }
+.paczka--wkrotce, .paczka--wkrotce:hover{ border-style:dashed; border-color:var(--line); }
+.paczka.paczka--wkrotce i{ color:var(--bone-3); }
+.paczka b{ display:block; font-weight:400; color:var(--bone); font-size:1rem; }
+.paczka span{ font-size:.82rem; color:var(--bone-3); }
+.paczka i{ font-style:normal; font-size:.66rem; letter-spacing:.2em; text-transform:uppercase; color:var(--akcent); white-space:nowrap; }
+.wskazowka{ margin-top:1.4rem; font-size:.92rem; color:var(--bone-3); max-width:46ch; }
+
+/* wasze słowa: dwa etapy */
+.etapy{ display:grid; gap:2.6rem; margin-top:2.2rem; }
+.etap__lbl{ font-size:.66rem; letter-spacing:.3em; text-transform:uppercase; color:var(--akcent); font-variant-numeric:tabular-nums; }
+.etap blockquote{ margin-top:.9rem; font-family:var(--serif); font-style:italic; font-size:clamp(1.3rem,1.1rem + 1vw,1.75rem); line-height:1.45; color:var(--bone); }
+.etap cite{ display:block; margin-top:.8rem; font-style:normal; font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--bone-3); }
+.etap form{ margin-top:1rem; display:grid; gap:.9rem; }
+.etap label{ font-size:.95rem; color:var(--bone-2); }
+.etap textarea{ width:100%; min-height:9rem; padding:.9rem 1rem; font:300 16px/1.6 var(--sans); color:var(--bone);
+  background:rgba(255,255,255,.03); border:1px solid var(--line); border-radius:0; resize:vertical; }
+.etap textarea:focus{ outline:none; border-color:var(--akcent); }
+.zgoda{ display:flex; gap:.7rem; align-items:flex-start; font-size:.88rem !important; color:var(--bone-3) !important; cursor:pointer; }
+.zgoda input{ width:20px; height:20px; margin-top:.1rem; accent-color:var(--akcent); flex:none; }
+.etap .btn-a{ justify-content:center; color:var(--bone); }
+.etap__pomoc{ font-size:.82rem; color:var(--bone-3); }
+
+/* ---- tablet (od 700 px): rzędy obok siebie, kadry z oddechem ---- */
+@media (min-width:700px){
+  :root{ --styk:clamp(6px,.8vw,12px); }
+  .rz{ display:flex; align-items:flex-start; margin-inline:var(--m); }
+  .rz > figure{ flex:var(--r) 1 0; min-width:0; }
+  .k-jedno{ width:min(100% - 2*var(--m), 900px); margin-inline:auto; }
+  .k-jedno--pion{ width:min(100% - 2*var(--m), 560px); }
+  .koniec .cta{ flex-direction:row; justify-content:center; max-width:none; }
+  .po--bonus{ padding-inline:var(--m); } .po--bonus .po__in > :not(.film){ margin-inline:0; }
+  .paczki{ grid-template-columns:1fr 1fr; }
+  .etapy{ grid-template-columns:1fr 1fr; gap:3rem; }
+  .etap .btn-a{ justify-self:start; }
+}
+/* ---- komputer (od 1000 px): pełne kadry na ekran, szersze rzędy ---- */
+@media (min-width:1000px){
+  .plansza{ min-height:88svh; }
+  .k-pelne .foto{ max-height:100svh; object-fit:cover; object-position:50% 38%; }
+  .rz{ width:min(100% - 2*var(--m), var(--maxw)); margin-inline:auto; }
+  .k-jedno{ width:min(100% - 2*var(--m), 980px); }
+  .k-jedno--pion{ width:min(100% - 2*var(--m), 600px); }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Przejdź do treści</a>
+
+<header class="nav" id="top">
+  <button class="nav__toggle" aria-label="Otwórz menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+  <a class="brand" href="https://fotografia.mariuszswiergula.pl/" aria-label="Mariusz Świerguła Fotografia, strona główna">
+    <span class="brand__mono">M</span>
+    <span class="brand__name">Mariusz Świerguła</span>
+    <span class="brand__sub">Fotografia</span>
+  </a>
+  <nav class="nav__links" aria-label="Główne">
+    <a class="nav__link" href="https://fotografia.mariuszswiergula.pl/sluby.html">Śluby</a>
+    <a class="nav__link" href="https://fotografia.mariuszswiergula.pl/rodzina.html">Rodzina</a>
+    <a class="nav__link" href="https://fotografia.mariuszswiergula.pl/#o-mnie">O mnie</a>
+    <a class="nav__link" href="https://fotografia.mariuszswiergula.pl/#kontakt">Kontakt</a>
+  </nav>
+</header>
+<div class="menu" id="menu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Menu">
+  <button class="menu__close" aria-label="Zamknij menu">Zamknij ✕</button>
+  <a href="https://fotografia.mariuszswiergula.pl/sluby.html">Śluby</a>
+  <a href="https://fotografia.mariuszswiergula.pl/rodzina.html">Rodzina</a>
+  <a href="https://fotografia.mariuszswiergula.pl/#o-mnie">O mnie</a>
+  <a href="https://fotografia.mariuszswiergula.pl/#kontakt">Kontakt</a>
+  <span class="menu__foot">Historie zapisane światłem i emocjami</span>
+</div>
+
+<main id="main"></main>
+
+<footer class="footer">
+  <div class="wrap footer__grid">
+    <div class="footer__mono">M</div>
+    <div class="footer__meta">
+      <span>© <span data-year>2026</span> Mariusz Świerguła Fotografia</span>
+      <a href="https://fotografia.mariuszswiergula.pl/sluby.html" class="link" style="font-size:.7rem">Śluby</a>
+      <a href="https://fotografia.mariuszswiergula.pl/rodzina.html" class="link" style="font-size:.7rem">Rodzina</a>
+      <a href="https://fotografia.mariuszswiergula.pl/#kontakt" class="link" style="font-size:.7rem">Kontakt</a>
+      <a href="https://fotografia.mariuszswiergula.pl/polityka-prywatnosci.html" class="link" style="font-size:.7rem">Polityka prywatności</a>
+    </div>
+  </div>
+</footer>
+
+<script src="wymiary.js"></script>
+<script src="historia.js"></script>
+<script src="../_album/album.js"></script>
+<script>
+(() => {
+  const { H, W, foto, proporcja } = Album;
+  const pion = id => W[id][1] > W[id][0];
+  /* rząd: klasa mówi telefonowi, jak go złożyć; --r = proporcja kadru dla układu obok siebie (tablet+) */
+  const rz = ids => {
+    const suma = ids.reduce((s, id) => s + proporcja(id), 0);
+    const pol = ids.map(() => false);                     // telefon: pary kolejnych pionów obok siebie
+    for (let i = 0; i < ids.length - 1; i++) if (pion(ids[i]) && pion(ids[i + 1])) { pol[i] = pol[i + 1] = true; i++; }
+    return `<div class="rz fx">${ids.map((id, i) => {
+      const duzy = Math.round(100 * proporcja(id) / suma);
+      return `<figure class="${pol[i] ? "pol" : ""}" style="--r:${proporcja(id).toFixed(3)}">${foto(id,
+        { sizes: `(min-width:700px) ${duzy}vw, ${pol[i] ? "50vw" : "100vw"}` })}</figure>`;
+    }).join("")}</div>`;
+  };
+  const blok = b => {
+    if (b.typ === "pelne")  return `<figure class="k-pelne fx">${foto(b.f)}</figure>`;
+    if (b.typ === "jedno")  return `<figure class="k-jedno ${pion(b.f) ? "k-jedno--pion" : ""} fx">${foto(b.f,
+        { sizes: pion(b.f) ? "(min-width:700px) 600px, 92vw" : "(min-width:1000px) 980px, 92vw" })}</figure>`;
+    if (b.typ === "rzad" || b.typ === "klatki") return rz(b.f);
+    if (b.typ === "slowo")  return `<p class="k-slowo fx">${b.tekst}</p>`;
+    return "";
+  };
+  /* ---- bonus: film ładowany dopiero po dotknięciu ---- */
+  const B = H.bonus, P = H.pobierz, O = H.opinie;
+  const bonus = () => !B ? "" : `
+    <section class="po po--bonus" aria-labelledby="t-bonus"><div class="po__in fx">
+      <p class="po__nad">Bonus</p><h2 id="t-bonus">${B.tytul}</h2><p class="po__lead">${B.opis}</p>
+      <div class="film">
+        ${foto(B.poster, { alt: "", sizes: "(min-width:1000px) 960px, 100vw" })}
+        <button class="film__start" type="button" aria-label="Odtwórz film: ${B.tytul}"><span class="film__ikona" aria-hidden="true"></span></button>
+        ${B.dlugosc ? `<span class="film__info">${B.dlugosc}</span>` : ""}
+      </div>
+    </div></section>`;
+  const podlaczFilm = () => {
+    const f = document.querySelector(".film"); if (!f) return;
+    f.querySelector(".foto").classList.remove("foto");                 // kadr filmu nie otwiera podglądu zdjęć
+    f.querySelector(".film__start").addEventListener("click", () => {
+      if (!B.wideo) { if (!f.querySelector(".film__brak")) f.insertAdjacentHTML("beforeend", `<p class="film__brak" role="status">Film jest w przygotowaniu. Pojawi się tutaj.</p>`); return; }
+      f.innerHTML = `<video src="${B.wideo}" controls autoplay playsinline preload="metadata" poster="img/w1600/${B.poster}.jpg"></video>`;
+    });
+  };
+
+  /* ---- pobieranie ---- */
+  const pobierz = () => !P ? "" : `
+    <section class="po" aria-labelledby="t-pob"><div class="po__in fx">
+      <p class="po__nad">Wasze zdjęcia</p><h2 id="t-pob">Pobierz wszystkie</h2>
+      <div class="paczki">
+        ${[P.pelne, P.lekkie].map(p => p.url ? `<a class="paczka" href="${p.url}" download>
+          <div><b>${p.ile} zdjęć · ZIP</b><span>${p.opis}</span></div><i>${p.rozmiar}</i></a>`
+          : `<div class="paczka paczka--wkrotce"><div><b>${p.ile} zdjęć · ZIP</b><span>${p.opis}</span></div><i>Wkrótce</i></div>`).join("")}
+      </div>
+      <p class="wskazowka">Na telefonie najprościej: otwórzcie zdjęcie i dotknijcie „Zapisz”. Trafi prosto do galerii w telefonie. Paczki ZIP najlepiej pobrać na komputerze.</p>
+    </div></section>`;
+
+  /* ---- wasze słowa: etap wypełniony = cytat, pusty = formularz (wysyła e-mail z aplikacji pocztowej) ---- */
+  const etap = (o, lbl, pytanie, klucz) => `<div class="etap">
+      <p class="etap__lbl">${lbl}${o.data ? " · " + o.data : ""}</p>
+      ${o.tekst ? `<blockquote>${o.tekst}</blockquote>${o.podpis ? `<cite>${o.podpis}</cite>` : ""}` : `
+      <form data-etap="${klucz}" novalidate>
+        <label for="t-${klucz}">${pytanie}</label>
+        <textarea id="t-${klucz}" name="tekst" required></textarea>
+        <label class="zgoda"><input type="checkbox" name="zgoda"> Możesz pokazać fragment na swojej stronie (bez nazwiska).</label>
+        <button class="btn-a" type="submit">Wyślij do Mariusza</button>
+        <p class="etap__pomoc" aria-live="polite">Otworzy się Wasza poczta z gotową wiadomością.</p>
+      </form>`}
+    </div>`;
+  const slowa = () => !O ? "" : `
+    <section class="po" aria-labelledby="t-slowa"><div class="po__in fx">
+      <p class="po__nad">Wasze słowa</p><h2 id="t-slowa">Jak było?</h2>
+      <div class="etapy">
+        ${etap(O.poSesji, "Po sesji", "Jak Wam się pracowało?", "po-sesji")}
+        ${etap(O.poZdjeciach, "Po obejrzeniu zdjęć", "Co czujecie, oglądając te zdjęcia?", "po-zdjeciach")}
+      </div>
+    </div></section>`;
+  const podlaczSlowa = () => document.querySelectorAll("form[data-etap]").forEach(f => f.addEventListener("submit", e => {
+    e.preventDefault();
+    const t = f.tekst.value.trim(), pomoc = f.querySelector(".etap__pomoc");
+    if (!t) { pomoc.textContent = "Napiszcie choć jedno zdanie."; f.tekst.focus(); return; }
+    const etapNazwa = f.dataset.etap === "po-sesji" ? "po sesji" : "po obejrzeniu zdjęć";
+    const tresc = `${t}\n\n${H.para}\nZgoda na pokazanie fragmentu na stronie: ${f.zgoda.checked ? "TAK" : "NIE"}`;
+    location.href = `mailto:${H.kontakt}?subject=${encodeURIComponent(`Album „${H.tytul}”: ${etapNazwa}`)}&body=${encodeURIComponent(tresc)}`;
+    pomoc.textContent = "Dziękuję! Jeśli poczta się nie otworzyła, napiszcie na " + H.kontakt + ".";
+  }));
+
+  document.getElementById("main").innerHTML = `
+    <section class="okl">
+      <picture>
+        <source media="(max-aspect-ratio: 4/5)" srcset="${Album.srcset(H.okladkaPion)}" sizes="100vw">
+        ${foto(H.okladka, { lazy: false, alt: "Para przytulona pod złotym klonem" })}
+      </picture>
+      <div class="okl__in">
+        <p class="okl__para">${H.para}</p>
+        <h1>${H.tytul}</h1>
+        <div class="okl__meta"><span>${H.podtytul}</span><span>${H.dataSlownie}</span></div>
+      </div>
+    </section>
+    ${H.rozdzialy.map((r, i) => `
+      <section data-rozdzial="${i}" aria-labelledby="r${i}">
+        <header class="plansza fx" data-t="${r.czas}">
+          <div>
+            <p class="plansza__nr">Rozdział ${r.nr}</p>
+            <p class="plansza__czas">${r.czas}</p>
+            <h2 id="r${i}">${r.tytul}</h2>
+            <p>${r.tekst}</p>
+          </div>
+        </header>
+        <div class="sek">${r.bloki.map(blok).join("")}</div>
+      </section>`).join("")}
+    <section class="koniec" data-t="${H.final.czas}">
+      <div class="fx">
+        <p class="koniec__czas">${H.final.czas}</p>
+        <h2>${H.final.tytul}</h2>
+        <p class="koniec__txt">${H.final.tekst}</p>
+        <p class="koniec__podpis">${H.final.podpis}</p>
+      </div>
+    </section>
+    ${bonus()}${pobierz()}${slowa()}`;
+  podlaczFilm(); podlaczSlowa();
+  Album.init({ panel: false });
+})();
+</script>
+<script src="../../js/main.js" defer></script>
+</body>
+</html>

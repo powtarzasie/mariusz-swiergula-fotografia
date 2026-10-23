@@ -1,0 +1,78 @@
+/* ============================================================================
+   ALBUM: elementy wspólne dla koncepcji A/B/C.
+   Nagłówek, stopka, kroje i tokeny pochodzą z css/style.css strony głównej.
+   ========================================================================== */
+:root{ --akcent:#C98A3B; --gap:clamp(4px,.6vw,10px); }
+
+/* animacja tła (cząstki): nad tłem, pod treścią albo nad nią, zawsze bez kliknięć */
+.czastki{ position:fixed; inset:0; width:100%; height:100%; pointer-events:none; z-index:5;
+  transition:opacity 1.2s var(--ease); }
+
+/* zdjęcia */
+.foto{ width:100%; height:auto; cursor:zoom-in; background:rgba(255,255,255,.03); }
+figure{ margin:0; }
+.rzad{ display:flex; gap:var(--gap); align-items:flex-start; }
+.rzad figure{ min-width:0; }
+@media (max-width:560px){
+  /* 3 pionowe obok siebie na telefonie są za wąskie: łamiemy na 1 + 2 */
+  .rzad--3{ flex-wrap:wrap; }
+  .rzad--3 figure:first-child{ flex-basis:100% !important; }
+}
+
+/* wejście kadru: łagodne, krótkie, tylko opacity/transform */
+.fx{ opacity:0; transform:translateY(24px); transition:opacity .9s var(--ease-out), transform .9s var(--ease-out); }
+.fx.is-in{ opacity:1; transform:none; }
+@media (prefers-reduced-motion:reduce){ .fx{ opacity:1; transform:none; transition:none; } }
+
+/* pasek kliszy: seria z kilku sekund */
+.klatki{ display:flex; gap:var(--gap); }
+.klatki figure{ flex:1 1 0; min-width:0; position:relative; }
+.klatki figcaption{ font:500 .62rem/1 var(--sans); letter-spacing:.2em; color:var(--bone-3);
+  margin-top:.6rem; font-variant-numeric:tabular-nums; }
+
+/* ---- lightbox (mobile first: sterowanie na dole, pod kciukiem) ---- */
+.lb{ position:fixed; inset:0; z-index:var(--z-lightbox); background:rgba(8,8,9,.98);
+  display:grid; place-items:center; overscroll-behavior:contain;
+  padding:calc(3.4rem + env(safe-area-inset-top)) 0 calc(4.6rem + env(safe-area-inset-bottom)); }
+.lb[hidden]{ display:none; }
+.lb__img{ max-width:100%; max-height:100%; object-fit:contain; cursor:default; }
+.lb__btn{ position:absolute; color:var(--bone-2); min-width:48px; min-height:48px;
+  display:grid; place-items:center; font-size:.72rem; letter-spacing:.22em; text-transform:uppercase;
+  transition:color var(--t-fast); touch-action:manipulation; }
+.lb__btn:hover{ color:var(--bone); }
+.lb__zamknij{ top:calc(.4rem + env(safe-area-inset-top)); right:calc(var(--gutter) - .6rem); padding:0 .6rem; }
+.lb__zapisz{ top:calc(.4rem + env(safe-area-inset-top)); left:calc(var(--gutter) - .6rem); padding:0 .6rem; }
+.lb__wstecz, .lb__dalej{ bottom:calc(.6rem + env(safe-area-inset-bottom)); width:64px; }
+.lb__wstecz{ left:.4rem; } .lb__dalej{ right:.4rem; }
+.lb__meta{ position:absolute; left:0; right:0; bottom:calc(.6rem + env(safe-area-inset-bottom)); height:48px;
+  display:flex; justify-content:center; align-items:center; gap:1.4rem; pointer-events:none;
+  font-size:.68rem; letter-spacing:.22em; color:var(--bone-3); font-variant-numeric:tabular-nums; }
+.lb__t{ color:var(--akcent); }
+@media (min-width:760px){
+  .lb{ padding:clamp(3.5rem,6vw,5rem) clamp(4rem,7vw,6rem); }
+  .lb__wstecz, .lb__dalej{ bottom:auto; top:50%; transform:translateY(-50%); }
+  .lb__meta{ bottom:1.1rem; }
+}
+
+/* ---- panel motywów (tylko w makiecie) ---- */
+.motyw-panel{ position:fixed; z-index:150; left:50%; bottom:max(.8rem, env(safe-area-inset-bottom));
+  transform:translateX(-50%); display:flex; align-items:center; gap:.2rem; padding:.3rem .4rem .3rem .9rem;
+  background:rgba(14,14,16,.86); backdrop-filter:blur(10px); border:1px solid var(--line);
+  border-radius:999px; max-width:calc(100vw - 1.5rem); overflow-x:auto; scrollbar-width:none; }
+.motyw-panel__lbl{ font-size:.58rem; letter-spacing:.24em; text-transform:uppercase; color:var(--bone-3);
+  white-space:nowrap; margin-right:.4rem; }
+.motyw-panel button{ display:flex; align-items:center; gap:.45rem; min-height:40px; padding:0 .75rem;
+  border-radius:999px; font-size:.66rem; letter-spacing:.1em; color:var(--bone-2); white-space:nowrap;
+  transition:background-color var(--t-fast), color var(--t-fast); }
+.motyw-panel button i{ width:9px; height:9px; border-radius:50%; flex:none; }
+.motyw-panel button[aria-pressed="true"]{ background:rgba(255,255,255,.09); color:var(--bone); }
+@media (max-width:560px){ .motyw-panel button span{ display:none; } .motyw-panel button{ padding:0 .55rem; } }
+
+/* ---- przyciski końcowe ---- */
+.cta{ display:flex; flex-wrap:wrap; gap:.8rem; justify-content:center; }
+.btn-a{ display:inline-flex; align-items:center; gap:.9rem; min-height:50px; padding:0 1.6rem;
+  font-size:.74rem; letter-spacing:.22em; text-transform:uppercase; border:1px solid currentColor;
+  transition:background-color var(--t-mid) var(--ease), color var(--t-mid) var(--ease), border-color var(--t-mid); }
+.btn-a--pelny{ background:var(--akcent); border-color:var(--akcent); color:#120d07; }
+.btn-a:hover{ border-color:var(--akcent); }
+.btn-a--pelny:hover{ filter:brightness(1.08); }
