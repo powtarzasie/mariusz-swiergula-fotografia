@@ -3,200 +3,312 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0B0B0C">
+<meta name="theme-color" content="#0B110F">
 <meta name="robots" content="noindex, nofollow">
 <title>Sesja wizerunkowa · Mariusz Świerguła</title>
-<meta name="description" content="Sesje wizerunkowe dla osób i firm: zdjęcie do profilu, na stronę zespołu, do oferty, do wywiadu. Najpierw ustalamy, gdzie zdjęcie trafi. Łódź i dojazd do klienta.">
+<meta name="description" content="Sesje wizerunkowe: zdjęcie do profilu, na stronę zespołu, do oferty, do wywiadu. Każdą układam pod osobę i pod to, gdzie zdjęcie trafi. Łódź i dojazd do klienta.">
 <link rel="canonical" href="https://fotografia.mariuszswiergula.pl/wizerunek/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pl_PL">
 <meta property="og:site_name" content="Mariusz Świerguła Fotografia">
 <meta property="og:title" content="Sesja wizerunkowa · Mariusz Świerguła">
-<meta property="og:description" content="Portrety do profilu, na stronę firmy i do oferty. Dla osób, które nie lubią swoich zdjęć i nie umieją pozować.">
+<meta property="og:description" content="Portrety do profilu, na stronę firmy i do oferty. Bez gotowych póz: każdą sesję układam pod konkretną osobę i jej cel.">
 <meta property="og:url" content="https://fotografia.mariuszswiergula.pl/wizerunek/">
-<meta property="og:image" content="https://fotografia.mariuszswiergula.pl/wizerunek/img/og.jpg">
+<meta property="og:image" content="https://fotografia.mariuszswiergula.pl/wizerunek/img/og.jpg?v=20261023">
+<meta property="og:image:secure_url" content="https://fotografia.mariuszswiergula.pl/wizerunek/img/og.jpg?v=20261023">
+<meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Portret kobiety w czarnej bluzce na ciemnozielonym tle">
+<meta property="og:image:alt" content="Portret mężczyzny ze skrzyżowanymi rękami w biurze z ciemnozieloną ścianą i napis: Nie musisz lubić swoich zdjęć. Ani umieć pozować.">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sesja wizerunkowa · Mariusz Świerguła">
+<meta name="twitter:description" content="Portrety do profilu, na stronę firmy i do oferty. Bez gotowych póz: każdą sesję układam pod konkretną osobę i jej cel.">
+<meta name="twitter:image" content="https://fotografia.mariuszswiergula.pl/wizerunek/img/og.jpg?v=20261023">
+<meta name="twitter:image:alt" content="Portret mężczyzny ze skrzyżowanymi rękami i napis: Nie musisz lubić swoich zdjęć. Ani umieć pozować.">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
 <style>
-/* Wersja C · minimalistyczna: jedno zdanie na rozdział, zdjęcia niosą resztę.
-   Ostrość: ramki dobrane do rozdzielczości plików x2 (Retina), sizes liczone pod kadrowanie; kadry modelki mają limit ramki = rozdzielczość / 2. */
+/* /wizerunek · „Wizjer": strona jak praca fotografa, nie katalog.
+   Kolory wzięte ze zdjęć (zieleń ściany biura + bursztyn pasa światła LED), znaczniki wizjera
+   na kadrach, punkt ostrości w hero, prawdziwe dane EXIF pod zdjęciami (wszystko 85 mm).
+   Ostrość: ramki dobrane do rozdzielczości plików x2 (Retina); kadry modelki mają limit ramki. */
 :root{
-  --ink:#0B0B0C; --line:#26262B;
-  --bone:#F4F1EC; --bone-2:#C6C0B5; --bone-3:#8C877E; --gold:#C2A66B;
-  --serif:"Cormorant Garamond",Georgia,serif; --sans:"Jost","Segoe UI",system-ui,sans-serif;
-  --gut:clamp(16px,4vw,56px);
+  --bg:#0B110F; --bg-2:#111916; --line:#22302A;
+  --tx:#ECE7DE; --tx-2:#B7BDB3; --tx-3:#8A938B;
+  --amber:#E3A64A;
+  --serif:"Cormorant Garamond",Georgia,serif;
+  --sans:"Jost","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --gut:clamp(16px,4vw,56px); --maxw:1280px;
+  --ease:cubic-bezier(.2,.7,.2,1);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-body{background:var(--ink);color:var(--bone);font:300 1rem/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{background:var(--bg);color:var(--tx);font:300 1rem/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%;height:auto}
 a,button{color:inherit;font:inherit;text-decoration:none;background:none;border:0;cursor:pointer}
-:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-em{font-style:italic;color:var(--gold)}
-.wrap{max-width:1280px;margin:0 auto;padding:0 var(--gut)}
-.lab{display:block;font:500 .62rem/1 var(--sans);letter-spacing:.34em;text-transform:uppercase;color:var(--bone-3)}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+em{font-style:italic;color:var(--amber)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--amber);color:#000;padding:.6em 1em;z-index:50}
+.skip:focus{left:8px}
 
-.top{position:absolute;top:0;left:0;right:0;z-index:5}
+/* Tekst techniczny: etykiety i EXIF */
+.mono{font:400 .75rem/1.5 var(--mono);letter-spacing:.04em;color:var(--tx-3)}
+.exif{font:400 .75rem/1.5 var(--mono);letter-spacing:.04em;color:var(--tx-3);white-space:nowrap}
+.exif::before{content:"";display:inline-block;width:.45em;height:.45em;margin-right:.6em;background:var(--amber);vertical-align:.1em}
+
+/* Znaczniki wizjera: cztery narożniki nad kadrem */
+.vf{position:relative}
+.vf::after{content:"";position:absolute;inset:clamp(8px,1.4vw,16px);pointer-events:none;
+  --c:var(--amber);--l:clamp(14px,1.8vw,24px);
+  background:
+    linear-gradient(var(--c),var(--c)) top left/var(--l) 1px no-repeat,
+    linear-gradient(var(--c),var(--c)) top left/1px var(--l) no-repeat,
+    linear-gradient(var(--c),var(--c)) top right/var(--l) 1px no-repeat,
+    linear-gradient(var(--c),var(--c)) top right/1px var(--l) no-repeat,
+    linear-gradient(var(--c),var(--c)) bottom left/var(--l) 1px no-repeat,
+    linear-gradient(var(--c),var(--c)) bottom left/1px var(--l) no-repeat,
+    linear-gradient(var(--c),var(--c)) bottom right/var(--l) 1px no-repeat,
+    linear-gradient(var(--c),var(--c)) bottom right/1px var(--l) no-repeat;
+  opacity:.9}
+figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;margin-top:.8rem}
+
+/* NAGŁÓWEK */
+.top{position:absolute;top:0;left:0;right:0;z-index:10}
 .top .wrap{display:flex;justify-content:space-between;align-items:center;height:64px;max-width:none}
-.brand{font:500 .64rem/1 var(--sans);letter-spacing:.34em;text-transform:uppercase;color:var(--bone-2)}
-.top__cta{font:500 .64rem/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.brand{font:500 .75rem/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--tx)}
+.brand small{display:block;color:var(--tx-3);font-weight:400}
+.top__cta{font:500 .75rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--amber);padding:.9em 0;border-bottom:1px solid var(--amber)}
 
-/* OTWARCIE: zdanie + kadr na całą szerokość */
-.open{padding:clamp(7rem,16vh,10rem) 0 0}
-.open h1{margin-top:1.6rem;font:400 clamp(2.6rem,1.4rem + 4.6vw,6rem)/1 var(--serif);letter-spacing:-.02em;max-width:17ch}
-.hero{margin-top:clamp(3rem,8vh,5rem)}
-.hero img{width:100%;aspect-ratio:2/1;object-fit:cover;object-position:50% 28%}
-@media (max-width:700px){.hero img{aspect-ratio:4/3;object-position:38% 30%}}
+/* HERO: kadr bez przycinania (proporcje pliku), punkt ostrości na oku, tekst na ścianie po prawej */
+.hero__frame{position:relative;aspect-ratio:6656/3744;overflow:hidden;background:#000}
+.hero__frame>img{position:absolute;inset:0;width:100%;height:100%}
+.hero__frame::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(270deg,rgba(11,17,15,.92) 0%,rgba(11,17,15,.6) 22%,rgba(11,17,15,0) 40%),
+             linear-gradient(180deg,rgba(11,17,15,.75) 0%,rgba(11,17,15,0) 14%)}
+.hero__frame.vf::after{z-index:2}
+.af{position:absolute;z-index:2;left:47.7%;top:33.8%;width:clamp(44px,5vw,72px);aspect-ratio:1;transform:translate(-50%,-50%);border:1.5px solid var(--amber);pointer-events:none}
+.af::after{content:"";position:absolute;left:50%;top:50%;width:4px;height:4px;margin:-2px 0 0 -2px;background:var(--amber)}
+.hero{position:relative}
+.hero__txt{position:absolute;z-index:3;right:var(--gut);top:clamp(6rem,15%,10rem);width:min(27%,440px)}
+.hero h1{margin-top:1rem;font:400 clamp(2.2rem,.8rem + 2.9vw,4rem)/1 var(--serif);letter-spacing:-.015em}
+.hero__lead{margin-top:1.3rem;font:300 clamp(1rem,.9rem + .3vw,1.15rem)/1.55 var(--sans);color:var(--tx-2);max-width:34ch}
+.hero__exif{position:absolute;z-index:3;left:var(--gut);bottom:clamp(1.2rem,2.5vw,2rem)}
+.hero__exif .exif{display:inline-block;color:var(--tx);background:rgba(11,17,15,.72);padding:.35em .7em}
+.js .af{animation:af .5s var(--ease) .4s both}
+@keyframes af{0%{opacity:0;transform:translate(-50%,-50%) scale(1.6)}60%{opacity:1}100%{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@media (max-width:1099px){
+  .hero{padding-top:64px}
+  .hero__frame::before{background:linear-gradient(180deg,rgba(11,17,15,.4) 0%,rgba(11,17,15,0) 20%)}
+  .hero__txt{position:static;width:auto;padding:2rem var(--gut) 0}
+  .hero h1{font-size:clamp(2.4rem,1.2rem + 5vw,3.8rem);max-width:16ch}
+}
+@media (max-width:699px){
+  .hero__frame{aspect-ratio:4/5}
+  .hero__frame>img{left:50%;width:auto;height:100%;max-width:none;transform:translateX(-47.7%)}
+  .af{left:50%}
+}
 
 /* ROZDZIAŁY */
-.ch{padding:clamp(6rem,5rem + 7vw,11rem) 0 0}
-.ch h2{margin:1.3rem 0 0;font:400 clamp(2.3rem,1.4rem + 4vw,4.8rem)/1.02 var(--serif);letter-spacing:-.015em;max-width:20ch}
+.ch{padding:clamp(6rem,5rem + 6vw,10rem) 0 0}
+.slate{display:flex;align-items:center;gap:1rem;margin-bottom:1.6rem;font:500 .75rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--amber)}
+.slate::after{content:"";flex:1;height:1px;background:var(--line)}
+.slate b{font-weight:500;color:var(--tx-3)}
+.ch h2{font:400 clamp(2.3rem,1.3rem + 4vw,4.8rem)/1.02 var(--serif);letter-spacing:-.015em;max-width:20ch}
 .ch h2+*{margin-top:clamp(2.5rem,5vw,4rem)}
-.note{margin-top:1.1rem;font:400 1.15rem/1.4 var(--serif);font-style:italic;color:var(--bone-2)}
+.note{font:400 1.2rem/1.4 var(--serif);font-style:italic;color:var(--tx-2)}
 
-.places{display:flex;flex-wrap:wrap;gap:.5rem}
-.places span{padding:.7em 1em;border:1px solid var(--line);font:500 .62rem/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--bone-2)}
+/* 01 CEL: miejsca jako formaty kadru */
+.formats{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(.75rem,2vw,1.5rem);align-items:end}
+.formats li{display:grid;gap:.9rem;align-content:end}
+.fr{height:clamp(64px,8vw,104px);border:1px solid var(--tx-3);position:relative;transition:border-color .25s var(--ease)}
+.fr::before,.fr::after{content:"";position:absolute;background:var(--tx-3);transition:background .25s var(--ease)}
+.fr::before{left:50%;top:30%;bottom:30%;width:1px}
+.fr::after{top:50%;left:calc(50% - 8px);width:16px;height:1px}
+.formats li:hover .fr{border-color:var(--amber)}
+.formats li:hover .fr::before,.formats li:hover .fr::after{background:var(--amber)}
+.formats b{display:block;font:400 clamp(1.1rem,.9rem + .7vw,1.5rem)/1.15 var(--serif)}
+.formats .mono{margin-top:.2rem}
+@media (max-width:760px){.formats{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:2rem}}
 
-/* EMOCJA: MS_01580 ma tylko 1616 px → ramka najwyżej 808 px (ostro na Retinie).
-   Po dostarczeniu oryginału: usuń limit i dopisz większe pliki w srcset. */
+/* 02 WRAŻENIE */
 .solo{max-width:808px}
 .solo img{width:100%}
 
-/* ŚWIATŁO: dwa kadry jeden pod drugim, podpis obok kadru (na telefonie pod nim).
-   MS_01184 ma tylko 1080 px → ramka najwyżej 540 px (ostro na Retinie) */
-.lights-h{max-width:20ch!important}
-.lights{display:grid;gap:clamp(3rem,6vw,6rem)}
-.light{display:grid;grid-template-columns:minmax(0,540px) minmax(0,1fr);gap:clamp(1.5rem,4vw,4rem);align-items:end}
+/* 03 ŚWIATŁO: jedno pod drugim, na przemian lewo / prawo */
+.lights{display:grid;gap:clamp(4rem,8vw,7rem)}
+.light{display:grid;grid-template-columns:minmax(0,540px) minmax(0,1fr);gap:clamp(1.5rem,5vw,5rem);align-items:end}
+.light--rev{grid-template-columns:minmax(0,1fr) minmax(0,540px)}
+.light--rev figure{order:2}
 .light img{width:100%}
-.light p{margin-top:1rem;font:400 clamp(1.4rem,1.1rem + 1vw,2rem)/1.25 var(--serif);font-style:italic;color:var(--bone-2);max-width:18ch}
-@media (max-width:760px){.light{grid-template-columns:1fr}}
+.light__kind{font:500 .75rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--amber)}
+.light__txt p{margin-top:1rem;font:400 clamp(1.5rem,1.1rem + 1.2vw,2.2rem)/1.2 var(--serif);max-width:16ch}
+.light--rev .light__txt{justify-self:end;text-align:right}
+.light--rev .light__txt p{margin-left:auto}
+@media (max-width:760px){
+  .light,.light--rev{grid-template-columns:1fr}
+  .light--rev figure{order:0}
+  .light--rev .light__txt{justify-self:start;text-align:left}
+  .light--rev .light__txt p{margin-left:0}
+}
 
-/* KADR: dwa piony */
+/* 04 KADR */
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(8px,1.4vw,18px)}
 .duo img{width:100%;aspect-ratio:2/3;object-fit:cover}
-.cap{display:block;margin-top:.7rem;font:500 .6rem/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--bone-3)}
+.tag{font:500 .75rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--tx)}
+@media (max-width:520px){.duo figcaption .exif{display:none}}
 
-/* CHARAKTER: jeden szeroki + dwa obok siebie */
-.chars{display:grid;grid-template-columns:1fr 1fr;gap:clamp(8px,1.4vw,18px)}
-.chars figure:first-child{grid-column:1/-1}
-.chars img{width:100%;aspect-ratio:16/9;object-fit:cover}
-@media (max-width:700px){.chars{grid-template-columns:1fr}}
+/* 05 ZESPÓŁ */
+.team{display:grid;grid-template-columns:1fr 1fr;gap:clamp(8px,1.4vw,18px)}
+.team figure:first-child{grid-column:1/-1}
+.team img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.stamp{margin-top:clamp(1.5rem,3vw,2.2rem);display:inline-flex;gap:.8rem;align-items:center;flex-wrap:wrap;padding:.85rem 1.1rem;border:1px solid var(--line);font:400 .75rem/1.5 var(--mono);letter-spacing:.04em;color:var(--tx-2)}
+.stamp b{font-weight:500;color:var(--amber)}
+@media (max-width:700px){.team{grid-template-columns:1fr}}
 
 /* NAPISY KOŃCOWE */
-.credits{margin-top:clamp(6rem,5rem + 7vw,11rem);border-top:1px solid var(--line);padding:clamp(5rem,4rem + 5vw,8rem) 0 3rem;text-align:center}
-.roll{display:grid;gap:2rem;max-width:640px;margin:2.6rem auto 0}
+.credits{margin-top:clamp(6rem,5rem + 6vw,10rem);border-top:1px solid var(--line);padding:clamp(5rem,4rem + 5vw,8rem) 0 3rem;text-align:center}
+.credits .slate{justify-content:center;max-width:460px;margin:0 auto}
+.credits .slate::before{content:"";flex:1;height:1px;background:var(--line)}
+.roll{display:grid;gap:2rem;max-width:640px;margin:3rem auto 0}
 .roll div{display:grid;gap:.55rem}
-.roll span{font:500 .58rem/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--bone-3)}
+.roll span{font:400 .75rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--tx-3)}
 .roll b{font:400 clamp(1.25rem,1.1rem + .8vw,1.7rem)/1.35 var(--serif);font-weight:400}
 .final{margin-top:clamp(4rem,10vh,6rem)}
-.final h2{font:400 clamp(2.4rem,1.4rem + 4.4vw,5rem)/1 var(--serif);letter-spacing:-.015em}
+.final h2{font:400 clamp(2.4rem,1.3rem + 4.4vw,5rem)/1.02 var(--serif);letter-spacing:-.015em;max-width:18ch;margin:0 auto}
 .btns{margin-top:2.4rem;display:flex;flex-direction:column;align-items:center;gap:.7rem}
-.btn{display:flex;justify-content:center;width:100%;max-width:360px;padding:1.1em 1.4em;font:500 .72rem/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;border:1px solid rgba(244,241,236,.35);transition:.3s}
-.btn:hover{border-color:var(--gold)}
-.btn--solid{background:var(--bone);color:#000;border-color:var(--bone)}
-.btn--solid:hover{background:var(--gold);border-color:var(--gold)}
-.mail{margin-top:.6rem;font-size:.86rem;color:var(--bone-3)}
-footer{padding:2.5rem 0 3rem;text-align:center;font-size:.76rem;color:var(--bone-3)}
-footer a{border-bottom:1px solid var(--line)}
+.btn{display:flex;justify-content:center;align-items:center;width:100%;max-width:360px;min-height:52px;padding:1em 1.4em;font:500 .8rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;border:1px solid rgba(236,231,222,.35);transition:background .25s var(--ease),border-color .25s var(--ease),color .25s var(--ease)}
+.btn:hover{border-color:var(--amber)}
+.btn--solid{background:var(--amber);color:#0B110F;border-color:var(--amber)}
+.btn--solid:hover{background:var(--tx);border-color:var(--tx)}
+.mail{margin-top:.6rem;font:400 .8rem/1.5 var(--mono);color:var(--tx-3);padding:.6rem 0}
+footer{padding:2.5rem 0 3rem;text-align:center;font:400 .75rem/1 var(--mono);color:var(--tx-3)}
+footer a{border-bottom:1px solid var(--line);padding:.6rem 0}
+
+/* Wejście elementów przy przewijaniu (tylko z JS; wyłączone przy ograniczonym ruchu) */
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.js .rv.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .rv{opacity:1;transform:none;transition:none}
+  .js .af{animation:none}
+}
 </style>
 </head>
 <body>
+<a class="skip" href="#tresc">Przejdź do treści</a>
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="https://fotografia.mariuszswiergula.pl/">Mariusz Świerguła</a>
+    <a class="brand" href="https://fotografia.mariuszswiergula.pl/">Mariusz Świerguła<small>Fotografia</small></a>
     <a class="top__cta" href="#kontakt">Porozmawiajmy</a>
   </div>
 </header>
 
-<main>
-  <section class="open">
-    <div class="wrap">
-      <span class="lab">Sesja wizerunkowa</span>
+<main id="tresc">
+  <section class="hero">
+    <div class="hero__frame vf">
+      <img src="img/hero-2000.jpg" srcset="img/hero-1200.jpg 1200w, img/hero-2000.jpg 2000w, img/hero-2880.jpg 2880w, img/hero-3840.jpg 3840w" sizes="(max-width:699px) 223vw, 100vw" width="3840" height="2160" alt="Mężczyzna w granatowej koszulce ze skrzyżowanymi rękami patrzy spokojnie w obiektyw, za nim ciemnozielona ściana biura i pionowy pas światła" fetchpriority="high">
+      <span class="af" aria-hidden="true"></span>
+      <div class="hero__exif"><span class="exif">85 mm · f/2.2 · 1/250 s · ISO 320</span></div>
+    </div>
+    <div class="hero__txt">
+      <span class="mono">Sesja wizerunkowa</span>
       <h1>Nie musisz lubić swoich zdjęć. <em>Ani umieć pozować.</em></h1>
-    </div>
-    <figure class="hero">
-      <img src="img/hero-2000.jpg" srcset="img/hero-1200.jpg 1200w, img/hero-2000.jpg 2000w, img/hero-2880.jpg 2880w, img/hero-3840.jpg 3840w" sizes="(max-width:700px) 134vw, 100vw" width="3840" height="2160" alt="Kobieta w czarnej bluzce, spokojne spojrzenie w obiektyw, za nią ciemnozielona ściana i pionowy pas światła" fetchpriority="high">
-    </figure>
-  </section>
-
-  <section class="ch">
-    <div class="wrap">
-      <span class="lab">I · Cel</span>
-      <h2>Najpierw pytam, <em>gdzie to zdjęcie trafi.</em></h2>
-      <div class="places"><span>profil</span><span>strona zespołu</span><span>oferta</span><span>wywiad</span><span>program konferencji</span></div>
+      <p class="hero__lead">Każdy portret przygotowuję indywidualnie, na zamówienie: pod Twój charakter i cel, który chcesz osiągnąć.</p>
     </div>
   </section>
 
-  <section class="ch">
+  <section class="ch" aria-labelledby="h-cel">
     <div class="wrap">
-      <span class="lab">II · Wrażenie</span>
-      <h2>Jakie wrażenie <em>chcesz zrobić?</em></h2>
-      <figure class="solo">
-        <img src="img/blisko-1616.jpg" sizes="(max-width:840px) 100vw, 808px" width="1616" height="1080" loading="lazy" alt="Zbliżenie twarzy kobiety o niebieskich oczach na czarnym tle, dłoń przy włosach">
-        <figcaption class="note">Wybieramy jedno, na przykład pewność siebie.</figcaption>
+      <p class="slate">01 · Cel <b>/ 05</b></p>
+      <h2 id="h-cel" class="rv">Najpierw pytam, <em>gdzie to zdjęcie trafi i kto je zobaczy.</em></h2>
+      <ul class="formats rv" aria-label="Miejsca, do których robię zdjęcia, i ich format">
+        <li><span class="fr" style="aspect-ratio:1/1"></span><span><b>profil</b><span class="mono">kwadrat</span></span></li>
+        <li><span class="fr" style="aspect-ratio:4/5"></span><span><b>strona zespołu</b><span class="mono">pion</span></span></li>
+        <li><span class="fr" style="aspect-ratio:16/9"></span><span><b>oferta</b><span class="mono">poziom</span></span></li>
+        <li><span class="fr" style="aspect-ratio:2/3"></span><span><b>wywiad</b><span class="mono">pion</span></span></li>
+        <li><span class="fr" style="aspect-ratio:1/1"></span><span><b>program konferencji</b><span class="mono">kwadrat</span></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="ch" aria-labelledby="h-wrazenie">
+    <div class="wrap">
+      <p class="slate">02 · Wrażenie <b>/ 05</b></p>
+      <h2 id="h-wrazenie" class="rv">Jakie wrażenie <em>chcesz zrobić?</em></h2>
+      <figure class="solo rv">
+        <div class="vf"><img src="img/blisko-1616.jpg" sizes="(max-width:840px) 100vw, 808px" width="1616" height="1080" loading="lazy" alt="Zbliżenie twarzy kobiety o niebieskich oczach na czarnym tle, dłoń przy włosach"></div>
+        <figcaption><span class="note">Wybieramy jedno, które pasuje do Ciebie, na przykład pewność siebie.</span><span class="exif">85 mm · f/1.8 · 1/1250 s</span></figcaption>
       </figure>
     </div>
   </section>
 
-  <section class="ch">
+  <section class="ch" aria-labelledby="h-swiatlo">
     <div class="wrap">
-      <span class="lab">III · Światło</span>
-      <h2 class="lights-h">Światło dobieram <em>dopiero potem.</em></h2>
+      <p class="slate">03 · Światło <b>/ 05</b></p>
+      <h2 id="h-swiatlo" class="rv">Światło dobieram <em>dopiero po rozmowie.</em></h2>
       <div class="lights">
-        <figure class="light">
-          <img src="img/pazur-1600.jpg" srcset="img/pazur-1200.jpg 1200w, img/pazur-1600.jpg 1600w" sizes="(max-width:760px) 100vw, 540px" width="1600" height="2000" loading="lazy" alt="Kobieta z telefonem w dłoni przy oknie, obok pionowy pas światła, zadziorne spojrzenie">
-          <figcaption><span class="lab">Światło zastane</span><p>Gdy wnętrze ma wyglądać tak jak na co dzień.</p></figcaption>
-        </figure>
-        <figure class="light">
-          <img src="img/slonce-1080.jpg" sizes="(max-width:760px) 100vw, 540px" width="1080" height="1616" loading="lazy" alt="Kobieta w półmroku, na twarzy i ramieniu plamy światła z reflektora, jak słońce przesiane przez liście">
-          <figcaption><span class="lab">Światło ustawione</span><p>Gdy takiego światła nie ma i trzeba je zrobić. Te plamy to reflektor, nie słońce.</p></figcaption>
-        </figure>
+        <div class="light rv">
+          <figure>
+            <div class="vf"><img src="img/pazur-1600.jpg" srcset="img/pazur-1200.jpg 1200w, img/pazur-1600.jpg 1600w" sizes="(max-width:760px) 100vw, 540px" width="1600" height="2000" loading="lazy" alt="Kobieta z telefonem w dłoni przy pionowym pasie światła w biurze, zadziorne spojrzenie"></div>
+            <figcaption><span class="exif">85 mm · f/2.2 · 1/250 s</span></figcaption>
+          </figure>
+          <div class="light__txt"><span class="light__kind">Światło zastane</span><p>Gdy wnętrze ma wyglądać tak jak na co dzień.</p></div>
+        </div>
+        <div class="light light--rev rv">
+          <figure>
+            <div class="vf"><img src="img/slonce-1080.jpg" sizes="(max-width:760px) 100vw, 540px" width="1080" height="1616" loading="lazy" alt="Kobieta w półmroku, na twarzy i ramieniu plamy światła z reflektora, jak słońce przesiane przez liście"></div>
+            <figcaption><span class="exif">85 mm · f/2.8 · 1/1250 s</span></figcaption>
+          </figure>
+          <div class="light__txt"><span class="light__kind">Światło ustawione</span><p>Gdy takiego światła nie ma i trzeba je zrobić. Te plamy to reflektor, nie słońce.</p></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="ch">
+  <section class="ch" aria-labelledby="h-kadr">
     <div class="wrap">
-      <span class="lab">IV · Kadr</span>
-      <h2>Szeroko widać miejsce. <em>Blisko widać Ciebie.</em></h2>
-      <div class="duo">
-        <figure><img src="img/sofa-1200.jpg" srcset="img/sofa-1200.jpg 1200w, img/sofa-1600.jpg 1600w" sizes="(max-width:1280px) 50vw, 600px" width="1600" height="2400" loading="lazy" alt="Kobieta siedzi na sofie w jasnym salonie, widać całą sylwetkę i wnętrze"><figcaption class="cap">kadr szeroki</figcaption></figure>
-        <figure><img src="img/portret-1200.jpg" srcset="img/portret-1200.jpg 1200w, img/portret-1800.jpg 1800w" sizes="(max-width:1280px) 50vw, 600px" width="1800" height="2700" loading="lazy" alt="Ta sama kobieta w bliskim portrecie na szarym tle"><figcaption class="cap">kadr bliski</figcaption></figure>
+      <p class="slate">04 · Kadr <b>/ 05</b></p>
+      <h2 id="h-kadr" class="rv">Szeroko widać miejsce. <em>Blisko widać Ciebie.</em></h2>
+      <div class="duo rv">
+        <figure><div class="vf"><img src="img/sofa-1200.jpg" srcset="img/sofa-1200.jpg 1200w, img/sofa-1600.jpg 1600w" sizes="(max-width:1280px) 50vw, 600px" width="1600" height="2400" loading="lazy" alt="Kobieta siedzi na sofie w jasnym salonie, widać całą sylwetkę i wnętrze"></div><figcaption><span class="tag">Szeroko</span><span class="exif">85 mm · f/5.6 · 1/160 s</span></figcaption></figure>
+        <figure><div class="vf"><img src="img/portret-1200.jpg" srcset="img/portret-1200.jpg 1200w, img/portret-1800.jpg 1800w" sizes="(max-width:1280px) 50vw, 600px" width="1800" height="2700" loading="lazy" alt="Ta sama kobieta w bliskim portrecie na szarym tle"></div><figcaption><span class="tag">Blisko</span><span class="exif">85 mm · f/5.6 · 1/160 s</span></figcaption></figure>
       </div>
     </div>
   </section>
 
-  <section class="ch">
+  <section class="ch" aria-labelledby="h-zespol">
     <div class="wrap">
-      <span class="lab">V · Zespół</span>
-      <h2>Jedno światło dla całego zespołu. <em>Każdy wygląda po swojemu.</em></h2>
-      <div class="chars">
-        <figure><img src="img/otwartosc-2400.jpg" srcset="img/otwartosc-1200.jpg 1200w, img/otwartosc-2400.jpg 2400w" sizes="(max-width:1280px) 100vw, 1168px" width="2400" height="1350" loading="lazy" alt="Uśmiechnięty mężczyzna w błękitnej koszuli ze skrzyżowanymi rękami, za nim ciemnozielona ściana i lampa"><figcaption class="cap">z uśmiechem</figcaption></figure>
-        <figure><img src="img/konkret-1200.jpg" srcset="img/konkret-1200.jpg 1200w, img/konkret-2000.jpg 2000w" sizes="(max-width:700px) 100vw, (max-width:1280px) 50vw, 584px" width="2000" height="1125" loading="lazy" alt="Mężczyzna w granatowej koszulce ze skrzyżowanymi rękami, poważne spojrzenie"><figcaption class="cap">na poważnie</figcaption></figure>
-        <figure><img src="img/pewnosc-1200.jpg" srcset="img/pewnosc-1200.jpg 1200w, img/pewnosc-2000.jpg 2000w" sizes="(max-width:700px) 100vw, (max-width:1280px) 50vw, 584px" width="2000" height="1125" loading="lazy" alt="Młody mężczyzna z tatuażami, ręce skrzyżowane, lekki uśmiech"><figcaption class="cap">na luzie</figcaption></figure>
+      <p class="slate">05 · Zespół <b>/ 05</b></p>
+      <h2 id="h-zespol" class="rv">Jedno światło dla całego zespołu. <em>Każdy wygląda po swojemu.</em></h2>
+      <div class="team rv">
+        <figure><div class="vf"><img src="img/spokoj-2400.jpg" srcset="img/spokoj-1200.jpg 1200w, img/spokoj-2400.jpg 2400w" sizes="(max-width:1280px) 100vw, 1168px" width="2400" height="1350" loading="lazy" alt="Kobieta w czarnej bluzce, spokojne spojrzenie w obiektyw, za nią ciemnozielona ściana i pionowy pas światła"></div><figcaption><span class="tag">Spokojnie</span></figcaption></figure>
+        <figure><div class="vf"><img src="img/usmiech-1200.jpg" srcset="img/usmiech-1200.jpg 1200w, img/usmiech-2000.jpg 2000w" sizes="(max-width:700px) 100vw, (max-width:1280px) 50vw, 584px" width="2000" height="1125" loading="lazy" alt="Uśmiechnięty mężczyzna w błękitnej koszuli ze skrzyżowanymi rękami"></div><figcaption><span class="tag">Z uśmiechem</span></figcaption></figure>
+        <figure><div class="vf"><img src="img/pewnosc-1200.jpg" srcset="img/pewnosc-1200.jpg 1200w, img/pewnosc-2000.jpg 2000w" sizes="(max-width:700px) 100vw, (max-width:1280px) 50vw, 584px" width="2000" height="1125" loading="lazy" alt="Młody mężczyzna z tatuażami, ręce skrzyżowane, lekki uśmiech"></div><figcaption><span class="tag">Na luzie</span></figcaption></figure>
       </div>
+      <p class="stamp rv"><b>Wszystkie trzy</b> 85 mm · 1/250 s · to samo miejsce i to samo światło</p>
     </div>
   </section>
 
-  <section class="credits" id="kontakt">
+  <section class="credits" id="kontakt" aria-labelledby="h-kontakt">
     <div class="wrap">
-      <span class="lab">Napisy końcowe</span>
+      <p class="slate">Napisy końcowe</p>
       <div class="roll">
         <div><span>Zdjęcia</span><b>Mariusz Świerguła</b></div>
         <div><span>Doświadczenie</span><b>20 lat pracy z ludźmi, od zespołów po zarządy · ponad 300 portretów pracowników</b></div>
         <div><span>Przed moim obiektywem stawali między innymi</span><b>Adam&nbsp;Michnik · Jerzy&nbsp;Pilch · Janina&nbsp;Paradowska · Kuba&nbsp;Wojewódzki · Katarzyna&nbsp;Kolenda&#8209;Zaleska</b></div>
+        <div><span>Sprzęt</span><b>Sony α7R V, obiektyw 85 mm</b></div>
         <div><span>Plan zdjęciowy</span><b>Łódź albo Twoje biuro, także poza Łodzią</b></div>
+        <div><span>Scenariusz</span><b>pisany od nowa dla każdej osoby</b></div>
         <div><span>W roli głównej</span><b>Ty</b></div>
       </div>
       <div class="final">
-        <h2>Powiedz, <em>do czego potrzebujesz zdjęć.</em></h2>
+        <h2 id="h-kontakt">Powiedz, <em>do czego potrzebujesz zdjęć.</em></h2>
         <div class="btns">
           <a class="btn btn--solid" href="tel:+48600353150">Zadzwoń · 600 353 150</a>
           <a class="btn" href="mailto:mariusz.swiergula@gmail.com?subject=Sesja%20wizerunkowa">Napisz</a>
@@ -209,5 +321,22 @@ footer a{border-bottom:1px solid var(--line)}
 
 <footer><a href="https://fotografia.mariuszswiergula.pl/">fotografia.mariuszswiergula.pl</a></footer>
 
+<script>
+// Wejście elementów przy przewijaniu; bez IntersectionObserver albo przy ograniczonym ruchu wszystko widać od razu
+(function(){
+  var els=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches){
+    [].forEach.call(els,function(e){e.classList.add('on')});return;
+  }
+  var io=new IntersectionObserver(function(en){
+    en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('on');io.unobserve(x.target)}});
+  },{rootMargin:'0px 0px -8% 0px'});
+  [].forEach.call(els,function(e){io.observe(e)});
+  // bezpiecznik: gdy obserwator nie zadziała wcale (np. przeglądarka w tle), treść i tak się pokaże
+  setTimeout(function(){
+    if(!document.querySelector('.rv.on')){[].forEach.call(els,function(e){e.classList.add('on')});io.disconnect();}
+  },3000);
+})();
+</script>
 </body>
 </html>
