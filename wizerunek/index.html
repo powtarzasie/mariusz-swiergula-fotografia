@@ -151,18 +151,11 @@ figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:.
 .ch__p+*{margin-top:clamp(2.5rem,5vw,4rem)}
 .note{font-size:var(--fs-body);color:var(--bone-2);max-width:40ch}
 
-/* 01 CEL: miejsca jako formaty kadru */
-.formats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(.75rem,2vw,1.5rem);align-items:end}
-.formats li{display:grid;gap:.9rem;align-content:end}
+/* Ramka formatu (rysunek przy „Kadr" w rozdziale 01) */
 .fr{height:clamp(64px,8vw,104px);border:1px solid var(--bone-3);position:relative;transition:border-color .4s var(--ease)}
 .fr::before,.fr::after{content:"";position:absolute;background:var(--bone-3);transition:background .4s var(--ease)}
 .fr::before{left:50%;top:30%;bottom:30%;width:1px}
 .fr::after{top:50%;left:calc(50% - 8px);width:16px;height:1px}
-.formats li:hover .fr{border-color:var(--champagne)}
-.formats li:hover .fr::before,.formats li:hover .fr::after{background:var(--champagne)}
-.formats b{display:block;font:400 clamp(1.15rem,.9rem + .7vw,1.5rem)/1.15 var(--serif)}
-.formats .cap{display:block;margin-top:.35rem}
-@media (max-width:760px){.formats{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:2rem}}
 
 /* 02 WRAŻENIE */
 .solo{max-width:640px}
@@ -232,6 +225,24 @@ figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:.
   html{scroll-behavior:auto}
   .js .rv{opacity:1;transform:none;transition:none}
 }
+
+/* 01 CEL (v5, wariant A): co z celu wynika dla zdjęcia (kadr, perspektywa, rekwizyty); rysunki z cienkich linii */
+.dec{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1.5rem,3vw,3rem)}
+.dec>li{border-top:1px solid var(--line);padding-top:1.5rem;display:grid;gap:1rem;align-content:start}
+.dec .ic{height:64px;display:flex;align-items:flex-end;gap:12px}
+.dec h3{font-family:var(--sans);font-size:var(--fs-kicker);font-weight:500;text-transform:uppercase;letter-spacing:.32em;color:var(--champagne);line-height:1.4}
+.dec p{font:400 clamp(1.2rem,1rem + .7vw,1.55rem)/1.3 var(--serif);color:var(--bone);max-width:24ch}
+.dec .fr{height:auto;display:block}
+.dec .ic-fr{height:56px;width:auto;flex:none}
+.ic-oko{position:relative;width:96px;height:56px}
+.ic-oko::before{content:"";position:absolute;left:0;right:0;top:50%;border-top:1px dashed var(--bone-3)}
+.ic-oko::after{content:"";position:absolute;left:0;top:calc(50% - 7px);width:14px;height:14px;border:1px solid var(--champagne);border-radius:50%;background:var(--ink)}
+.ic-oko span{position:absolute;right:0;top:calc(50% - 22px);width:14px;height:44px;border:1px solid var(--bone-3);border-radius:7px 7px 2px 2px}
+.ic-rzecz{position:relative;width:96px;height:56px}
+.ic-rzecz::before{content:"";position:absolute;left:0;bottom:0;width:58px;height:38px;border:1px solid var(--bone-3);transform:skewX(-12deg)}
+.ic-rzecz::after{content:"";position:absolute;right:8px;bottom:0;width:20px;height:28px;border:1px solid var(--bone-3);border-radius:0 0 5px 5px}
+.ic-rzecz span{position:absolute;right:0;bottom:8px;width:9px;height:12px;border:1px solid var(--bone-3);border-left:0;border-radius:0 6px 6px 0}
+@media (max-width:760px){.dec{grid-template-columns:1fr;gap:2rem}}
 </style>
 </head>
 <body>
@@ -263,13 +274,11 @@ figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:.
     <div class="wrap">
       <p class="slate"><span class="slate__n">01</span><span class="kicker">Cel</span></p>
       <h2 id="h-cel" class="rv">Zdjęcie idzie na spotkanie pierwsze. <em>Pytam, dokąd i&nbsp;do kogo.</em></h2>
-      <p class="ch__p rv">Ktoś, kto Cię nie zna, wyrobi sobie z&nbsp;niego zdanie. Potem porówna je z&nbsp;Tobą na żywo.</p>
-      <ul class="formats rv" aria-label="Miejsca, do których robię zdjęcia, i ich format">
-        <li><span class="fr" style="aspect-ratio:1/1"></span><span><b>profil</b><span class="cap">kwadrat</span></span></li>
-        <li><span class="fr" style="aspect-ratio:4/5"></span><span><b>strona zespołu</b><span class="cap">pion</span></span></li>
-        <li><span class="fr" style="aspect-ratio:16/9"></span><span><b>oferta</b><span class="cap">poziom</span></span></li>
-        <li><span class="fr" style="aspect-ratio:2/3"></span><span><b>wywiad</b><span class="cap">pion</span></span></li>
-        <li><span class="fr" style="aspect-ratio:1/1"></span><span><b>program konferencji</b><span class="cap">kwadrat</span></span></li>
+      <p class="ch__p rv">Ktoś, kto Cię nie zna, wyrobi sobie z&nbsp;niego zdanie, a&nbsp;potem porówna je z&nbsp;Tobą na żywo. Od odpowiedzi zależy, jak je zrobię.</p>
+      <ul class="dec rv" aria-label="Co ustalam, zanim zrobię zdjęcie">
+        <li><span class="ic"><span class="fr ic-fr" style="aspect-ratio:1/1"></span><span class="fr ic-fr" style="aspect-ratio:16/9"></span></span><h3>Kadr</h3><p>Format zależy od miejsca: profil to kwadrat, oferta poziom.</p></li>
+        <li><span class="ic"><span class="ic-oko"><span></span></span></span><h3>Perspektywa</h3><p>Wysokość aparatu, czyli jak widz ma na Ciebie patrzeć.</p></li>
+        <li><span class="ic"><span class="ic-rzecz"><span></span></span></span><h3>Rekwizyty</h3><p>Rzeczy, z&nbsp;którymi naprawdę pracujesz. Albo żadnych.</p></li>
       </ul>
     </div>
   </section>
