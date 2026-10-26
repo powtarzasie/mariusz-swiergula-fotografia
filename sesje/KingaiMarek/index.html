@@ -85,7 +85,7 @@ body{ background:var(--ink); }
 /* bonus: kadr filmu z przyciskiem; film ładuje się dopiero po dotknięciu (lekka strona, zero reklam) */
 .film{ position:relative; margin-top:2rem; aspect-ratio:16/9; background:#000; overflow:hidden; }
 .po--bonus{ padding-inline:0; } .po--bonus .po__in > :not(.film){ margin-inline:var(--m); }
-.film img, .film video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.film img, .film video, .film iframe{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border:0; }
 .film__start{ position:absolute; inset:0; display:grid; place-items:center; color:var(--bone); background:rgba(0,0,0,.25);
   transition:background-color var(--t-mid); cursor:pointer; }
 .film__start:hover{ background:rgba(0,0,0,.1); }
@@ -212,6 +212,9 @@ body{ background:var(--ink); }
     const f = document.querySelector(".film"); if (!f) return;
     f.querySelector(".foto").classList.remove("foto");                 // kadr filmu nie otwiera podglądu zdjęć
     f.querySelector(".film__start").addEventListener("click", () => {
+      /* Google Drive: okienko odtwarzacza Drive (bez reklam); film uruchamia się dopiero w nim */
+      if (B.drive) { f.innerHTML = `<iframe src="https://drive.google.com/file/d/${encodeURIComponent(B.drive)}/preview" title="${B.tytul}"
+        allow="autoplay; fullscreen" allowfullscreen loading="eager" referrerpolicy="strict-origin-when-cross-origin"></iframe>`; return; }
       if (!B.wideo) { if (!f.querySelector(".film__brak")) f.insertAdjacentHTML("beforeend", `<p class="film__brak" role="status">Film jest w przygotowaniu. Pojawi się tutaj.</p>`); return; }
       f.innerHTML = `<video src="${B.wideo}" controls autoplay playsinline preload="metadata" poster="img/w1600/${B.poster}.jpg"></video>`;
     });

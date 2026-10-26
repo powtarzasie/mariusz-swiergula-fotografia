@@ -114,11 +114,13 @@ window.HISTORIA = {
     podpis: "Zdjęcia: Mariusz Świerguła"
   },
 
-  /* BONUS: film bez reklam. wideo = adres pliku MP4 (np. Cloudflare R2), pusty = „w przygotowaniu" */
+  /* BONUS: film bez reklam. drive = ID pliku z Google Drive (udostępniony „każdy z linkiem"; okienko Drive),
+     albo wideo = adres pliku MP4 (np. Cloudflare R2). Oba puste = „w przygotowaniu" */
   bonus: {
     tytul: "Film backstage",
     opis: "Kulisy tego popołudnia. Dodatkowy materiał wideo, tylko dla Was.",
     poster: "MS_04894",
+    drive: "1HTAJ4RczDnMXBwyTGYJ4MifbkQk3uJ4r",   // potwierdzone przez Mariusza 2026-10-26
     wideo: "",
     dlugosc: ""
   },
