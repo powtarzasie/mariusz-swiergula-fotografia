@@ -243,6 +243,18 @@ figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:.
 .ic-rzecz::after{content:"";position:absolute;right:8px;bottom:0;width:20px;height:28px;border:1px solid var(--bone-3);border-radius:0 0 5px 5px}
 .ic-rzecz span{position:absolute;right:0;bottom:8px;width:9px;height:12px;border:1px solid var(--bone-3);border-left:0;border-radius:0 6px 6px 0}
 @media (max-width:760px){.dec{grid-template-columns:1fr;gap:2rem}}
+
+/* 2026-11-03: portrety „przy pracy" (rekwizyty i środowisko). Trzy piony 2:3 bez przycinania;
+   ramka max 372 px (pliki 800/1200 px = x2 na Retinie); na telefonie pierwszy kadr na całą szerokość. */
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(8px,1.4vw,18px)}
+.trio img{width:100%;aspect-ratio:2/3;object-fit:cover}
+.dec+.trio{margin-top:clamp(2.5rem,5vw,4rem)}
+.trio+.note{margin-top:1.4rem}
+@media (max-width:600px){
+  .trio{grid-template-columns:1fr 1fr}
+  .trio figure:first-child{grid-column:1/-1}
+  .trio figure:not(:first-child) .exif{display:none}
+}
 </style>
 </head>
 <body>
@@ -280,6 +292,12 @@ figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:.
         <li><span class="ic"><span class="ic-oko"><span></span></span></span><h3>Perspektywa</h3><p>Wysokość aparatu, czyli jak widz ma na Ciebie patrzeć.</p></li>
         <li><span class="ic"><span class="ic-rzecz"><span></span></span></span><h3>Rekwizyty i&nbsp;środowisko</h3><p>Twoje biuro i&nbsp;rzeczy, z&nbsp;którymi pracujesz. Albo&nbsp;czyste tło.</p></li>
       </ul>
+      <div class="trio rv">
+        <figure><div class="vf"><img src="img/praca-1-800.jpg" srcset="img/praca-1-800.jpg 800w, img/praca-1-1200.jpg 1200w" sizes="(max-width:600px) 100vw, (max-width:1280px) 33vw, 372px" width="1200" height="1800" loading="lazy" alt="Mężczyzna w okularach i jasnej bluzie, skupiony, trzyma obiema dłońmi aparat na statywie i patrzy na jego ekran, za nim szara ściana i kolorowe obrazy"></div><figcaption><span class="cap">Przy aparacie</span><span class="exif">85 mm · f/5.6 · 1/250 s</span></figcaption></figure>
+        <figure><div class="vf"><img src="img/praca-2-800.jpg" srcset="img/praca-2-800.jpg 800w, img/praca-2-1200.jpg 1200w" sizes="(max-width:600px) 50vw, (max-width:1280px) 33vw, 372px" width="1200" height="1800" loading="lazy" alt="Z bliska dłoń na aparacie zamocowanym na statywie, w tle nieostra sylwetka mężczyzny w jasnej bluzie"></div><figcaption><span class="cap">Z bliska</span><span class="exif">70 mm · f/2.8 · 1/250 s</span></figcaption></figure>
+        <figure><div class="vf"><img src="img/praca-3-800.jpg" srcset="img/praca-3-800.jpg 800w, img/praca-3-1200.jpg 1200w" sizes="(max-width:600px) 50vw, (max-width:1280px) 33vw, 372px" width="1200" height="1800" loading="lazy" alt="Mężczyzna w jasnej bluzie pochyla się nad tabletem leżącym na drewnianym blacie, za nim aparat na statywie i kolorowe obrazy na ścianie"></div><figcaption><span class="cap">Przy tablecie</span><span class="exif">85 mm · f/2.5 · 1/500 s</span></figcaption></figure>
+      </div>
+      <p class="note rv">Na przykład fotograf: z&nbsp;aparatem, statywem i&nbsp;tabletem, czyli z&nbsp;tym, czym pracuje.</p>
     </div>
   </section>
 
@@ -352,7 +370,7 @@ figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:.
         <div><span>Zdjęcia</span><b>Mariusz Świerguła</b></div>
         <div><span>Doświadczenie</span><b>20 lat pracy z ludźmi, od zespołów po zarządy · ponad 300 portretów pracowników</b></div>
         <div><span>Przed moim obiektywem stawali między innymi</span><b>Adam&nbsp;Michnik · Jerzy&nbsp;Pilch · Janina&nbsp;Paradowska · Kuba&nbsp;Wojewódzki · Katarzyna&nbsp;Kolenda&#8209;Zaleska</b></div>
-        <div><span>Sprzęt</span><b>Sony α7R V, obiektyw 85 mm</b></div>
+        <div><span>Sprzęt</span><b>Sony α7R V, obiektywy 85 mm i 24-70 mm</b></div>
         <div><span>Plan zdjęciowy</span><b>Łódź albo Twoje biuro, także poza Łodzią</b></div>
         <div><span>Scenariusz</span><b>pisany po rozmowie, od nowa dla każdej osoby</b></div>
         <div><span>Efekty specjalne</span><b>z aparatu, nie z generatora · retusz tylko uzgodniony z Tobą</b></div>
