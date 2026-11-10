@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 """
 Generuje brandowaną grafikę Open Graph (1200x630) dla portfolio.
-Bohaterem jest kadr hero (złota godzina), na nim cinematic scrim + typografia marki
+Bohaterem jest kadr hero (h-01, para plecami do siebie), na nim cinematic scrim + typografia marki.
+Twarze pary są w środku kadru, więc hasło leży w DOLNYM pasie (nie na twarzach)
 (Cormorant Garamond + Jost) i akcent szampana — spójnie z resztą strony.
 
 Uruchom z katalogu projektu:  python scripts/make_og.py
@@ -11,7 +12,7 @@ from PIL import Image, ImageDraw, ImageFont
 from pathlib import Path
 
 ROOT   = Path(__file__).resolve().parent.parent
-SRC    = ROOT / "images" / "optimized" / "w-01-full.jpg"   # złota godzina, para w polu
+SRC    = ROOT / "images" / "optimized" / "h-01-full.jpg"   # MS_06254HERO: para plecami do siebie (2026-11-10)
 OUTDIR = ROOT / "images" / "home"
 OUT    = OUTDIR / "og-image.jpg"
 FONTS  = ROOT / "assets" / "fonts"
@@ -53,8 +54,8 @@ img = Image.blend(img, overlay, 0.22)
 grad = Image.new("L", (1, H), 0)
 for y in range(H):
     t = y / (H - 1)
-    top_a = 172 * (1 - min(t / 0.42, 1)) ** 0.9    # góra (mocniej, by marka czytała)
-    bot_a = 235 * max((t - 0.42) / 0.58, 0) ** 1.25  # dół
+    top_a = 140 * (1 - min(t / 0.30, 1)) ** 0.9    # góra (marka)
+    bot_a = 240 * max((t - 0.55) / 0.45, 0) ** 1.1   # dół (hasło w dolnym pasie)
     grad.putpixel((0, y), int(min(top_a + bot_a, 255)))
 grad = grad.resize((W, H))
 img = Image.composite(Image.new("RGB", (W, H), INK), img, grad)
@@ -80,19 +81,19 @@ def tracked(cx, y, text, fnt, fill, tracking):
     return total
 
 # ---------------------------------------------------------------- monogram + marka
-draw.text((CX, 92), "M", font=font("Cormorant.ttf", 86, 600), fill=BONE, anchor="mm")
-tracked(CX, 150, "MARIUSZ ŚWIERGULA", font("Jost.ttf", 19, 400), BONE2, 7)
+draw.text((CX, 70), "M", font=font("Cormorant.ttf", 72, 600), fill=BONE, anchor="mm")
+tracked(CX, 120, "MARIUSZ ŚWIERGUŁA", font("Jost.ttf", 17, 400), BONE2, 7)
 
 # ---------------------------------------------------------------- hasło (bohater)
-draw.text((CX, 312), "Historie zapisane",
-          font=font("Cormorant.ttf", 78, 500), fill=BONE, anchor="mm")
-draw.text((CX, 392), "światłem i emocjami",
-          font=font("Cormorant-Italic.ttf", 78, 500), fill=WHITE, anchor="mm")
+draw.text((CX, 462), "Historie zapisane",
+          font=font("Cormorant.ttf", 58, 500), fill=BONE, anchor="mm")
+draw.text((CX, 522), "światłem i emocjami",
+          font=font("Cormorant-Italic.ttf", 58, 500), fill=WHITE, anchor="mm")
 
 # ---------------------------------------------------------------- akcent + kicker
 rule_w = 58
-draw.line((CX - rule_w // 2, 486, CX + rule_w // 2, 486), fill=CHAMPAGNE, width=2)
-tracked(CX, 524, "FOTOGRAFIA ŚLUBNA I RODZINNA", font("Jost.ttf", 16, 500), CHAMPAGNE, 6)
+draw.line((CX - rule_w // 2, 566, CX + rule_w // 2, 566), fill=CHAMPAGNE, width=2)
+tracked(CX, 596, "FOTOGRAFIA ŚLUBNA I RODZINNA", font("Jost.ttf", 15, 500), CHAMPAGNE, 6)
 
 # ---------------------------------------------------------------- zapis
 OUTDIR.mkdir(parents=True, exist_ok=True)

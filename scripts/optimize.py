@@ -64,6 +64,9 @@ PHOTOS = [
 
     # Slot dekoracyjny strony głównej (rola "home" → poza galerią): sekcja „Podejście / czekam na nie"
     ("w-25","weddings","IMG_0005.jpg",["plener","emocje"],"home","Para młoda całuje się w wysokiej trawie, miękkie, marzycielskie światło","Czekam na nie","normal"),
+    # HERO strony głównej (2026-11-10): MS_06254HERO (Mateusz i Patrycja), poziomy 16:9 dla ekranów poziomych;
+    # na pionowych ekranach index.html pokazuje w-46 (ta sama poza w pionie). Też źródło OG (make_og.py).
+    ("h-01","weddings","h-01.jpg",["plener"],"home","Para młoda stoi plecami do siebie, twarze z profilu, w tle zielony bluszcz","Hero","normal"),
 
     # RODZINA (26) — ciepło, miękko, naturalne światło, intymność
     ("f-01","family","MS_03664.JPEG",["bliskosc","noworodki","dom"],"hero","Mama z niemowlęciem przy oknie w porannym świetle","Światło poranka","big"),

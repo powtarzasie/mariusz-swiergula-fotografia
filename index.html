@@ -15,10 +15,10 @@
 <meta property="og:site_name" content="Mariusz Świerguła Fotografia">
 <meta property="og:title" content="Mariusz Świerguła — Fotografia ślubna i rodzinna">
 <meta property="og:description" content="Historie zapisane światłem i emocjami. Reportaże ślubne i ciepłe sesje rodzinne.">
-<meta property="og:image" content="https://fotografia.mariuszswiergula.pl/images/home/og-image.jpg">
+<meta property="og:image" content="https://fotografia.mariuszswiergula.pl/images/home/og-image.jpg?v=20261110">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Mariusz Świerguła Fotografia — para młoda w złotym świetle, hasło „Historie zapisane światłem i emocjami”">
+<meta property="og:image:alt" content="Mariusz Świerguła Fotografia: para młoda plecami do siebie na tle bluszczu, hasło „Historie zapisane światłem i emocjami”">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -29,11 +29,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 
 <!-- Preload LCP (hero) -->
-<link rel="preload" as="image" href="images/optimized/w-01-desktop.avif"
-      imagesrcset="images/optimized/w-01-mobile.avif 1200w, images/optimized/w-01-desktop.avif 2000w"
+<link rel="preload" as="image" href="images/optimized/h-01-desktop.avif" media="(min-aspect-ratio: 1/1)"
+      imagesrcset="images/optimized/h-01-mobile.avif 1200w, images/optimized/h-01-desktop.avif 2000w, images/optimized/h-01-full.avif 2400w"
+      imagesizes="140vw" fetchpriority="high">
+<link rel="preload" as="image" href="images/optimized/w-46-mobile.avif" media="(max-aspect-ratio: 1/1)"
+      imagesrcset="images/optimized/w-46-mobile.avif 800w, images/optimized/w-46-desktop.avif 1333w"
       imagesizes="100vw" fetchpriority="high">
 
-<link rel="stylesheet" href="css/style.css?v=20261110">
+<link rel="stylesheet" href="css/style.css?v=20261110b">
 
 <script type="application/ld+json">
 {
@@ -41,7 +44,7 @@
   "@type":"ProfessionalService",
   "name":"Mariusz Świerguła Fotografia",
   "description":"Fotografia ślubna i rodzinna pełna światła, emocji i bliskości.",
-  "image":"https://fotografia.mariuszswiergula.pl/images/home/og-image.jpg",
+  "image":"https://fotografia.mariuszswiergula.pl/images/home/og-image.jpg?v=20261110",
   "email":"mariusz.swiergula@gmail.com",
   "url":"https://fotografia.mariuszswiergula.pl/",
   "areaServed":"Polska",
@@ -84,15 +87,20 @@
 <main id="main">
 
   <!-- ===== HERO ===== -->
-  <section class="hero" aria-label="Wprowadzenie">
+  <section class="hero hero--wyzej" aria-label="Wprowadzenie">
     <div class="hero__media">
       <picture>
-        <source type="image/avif" srcset="images/optimized/w-01-mobile.avif 1200w, images/optimized/w-01-desktop.avif 2000w" sizes="100vw">
-        <source type="image/webp" srcset="images/optimized/w-01-mobile.webp 1200w, images/optimized/w-01-desktop.webp 2000w" sizes="100vw">
-        <img src="images/optimized/w-01-desktop.jpg"
-             srcset="images/optimized/w-01-mobile.jpg 1200w, images/optimized/w-01-desktop.jpg 2000w" sizes="100vw"
-             width="2308" height="1536" fetchpriority="high" decoding="async"
-             alt="Para młoda w polu w ciepłym świetle zachodzącego słońca">
+        <!-- ekran pionowy (telefon): ta sama poza w pionie (w-46), żeby obie twarze były w kadrze -->
+        <source media="(max-aspect-ratio: 1/1)" type="image/avif" srcset="images/optimized/w-46-mobile.avif 800w, images/optimized/w-46-desktop.avif 1333w" sizes="100vw" width="2400" height="3600">
+        <source media="(max-aspect-ratio: 1/1)" type="image/webp" srcset="images/optimized/w-46-mobile.webp 800w, images/optimized/w-46-desktop.webp 1333w" sizes="100vw" width="2400" height="3600">
+        <source media="(max-aspect-ratio: 1/1)" srcset="images/optimized/w-46-mobile.jpg 800w, images/optimized/w-46-desktop.jpg 1333w" sizes="100vw" width="2400" height="3600">
+        <!-- ekran poziomy: MS_06254HERO (h-01) -->
+        <source type="image/avif" srcset="images/optimized/h-01-mobile.avif 1200w, images/optimized/h-01-desktop.avif 2000w, images/optimized/h-01-full.avif 2400w" sizes="140vw">
+        <source type="image/webp" srcset="images/optimized/h-01-mobile.webp 1200w, images/optimized/h-01-desktop.webp 2000w, images/optimized/h-01-full.webp 2400w" sizes="140vw">
+        <img src="images/optimized/h-01-desktop.jpg"
+             srcset="images/optimized/h-01-mobile.jpg 1200w, images/optimized/h-01-desktop.jpg 2000w, images/optimized/h-01-full.jpg 2400w" sizes="140vw"
+             width="2400" height="1350" fetchpriority="high" decoding="async"
+             alt="Para młoda stoi plecami do siebie, twarze z profilu, w tle zielony bluszcz">
       </picture>
     </div>
     <div class="hero__scrim"></div>
