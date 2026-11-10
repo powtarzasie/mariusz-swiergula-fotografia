@@ -1,6 +1,11 @@
 /* ============================================================================
    Galeria kuratorska — render z manifestu (data/gallery.json):
-   siatka editorialowa (masonry) + lekkie filtry + lightbox z klawiaturą i swipe.
+   RÓWNE WIERSZE (justified, jak Google Photos) w czystym CSS: każdy kafel ma
+   flex-grow i flex-basis proporcjonalne do proporcji zdjęcia, więc w każdym
+   wierszu wszystkie zdjęcia mają tę samą wysokość, a wiersz wypełnia szerokość.
+   Bez przycinania, bez dziur, bez przeliczania w JS (działa przed wczytaniem zdjęć).
+   Kolejność: stałe, przemieszane ułożenie (seed), żeby sesje nie leżały blokami.
+   + lightbox z klawiaturą i swipe.
    Strona deklaruje: <div id="gallery" data-section="weddings|family"></div>
    ========================================================================== */
 (() => {
@@ -47,16 +52,17 @@
     const grid = el("div", "gallery-grid");
     grid.setAttribute("role", "list");
     ITEMS.forEach((item, i) => {
-      const feature = item.span === "big" || item.span === "wide";
-      const a = el("a", "tile" + (feature ? " span-2" : ""));
+      const a = el("a", "tile");
       a.href = item.src.full;
       a.style.setProperty("--ar", `${item.width}/${item.height}`);
+      a.style.setProperty("--r", (item.width / item.height).toFixed(4));
       a.setAttribute("role", "listitem");
       a.setAttribute("aria-label", `Powiększ: ${item.caption || item.alt}`);
       a.dataset.tags = item.tags.join(" ");
       a.dataset.index = i;
-      const { pic } = picture(item, { sizes: feature
-        ? "(min-width:1100px) 50vw, (min-width:720px) 66vw, 100vw"
+      const wide = item.width > item.height;
+      const { pic } = picture(item, { sizes: wide
+        ? "(min-width:1100px) 40vw, (min-width:720px) 50vw, 70vw"
         : "(min-width:1100px) 25vw, (min-width:720px) 33vw, 50vw" });
       pic.querySelector("img").style.aspectRatio = "var(--ar)";
       a.appendChild(pic);
@@ -69,22 +75,17 @@
     return grid;
   }
 
-  /* ---- Masonry: licz row-span z realnej wysokości ------------------------- */
-  let GRID;
-  function packMasonry() {
-    if (!GRID) return;
-    const cs = getComputedStyle(GRID);
-    const row = parseFloat(cs.gridAutoRows) || 6;
-    const gap = parseFloat(cs.rowGap) || 0;
-    GRID.querySelectorAll(".tile").forEach(t => {
-      if (t.classList.contains("is-hidden")) return;
-      // mierzymy wysokość TREŚCI (zdjęcia), nie kafelka rozciągniętego przez tor siatki
-      const inner = t.querySelector("picture") || t.firstElementChild;
-      const h = inner ? inner.getBoundingClientRect().height : 0;
-      if (h > 0) t.style.gridRowEnd = `span ${Math.ceil((h + gap) / (row + gap))}`;
-    });
+  /* ---- Stałe przemieszanie (ten sam układ przy każdej wizycie) ----------- */
+  function mieszaj(arr, seed) {
+    let s = seed >>> 0;
+    const rnd = () => { s = (s + 0x6D2B79F5) >>> 0; let x = s;
+      x = Math.imul(x ^ (x >>> 15), x | 1); x ^= x + Math.imul(x ^ (x >>> 7), x | 61);
+      return ((x ^ (x >>> 14)) >>> 0) / 4294967296; };
+    const out = arr.slice();
+    for (let i = out.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [out[i], out[j]] = [out[j], out[i]]; }
+    return out;
   }
-  const debounce = (fn, ms) => { let id; return (...a) => { clearTimeout(id); id = setTimeout(() => fn(...a), ms); }; };
+  const SEED = { weddings: 2026, family: 1110 };   // zmiana liczby = inne ułożenie
 
   /* ---- Lightbox ----------------------------------------------------------- */
   const lb = $("#lightbox");
@@ -205,6 +206,7 @@
       }
       const heroId = root.dataset.hero || "";   // kadr-okładka nie powtarza się w siatce
       ITEMS = data.items.filter(i => i.section === SECTION && i.id !== heroId);
+      if (root.dataset.order !== "manifest") ITEMS = mieszaj(ITEMS, SEED[SECTION] || 1);
     } catch (err) {
       root.innerHTML = `<p class="g-empty">Nie udało się wczytać galerii. Odśwież stronę.</p>`;
       console.error(err); return;
@@ -216,17 +218,6 @@
     bindLightbox();
     revealTiles();
 
-    const repack = debounce(packMasonry, 80);
-    // ResizeObserver odpala się, gdy siatka dostanie realną szerokość (pierwszy layout)
-    // oraz przy każdej zmianie rozmiaru — niezależnie od momentu wczytania manifestu.
-    if ("ResizeObserver" in window) new ResizeObserver(repack).observe(root);
-    else addEventListener("resize", repack);
-    requestAnimationFrame(packMasonry);
-    addEventListener("load", () => requestAnimationFrame(packMasonry));
-    // dodatkowy pack po doczytaniu każdego zdjęcia (różne czasy ładowania)
-    GRID.querySelectorAll("img").forEach(img => {
-      if (!img.complete) img.addEventListener("load", repack, { once: true });
-    });
   }
   init();
 })();

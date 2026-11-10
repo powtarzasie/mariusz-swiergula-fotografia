@@ -409,17 +409,24 @@ h1,h2,h3{ font-family:var(--serif); font-weight:400; line-height:1.08; letter-sp
 .g-filter.is-active{ border-color:var(--champagne); color:var(--champagne); }
 :focus-visible.g-filter{ outline:2px solid var(--champagne); outline-offset:3px; }
 
-/* masonry grid */
+/* galeria: RÓWNE WIERSZE (justified) w czystym CSS.
+   --r = szerokość/wysokość zdjęcia (ustawia js/gallery.js), --h = docelowa wysokość wiersza.
+   flex-grow i flex-basis ∝ --r  =>  w wierszu wszystkie kafle mają tę samą wysokość
+   i razem wypełniają szerokość. ::after nie pozwala rozciągnąć ostatniego wiersza. */
 .gallery{ padding-block:clamp(2.5rem,6vw,5rem); }
-.gallery-grid{ display:grid; grid-template-columns:repeat(var(--cols,2),1fr);
-  gap:clamp(.6rem,1.2vw,1.1rem); grid-auto-rows:6px; }
-@media (min-width:720px){ .gallery-grid{ --cols:3; } }
-@media (min-width:1100px){ .gallery-grid{ --cols:4; } }
+.gallery-grid{ --h:130px; --gap:clamp(.4rem,1vw,.9rem);
+  display:flex; flex-wrap:wrap; gap:var(--gap); }
+.gallery-grid::after{ content:""; flex:999999 1 0; }
+@media (min-width:720px){ .gallery-grid{ --h:200px; } }
+@media (min-width:1100px){ .gallery-grid{ --h:250px; } }
+@media (min-width:1600px){ .gallery-grid{ --h:300px; } }
 .tile{ position:relative; overflow:hidden; display:block; isolation:isolate; background:var(--graphite);
-  grid-row-end:span 40; opacity:0; transform:translateY(20px);
+  flex:var(--r,1.5) 1 calc(var(--r,1.5) * var(--h)); min-width:0;
+  opacity:0; transform:translateY(20px);
   transition:opacity .7s var(--ease-out), transform .7s var(--ease-out); }
 .tile.in{ opacity:1; transform:none; }
-.tile img{ width:100%; height:auto; aspect-ratio:var(--ar); object-fit:cover; transition:transform 1s var(--ease), filter var(--t-mid); }
+.tile picture{ display:block; }
+.tile img{ display:block; width:100%; height:auto; aspect-ratio:var(--ar); object-fit:cover; transition:transform 1s var(--ease), filter var(--t-mid); }
 .tile:hover img{ transform:scale(1.045); }
 .tile::after{ content:""; position:absolute; inset:0; background:linear-gradient(to top,rgba(11,11,12,.55),transparent 45%);
   opacity:0; transition:opacity var(--t-mid); }
@@ -428,9 +435,6 @@ h1,h2,h3{ font-family:var(--serif); font-weight:400; line-height:1.08; letter-sp
   font-family:var(--serif); font-style:italic; font-size:1.05rem; color:var(--bone);
   opacity:0; transform:translateY(8px); transition:opacity var(--t-mid),transform var(--t-mid); pointer-events:none; }
 .tile:hover .tile__cap{ opacity:1; transform:none; }
-@media (min-width:720px){
-  .tile.span-2{ grid-column:span 2; }
-}
 .tile.is-hidden{ display:none; }
 
 /* ---- Lightbox ------------------------------------------------------------- */
