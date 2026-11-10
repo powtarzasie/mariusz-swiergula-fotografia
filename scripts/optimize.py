@@ -92,6 +92,18 @@ PHOTOS = [
     ("f-24","family","IMG_9578.JPEG",["bliskosc","dom","rodzina"],"grid","Tata bawi się z córką w domu","Zabawa z tatą","wide"),
     ("f-25","family","IMG_8447_jpg.JPEG",["bliskosc"],"grid","Sylwetka mamy z dzieckiem w drzwiach, czarno-białe","W drzwiach","tall"),
     ("f-26","family","IMG_2617.JPEG",["lifestyle"],"grid","Płaczący maluch — szczery moment","Prawdziwe emocje","normal"),
+    # Sesja domowa (2026-11-10): rodzina z dwiema córeczkami, z folderu „Nowy folder (4)"
+    ("f-27","family","f-27.jpg",["bliskosc","dom","rodzina"],"grid","Mama czyta córeczkom książkę na kanapie","Czytanie","wide"),
+    ("f-28","family","f-28.jpg",["rodzina","dom","emocje"],"grid","Rodzice z córeczkami na kanapie, starsza zanosi się śmiechem","Łaskotki","wide"),
+    ("f-29","family","f-29.jpg",["bliskosc","dom"],"grid","Starsza siostra obejmuje młodszą i śmieje się w głos","Siostry","tall"),
+    ("f-30","family","f-30.jpg",["bliskosc","dom"],"grid","Mama trzyma na rękach roześmianą córkę","Na rękach","normal"),
+    ("f-31","family","f-31.jpg",["rodzina","dom"],"grid","Tata leży na kanapie i unosi córkę nad sobą","Z tatą","tall"),
+    ("f-32","family","f-32.jpg",["lifestyle","dom"],"grid","Dziewczynka z poważną miną pokazuje orzech prosto do obiektywu","Pokaz","tall"),
+    ("f-33","family","f-33.jpg",["lifestyle","dom"],"grid","Dziewczynka wyciąga rękę i coś opowiada","Opowieść","tall"),
+    ("f-34","family","f-34.jpg",["lifestyle","dom","bliskosc"],"grid","Dziewczynka łuska orzechy przy stole, mama patrzy z kubkiem w dłoniach","Orzechy","wide"),
+    ("f-35","family","f-35.jpg",["bliskosc","dom"],"grid","Mama obejmuje uśmiechniętą córkę na krześle","Razem","tall"),
+    ("f-36","family","f-36.jpg",["rodzina","dom","bliskosc"],"grid","Starsza siostra karmi młodszą orzechem, rodzice patrzą z bliska","Dzielenie się","tall"),
+    ("f-37","family","f-37.jpg",["lifestyle"],"grid","Niemowlę z niebieskimi oczami gryzie nektarynkę","Nektarynka","tall"),
 
     # O MNIE
     ("a-01","about","O mnie.JPEG",[],"about","Mariusz Świergula z żoną i córką, fotografia czarno-biała","","normal",""),
@@ -133,6 +145,20 @@ PHOTOS = [
      "Para młoda w trawie, welon uniesiony przez wiatr","Welon","normal","plener"),
     ("w-40","weddings","w-40.jpg",["plener","emocje"],"grid",
      "Pan młody niesie pannę młodą przez zielone pole","Niesiona","normal","plener"),
+
+    # MATEUSZ I PATRYCJA (2026-11-10): ślub cywilny w plenerze, wybór 6 z 10 (całość w strefie par)
+    ("w-41","weddings","w-41.jpg",["ceremonia","emocje"],"grid",
+     "Para młoda trzyma się za ręce przed urzędniczką podczas ślubu cywilnego w plenerze","Ślub cywilny","wide","ślub"),
+    ("w-42","weddings","w-42.jpg",["ceremonia"],"grid",
+     "Tata prowadzi pannę młodą do ołtarza w altanie pełnej gości","Prowadzenie","wide","ślub"),
+    ("w-43","weddings","w-43.jpg",["ceremonia","emocje"],"grid",
+     "Kobieta z bukietem wykrzykuje z radości, składając życzenia pannie młodej","Radość","normal","ślub"),
+    ("w-44","weddings","w-44.jpg",["ceremonia","emocje"],"grid",
+     "Roześmiana para młoda przy dużych literach P i M","Inicjały","normal","ślub"),
+    ("w-45","weddings","w-45.jpg",["plener","emocje"],"grid",
+     "Pan młody unosi pannę młodą na tle zielonego bluszczu","W objęciach","wide","plener"),
+    ("w-46","weddings","w-46.jpg",["plener"],"grid",
+     "Para młoda oparta o siebie plecami na tle bluszczu","Plecy w plecy","tall","plener"),
 ]
 
 def log(*a): print(*a, flush=True)

@@ -91,6 +91,20 @@ def save_plain_jpg(im, dest, long_edge):
     return nw, nh
 
 def main():
+    global SRC
+    # Tryb „jedna para z dowolnego folderu" (2026-11-10):
+    #   python scripts/build_pary.py --folder "C:\ścieżka\do\zdjęć" --name "Mateusz i Patrycja"
+    # Bierze WSZYSTKIE zdjęcia z folderu (posortowane, max N_PHOTOS), teaser = pierwsze POZIOME,
+    # slug liczony z --name (nazwa folderu bywa przypadkowa, np. „Nowy folder (5)").
+    args = sys.argv[1:]
+    single = None
+    if "--folder" in args:
+        fpath = os.path.abspath(args[args.index("--folder") + 1])
+        fname = args[args.index("--name") + 1] if "--name" in args else czysta_nazwa(os.path.basename(fpath))
+        SRC = os.path.dirname(fpath)
+        single = (os.path.basename(fpath), fname)
+        NAME_OVERRIDE[single[0]] = fname
+        sys.argv = [sys.argv[0], single[0]]
     if not os.path.isdir(SRC):
         log(f"! BRAK ŹRÓDŁA: {SRC}"); sys.exit(1)
     log(f"AVIF: {'TAK' if HAS_AVIF else 'NIE (webp+jpg)'}")
@@ -106,7 +120,7 @@ def main():
             continue
         base_nazwa = czysta_nazwa(folder)                    # slug ZAWSZE z nazwy folderu (stabilny)
         nazwa = NAME_OVERRIDE.get(folder, base_nazwa)        # wyświetlana nazwa + hasło (z korektą pisowni)
-        slug = slugify(base_nazwa)
+        slug = slugify(nazwa if single else base_nazwa)
         if slug in slugs_seen:                              # kolizja slugów
             slugs_seen[slug] += 1
             slug = f"{slug}-{slugs_seen[slug]}"
@@ -135,8 +149,15 @@ def main():
 
         log(f"→ {nazwa}  ({slug})  — {len(pick)} zdjęć  [hasło: {haslo}]")
 
-        # teaser = pierwsze wylosowane zdjęcie (publiczne)
-        teaser_src = os.path.join(src_dir, pick[0])
+        # teaser = pierwsze wylosowane zdjęcie (publiczne); w trybie --folder pierwsze POZIOME
+        teaser_fn = pick[0]
+        if single:
+            for fn in pick:
+                with Image.open(os.path.join(src_dir, fn)) as _im:
+                    _w, _h = ImageOps.exif_transpose(_im).size
+                if _w > _h:
+                    teaser_fn = fn; break
+        teaser_src = os.path.join(src_dir, teaser_fn)
         with Image.open(teaser_src) as im0:
             im = ImageOps.exif_transpose(im0).convert("RGB")
             tw, th = save_variants(im, os.path.join(out_dir, "teaser"), TEASER_EDGE)

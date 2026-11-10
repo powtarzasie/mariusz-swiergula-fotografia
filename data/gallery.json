@@ -1,7 +1,7 @@
 {
   "meta": {
     "brand": "Mariusz Świerguła Fotografia",
-    "count": 64
+    "count": 81
   },
   "items": [
     {
@@ -1917,6 +1917,523 @@
         "desktop": 2000,
         "full": 2048
       }
+    },
+    {
+      "id": "f-27",
+      "section": "family",
+      "tags": [
+        "bliskosc",
+        "dom",
+        "rodzina"
+      ],
+      "role": "grid",
+      "alt": "Mama czyta córeczkom książkę na kanapie",
+      "caption": "Czytanie",
+      "span": "wide",
+      "width": 5669,
+      "height": 4252,
+      "src": {
+        "mobile": "images/optimized/f-27-mobile.jpg",
+        "desktop": "images/optimized/f-27-desktop.jpg",
+        "full": "images/optimized/f-27-full.jpg"
+      },
+      "base": "images/optimized/f-27",
+      "formats": [
+        "avif",
+        "webp",
+        "jpg"
+      ],
+      "px": {
+        "mobile": 1200,
+        "desktop": 2000,
+        "full": 2560
+      }
+    },
+    {
+      "id": "f-28",
+      "section": "family",
+      "tags": [
+        "rodzina",
+        "dom",
+        "emocje"
+      ],
+      "role": "grid",
+      "alt": "Rodzice z córeczkami na kanapie, starsza zanosi się śmiechem",
+      "caption": "Łaskotki",
+      "span": "wide",
+      "width": 5712,
+      "height": 4284,
+      "src": {
+        "mobile": "images/optimized/f-28-mobile.jpg",
+        "desktop": "images/optimized/f-28-desktop.jpg",
+        "full": "images/optimized/f-28-full.jpg"
+      },
+      "base": "images/optimized/f-28",
+      "formats": [
+        "avif",
+        "webp",
+        "jpg"
+      ],
+      "px": {
+        "mobile": 1200,
+        "desktop": 2000,
+        "full": 2560
+      }
+    },
+    {
+      "id": "f-29",
+      "section": "family",
+      "tags": [
+        "bliskosc",
+        "dom"
+      ],
+      "role": "grid",
+      "alt": "Starsza siostra obejmuje młodszą i śmieje się w głos",
+      "caption": "Siostry",
+      "span": "tall",
+      "width": 3024,
+      "height": 4032,
+      "src": {
+        "mobile": "images/optimized/f-29-mobile.jpg",
+        "desktop": "images/optimized/f-29-desktop.jpg",
+        "full": "images/optimized/f-29-full.jpg"
+      },
+      "base": "images/optimized/f-29",
+      "formats": [
+        "avif",
+        "webp",
+        "jpg"
+      ],
+      "px": {
+        "mobile": 1200,
+        "desktop": 2000,
+        "full": 2560
+      }
+    },
+    {
+      "id": "f-30",
+      "section": "family",
+      "tags": [
+        "bliskosc",
+        "dom"
+      ],
+      "role": "grid",
+      "alt": "Mama trzyma na rękach roześmianą córkę",
+      "caption": "Na rękach",
+      "span": "normal",
+      "width": 5712,
+      "height": 4284,
+      "src": {
+        "mobile": "images/optimized/f-30-mobile.jpg",
+        "desktop": "images/optimized/f-30-desktop.jpg",
+        "full": "images/optimized/f-30-full.jpg"
+      },
+      "base": "images/optimized/f-30",
+      "formats": [
+        "avif",
+        "webp",
+        "jpg"
+      ],
+      "px": {
+        "mobile": 1200,
+        "desktop": 2000,
+        "full": 2560
+      }
+    },
+    {
+      "id": "f-31",
+      "section": "family",
+      "tags": [
+        "rodzina",
+        "dom"
+      ],
+      "role": "grid",
+      "alt": "Tata leży na kanapie i unosi córkę nad sobą",
+      "caption": "Z tatą",
+      "span": "tall",
+      "width": 3024,
+      "height": 4032,
+      "src": {
+        "mobile": "images/optimized/f-31-mobile.jpg",
+        "desktop": "images/optimized/f-31-desktop.jpg",
+        "full": "images/optimized/f-31-full.jpg"
+      },
+      "base": "images/optimized/f-31",
+      "formats": [
+        "avif",
+        "webp",
+        "jpg"
+      ],
+      "px": {
+        "mobile": 1200,
+        "desktop": 2000,
+        "full": 2560
+      }
+    },
+    {
+      "id": "f-32",
+      "section": "family",
+      "tags": [
+        "lifestyle",
+        "dom"
+      ],
+      "role": "grid",
+      "alt": "Dziewczynka z poważną miną pokazuje orzech prosto do obiektywu",
+      "caption": "Pokaz",
+      "span": "tall",
+      "width": 3724,
+      "height": 4966,
+      "src": {
+        "mobile": "images/optimized/f-32-mobile.jpg",
+        "desktop": "images/optimized/f-32-desktop.jpg",
+        "full": "images/optimized/f-32-full.jpg"
+      },
+      "base": "images/optimized/f-32",
+      "formats": [
+        "avif",
+        "webp",
+        "jpg"
+      ],
+      "px": {
+        "mobile": 1200,
+        "desktop": 2000,
+        "full": 2560
+      }
+    },
+    {
+      "id": "f-33",
+      "section": "family",
+      "tags": [
+        "lifestyle",
+        "dom"
+      ],
+      "role": "grid",
+      "alt": "Dziewczynka wyciąga rękę i coś opowiada",
+      "caption": "Opowieść",
+      "span": "tall",
+      "width": 4284,
+      "height": 5712,
+      "src": {
+        "mobile": "images/optimized/f-33-mobile.jpg",
+        "desktop": "images/optimized/f-33-desktop.jpg",
+        "full": "images/optimized/f-33-full.jpg"
+      },
+      "base": "images/optimized/f-33",
+      "formats": [
+        "avif",
+        "webp",
+        "jpg"
+      ],
+      "px": {
+        "mobile": 1200,
+        "desktop": 2000,
+        "full": 2560
+      }
+    },
+    {
+      "id": "f-34",
+      "section": "family",
+      "tags": [
+        "lifestyle",
+        "dom",
+        "bliskosc"
+      ],
+      "role": "grid",
+      "alt": "Dziewczynka łuska orzechy przy stole, mama patrzy z kubkiem w dłoniach",
+      "caption": "Orzechy",
+      "span": "wide",
+      "width": 5712,
+      "height": 4284,
+      "src": {
+        "mobile": "images/optimized/f-34-mobile.jpg",
+        "desktop": "images/optimized/f-34-desktop.jpg",
+        "full": "images/optimized/f-34-full.jpg"
+      },
+      "base": "images/optimized/f-34",
+      "formats": [
+        "avif",
+        "webp",
+        "jpg"
+      ],
+      "px": {
+        "mobile": 1200,
+        "desktop": 2000,
+        "full": 2560
+      }
+    },
+    {
+      "id": "f-35",
+      "section": "family",
+      "tags": [
+        "bliskosc",
+        "dom"
+      ],
+      "role": "grid",
+      "alt": "Mama obejmuje uśmiechniętą córkę na krześle",
+      "caption": "Razem",
+      "span": "tall",
+      "width": 4284,
+      "height": 5712,
+      "src": {
+        "mobile": "images/optimized/f-35-mobile.jpg",
+        "desktop": "images/optimized/f-35-desktop.jpg",
+        "full": "images/optimized/f-35-full.jpg"
+      },
+      "base": "images/optimized/f-35",
+      "formats": [
+        "avif",
+        "webp",
+        "jpg"
+      ],
+      "px": {
+        "mobile": 1200,
+        "desktop": 2000,
+        "full": 2560
+      }
+    },
+    {
+      "id": "f-36",
+      "section": "family",
+      "tags": [
+        "rodzina",
+        "dom",
+        "bliskosc"
+      ],
+      "role": "grid",
+      "alt": "Starsza siostra karmi młodszą orzechem, rodzice patrzą z bliska",
+      "caption": "Dzielenie się",
+      "span": "tall",
+      "width": 3998,
+      "height": 5331,
+      "src": {
+        "mobile": "images/optimized/f-36-mobile.jpg",
+        "desktop": "images/optimized/f-36-desktop.jpg",
+        "full": "images/optimized/f-36-full.jpg"
+      },
+      "base": "images/optimized/f-36",
+      "formats": [
+        "avif",
+        "webp",
+        "jpg"
+      ],
+      "px": {
+        "mobile": 1200,
+        "desktop": 2000,
+        "full": 2560
+      }
+    },
+    {
+      "id": "f-37",
+      "section": "family",
+      "tags": [
+        "lifestyle"
+      ],
+      "role": "grid",
+      "alt": "Niemowlę z niebieskimi oczami gryzie nektarynkę",
+      "caption": "Nektarynka",
+      "span": "tall",
+      "width": 4284,
+      "height": 5712,
+      "src": {
+        "mobile": "images/optimized/f-37-mobile.jpg",
+        "desktop": "images/optimized/f-37-desktop.jpg",
+        "full": "images/optimized/f-37-full.jpg"
+      },
+      "base": "images/optimized/f-37",
+      "formats": [
+        "avif",
+        "webp",
+        "jpg"
+      ],
+      "px": {
+        "mobile": 1200,
+        "desktop": 2000,
+        "full": 2560
+      }
+    },
+    {
+      "id": "w-41",
+      "section": "weddings",
+      "tags": [
+        "ceremonia",
+        "emocje"
+      ],
+      "role": "grid",
+      "alt": "Para młoda trzyma się za ręce przed urzędniczką podczas ślubu cywilnego w plenerze",
+      "caption": "Ślub cywilny",
+      "span": "wide",
+      "width": 3600,
+      "height": 2400,
+      "src": {
+        "mobile": "images/optimized/w-41-mobile.jpg",
+        "desktop": "images/optimized/w-41-desktop.jpg",
+        "full": "images/optimized/w-41-full.jpg"
+      },
+      "base": "images/optimized/w-41",
+      "formats": [
+        "avif",
+        "webp",
+        "jpg"
+      ],
+      "px": {
+        "mobile": 1200,
+        "desktop": 2000,
+        "full": 2560
+      },
+      "category": "ślub"
+    },
+    {
+      "id": "w-42",
+      "section": "weddings",
+      "tags": [
+        "ceremonia"
+      ],
+      "role": "grid",
+      "alt": "Tata prowadzi pannę młodą do ołtarza w altanie pełnej gości",
+      "caption": "Prowadzenie",
+      "span": "wide",
+      "width": 3600,
+      "height": 2400,
+      "src": {
+        "mobile": "images/optimized/w-42-mobile.jpg",
+        "desktop": "images/optimized/w-42-desktop.jpg",
+        "full": "images/optimized/w-42-full.jpg"
+      },
+      "base": "images/optimized/w-42",
+      "formats": [
+        "avif",
+        "webp",
+        "jpg"
+      ],
+      "px": {
+        "mobile": 1200,
+        "desktop": 2000,
+        "full": 2560
+      },
+      "category": "ślub"
+    },
+    {
+      "id": "w-43",
+      "section": "weddings",
+      "tags": [
+        "ceremonia",
+        "emocje"
+      ],
+      "role": "grid",
+      "alt": "Kobieta z bukietem wykrzykuje z radości, składając życzenia pannie młodej",
+      "caption": "Radość",
+      "span": "normal",
+      "width": 3600,
+      "height": 2400,
+      "src": {
+        "mobile": "images/optimized/w-43-mobile.jpg",
+        "desktop": "images/optimized/w-43-desktop.jpg",
+        "full": "images/optimized/w-43-full.jpg"
+      },
+      "base": "images/optimized/w-43",
+      "formats": [
+        "avif",
+        "webp",
+        "jpg"
+      ],
+      "px": {
+        "mobile": 1200,
+        "desktop": 2000,
+        "full": 2560
+      },
+      "category": "ślub"
+    },
+    {
+      "id": "w-44",
+      "section": "weddings",
+      "tags": [
+        "ceremonia",
+        "emocje"
+      ],
+      "role": "grid",
+      "alt": "Roześmiana para młoda przy dużych literach P i M",
+      "caption": "Inicjały",
+      "span": "normal",
+      "width": 3600,
+      "height": 2400,
+      "src": {
+        "mobile": "images/optimized/w-44-mobile.jpg",
+        "desktop": "images/optimized/w-44-desktop.jpg",
+        "full": "images/optimized/w-44-full.jpg"
+      },
+      "base": "images/optimized/w-44",
+      "formats": [
+        "avif",
+        "webp",
+        "jpg"
+      ],
+      "px": {
+        "mobile": 1200,
+        "desktop": 2000,
+        "full": 2560
+      },
+      "category": "ślub"
+    },
+    {
+      "id": "w-45",
+      "section": "weddings",
+      "tags": [
+        "plener",
+        "emocje"
+      ],
+      "role": "grid",
+      "alt": "Pan młody unosi pannę młodą na tle zielonego bluszczu",
+      "caption": "W objęciach",
+      "span": "wide",
+      "width": 3600,
+      "height": 2400,
+      "src": {
+        "mobile": "images/optimized/w-45-mobile.jpg",
+        "desktop": "images/optimized/w-45-desktop.jpg",
+        "full": "images/optimized/w-45-full.jpg"
+      },
+      "base": "images/optimized/w-45",
+      "formats": [
+        "avif",
+        "webp",
+        "jpg"
+      ],
+      "px": {
+        "mobile": 1200,
+        "desktop": 2000,
+        "full": 2560
+      },
+      "category": "plener"
+    },
+    {
+      "id": "w-46",
+      "section": "weddings",
+      "tags": [
+        "plener"
+      ],
+      "role": "grid",
+      "alt": "Para młoda oparta o siebie plecami na tle bluszczu",
+      "caption": "Plecy w plecy",
+      "span": "tall",
+      "width": 2400,
+      "height": 3600,
+      "src": {
+        "mobile": "images/optimized/w-46-mobile.jpg",
+        "desktop": "images/optimized/w-46-desktop.jpg",
+        "full": "images/optimized/w-46-full.jpg"
+      },
+      "base": "images/optimized/w-46",
+      "formats": [
+        "avif",
+        "webp",
+        "jpg"
+      ],
+      "px": {
+        "mobile": 1200,
+        "desktop": 2000,
+        "full": 2560
+      },
+      "category": "plener"
     }
   ]
 }

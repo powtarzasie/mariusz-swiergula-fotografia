@@ -2,7 +2,7 @@
 window.PARY = {
   "meta": {
     "brand": "Mariusz Świerguła Fotografia",
-    "count": 22
+    "count": 23
   },
   "couples": [
     {
@@ -1498,6 +1498,74 @@ window.PARY = {
           "src": "images/pary/ania-i-kamil/p10.enc",
           "width": 1800,
           "height": 1200
+        }
+      ]
+    },
+    {
+      "slug": "mateusz-i-patrycja",
+      "name": "Mateusz i Patrycja",
+      "teaser": {
+        "base": "images/pary/mateusz-i-patrycja/teaser",
+        "formats": [
+          "avif",
+          "webp",
+          "jpg"
+        ],
+        "width": 1600,
+        "height": 1067
+      },
+      "salt": "2fBHR+89tN3id4VN4wYrMA==",
+      "iterations": 310000,
+      "photos": [
+        {
+          "src": "images/pary/mateusz-i-patrycja/p01.enc",
+          "width": 1800,
+          "height": 1200
+        },
+        {
+          "src": "images/pary/mateusz-i-patrycja/p02.enc",
+          "width": 1800,
+          "height": 1281
+        },
+        {
+          "src": "images/pary/mateusz-i-patrycja/p03.enc",
+          "width": 1800,
+          "height": 1200
+        },
+        {
+          "src": "images/pary/mateusz-i-patrycja/p04.enc",
+          "width": 1200,
+          "height": 1800
+        },
+        {
+          "src": "images/pary/mateusz-i-patrycja/p05.enc",
+          "width": 1200,
+          "height": 1800
+        },
+        {
+          "src": "images/pary/mateusz-i-patrycja/p06.enc",
+          "width": 1800,
+          "height": 1200
+        },
+        {
+          "src": "images/pary/mateusz-i-patrycja/p07.enc",
+          "width": 1800,
+          "height": 1200
+        },
+        {
+          "src": "images/pary/mateusz-i-patrycja/p08.enc",
+          "width": 1800,
+          "height": 1200
+        },
+        {
+          "src": "images/pary/mateusz-i-patrycja/p09.enc",
+          "width": 1800,
+          "height": 1200
+        },
+        {
+          "src": "images/pary/mateusz-i-patrycja/p10.enc",
+          "width": 1200,
+          "height": 1800
         }
       ]
     }
