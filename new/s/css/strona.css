@@ -12,7 +12,7 @@
 
 :root{
   --ink:#0B0B0C; --graphite:#121214;
-  --bone:#F4F1EC; --bone-2:#C6C0B5; --bone-3:#8C877E; --champagne:#C2A66B;
+  --bone:#F4F1EC; --bone-2:#C6C0B5; --bone-3:#8C877E; --champagne:#D8CFBD;
   --serif:"Poltawski Nowy",Georgia,"Times New Roman",serif;
   --sans:"Hanken Grotesk","Segoe UI",system-ui,-apple-system,sans-serif;
   /* bez kroju maszynowego: etykiety i metryki krojem tekstu (cyfry równej szerokości w bloku na końcu pliku) */
@@ -29,7 +29,7 @@
 }
 :root,[data-ton="ciemny"]{
   --tlo:#0B0B0C; --tekst:#F4F1EC; --tekst-2:#C6C0B5; --tekst-3:#8C877E;
-  --akcent:#C2A66B; --linia:#26262B; --na-akcencie:#0B0B0C;
+  --akcent:#D8CFBD; --linia:#26262B; --na-akcencie:#0B0B0C;
 }
 [data-ton="jasny"]{
   --tlo:#E8E6E1; --tekst:#151516; --tekst-2:#45433F; --tekst-3:#66635D;
@@ -266,7 +266,7 @@ figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:.
 @media (max-width:719px){
   .pasek{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:1fr 1fr;background:#0B0B0C;border-top:1px solid #26262B;padding-bottom:env(safe-area-inset-bottom)}
   .pasek a{min-height:52px;display:flex;align-items:center;justify-content:center;font-size:.74rem;text-transform:uppercase;letter-spacing:.22em;font-weight:500;color:#F4F1EC}
-  .pasek a+a{border-left:1px solid #26262B;color:#C2A66B}
+  .pasek a+a{border-left:1px solid #26262B;color:#D8CFBD}
   body{padding-bottom:calc(53px + env(safe-area-inset-bottom))}
 }
 
@@ -310,17 +310,17 @@ figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:.
 
 :root,[data-ton="ciemny"]{
   --tlo:#0B120F; --tekst:#F1EEE6; --tekst-2:#BEC2B8; --tekst-3:#8A9087;
-  --akcent:#E2A548; --linia:#22302A; --na-akcencie:#0B120F;
+  --akcent:#D8CFBD; --linia:#22302A; --na-akcencie:#0B120F;
 }
 [data-ton="jasny"]{
   --tlo:#E6E2D9; --tekst:#141815; --tekst-2:#434842; --tekst-3:#5A5F57;
-  --akcent:#7A5413; --linia:#C9C4B8; --na-akcencie:#F1EEE6;
+  --akcent:#23513C; --linia:#C9C4B8; --na-akcencie:#F1EEE6;
 }
 [data-ton="papier"]{
   --tlo:#F1ECE1; --tekst:#16201A; --tekst-2:#444B44; --tekst-3:#656B63;
   --akcent:#23513C; --linia:#D6CFBF; --na-akcencie:#F1ECE1;
 }
-.vf::after{--c:#E2A548}
+.vf::after{--c:#D8CFBD}
 
 /* Etykieta: mono, bez kreski */
 .et{font:400 .72rem/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--tekst-3)}
@@ -355,7 +355,7 @@ figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:.
 .cel__akcje{margin-top:1.6rem;display:flex;flex-wrap:wrap;gap:1rem 1.6rem;align-items:center}
 .cel__okno{position:relative;overflow:hidden;aspect-ratio:16/9;background:#000}
 .cel__okno img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.kadr{position:absolute;left:var(--x);top:var(--y);width:var(--w);height:var(--h);border:1px solid #E2A548;box-shadow:0 0 0 200vmax rgba(7,11,9,.68);transition:left .7s var(--ease),top .7s var(--ease),width .7s var(--ease),height .7s var(--ease);pointer-events:none}
+.kadr{position:absolute;left:var(--x);top:var(--y);width:var(--w);height:var(--h);border:1px solid #D8CFBD;box-shadow:0 0 0 200vmax rgba(7,11,9,.68);transition:left .7s var(--ease),top .7s var(--ease),width .7s var(--ease),height .7s var(--ease);pointer-events:none}
 /* cztery cele = cztery ramki na poziomym kadrze (komputer) */
 .cel{--x:26%;--y:3%;--w:47.25%;--h:84%}
 .cel:has(#cel-zespol:checked){--x:27.5%;--y:1%;--w:44.1%;--h:98%}
@@ -481,6 +481,8 @@ figure[data-wymiana] img{outline:2px dashed #E2A548;outline-offset:-2px}
 .napisy span{font:400 .72rem/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--tekst-3)}
 .napisy b{font:400 clamp(1.25rem,1.1rem + .8vw,1.7rem)/1.35 var(--serif)}
 
+/* 2026-11-12: akcent bez pomarańczu (decyzja Mariusza): kość słoniowa #D8CFBD na ciemnym, zieleń butelkowa #23513C na jasnym.
+   Bursztyn #E2A548 zostaje CELOWO tylko na plakietkach „DO WYMIANY" (znacznik roboczy, ma rzucać się w oczy, zniknie po podmianie zdjęć). */
 /* 404 */
 .pusto{min-height:70svh;display:grid;align-content:center}
 
